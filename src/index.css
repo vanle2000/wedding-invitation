@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-paper md:bg-surround text-charcoal font-serif antialiased;
+    overflow-x: hidden;
+    min-height: 100dvh;
+  }
+  body.no-scroll {
+    overflow: hidden;
+  }
+  ::selection {
+    @apply bg-sage/25 text-olive;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer components {
+  /* Small uppercase label used throughout the stationery system */
+  .label {
+    @apply font-sans font-light text-[11px] uppercase tracking-label text-sage;
+  }
+  .label-dark {
+    @apply font-sans font-light text-[11px] uppercase tracking-label text-olive;
+  }
+  /* Quiet text link in stationery style: underline hairline, no box */
+  .hairline-link {
+    @apply inline-flex items-center gap-3 font-sans font-light text-xs uppercase tracking-label text-olive
+      border-b border-olive/40 pb-1.5 transition-colors duration-500
+      hover:border-olive focus-visible:outline-none focus-visible:border-olive;
+  }
+  /* Transparent form field with hairline bottom border */
+  .field {
+    @apply w-full bg-transparent border-0 border-b border-olive/30 rounded-none px-0 py-3
+      font-serif text-lg text-charcoal placeholder:text-charcoal/35
+      transition-colors duration-500 focus:outline-none focus:border-olive;
+  }
+  /* Vintage photo treatment */
+  .vintage-photo {
+    filter: sepia(0.22) saturate(0.72) contrast(0.9) brightness(1.03);
+  }
+}
+
+@layer utilities {
+  .pt-safe {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+}

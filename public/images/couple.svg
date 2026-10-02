@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" width="600" height="750">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E4DFCF"/>
+      <stop offset="1" stop-color="#CFCBB8"/>
+    </linearGradient>
+    <filter id="g"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
+  </defs>
+  <rect width="600" height="750" fill="url(#sky)"/>
+  <!-- distant hills -->
+  <path d="M0 470 C 120 420, 230 450, 340 420 C 440 395, 520 430, 600 410 L600 750 L0 750 Z" fill="#B9BBA5"/>
+  <path d="M0 540 C 110 500, 240 530, 360 500 C 470 475, 540 510, 600 490 L600 750 L0 750 Z" fill="#9FA68F"/>
+  <!-- cypresses -->
+  <g fill="#6B7560">
+    <path d="M90 520 C 78 470, 82 410, 90 340 C 98 410, 102 470, 90 520 Z"/>
+    <path d="M120 540 C 110 490, 113 430, 120 380 C 127 430, 130 490, 120 540 Z"/>
+    <path d="M500 520 C 490 470, 493 400, 500 330 C 507 400, 510 470, 500 520 Z"/>
+  </g>
+  <!-- two figures, silhouettes -->
+  <g fill="#4A5245">
+    <ellipse cx="270" cy="400" rx="22" ry="26"/>
+    <path d="M225 750 L232 470 C 240 440, 300 440, 308 470 L315 750 Z"/>
+    <ellipse cx="340" cy="385" rx="20" ry="24"/>
+    <path d="M300 750 C 305 600, 300 500, 320 450 C 340 440, 372 455, 380 480 C 395 560, 400 650, 405 750 Z" fill="#E7E2D1"/>
+    <path d="M300 750 C 305 600, 300 500, 320 450 C 340 440, 372 455, 380 480 C 395 560, 400 650, 405 750 Z" fill="none" stroke="#9FA68F" stroke-width="1.2"/>
+  </g>
+  <!-- foreground meadow -->
+  <path d="M0 640 C 150 610, 300 650, 600 620 L600 750 L0 750 Z" fill="#8A947C" opacity="0.9"/>
+  <rect width="600" height="750" filter="url(#g)" opacity="0.18"/>
+  <text x="300" y="712" text-anchor="middle" font-family="Jost, system-ui, sans-serif" font-size="13" letter-spacing="4" fill="#F7F4EC" opacity="0.8">PLACEHOLDER PHOTOGRAPH</text>
+</svg>
