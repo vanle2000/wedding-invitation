@@ -4,25 +4,22 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Bridgerton family palette — cool pastels anchored by ivory, with gilded details.
-        paper: '#FAF6EE', // ivory paper (primary anchor)
-        'paper-2': '#E6EEF4', // pale Wedgwood blue (secondary pages)
-        ivory: '#FFFCF6', // cream for insets and the invitation card
-        wedgwood: '#4E6A86', // deep Wedgwood — headings, UI, seal
-        'wedgwood-light': '#A9BFD3', // signature pale blue — borders, tints
-        lilac: '#8F7FAB', // lavender — labels, small accents
-        'lilac-light': '#D9CFE6',
-        blush: '#F3CAD3', // blush pink — florals
-        quartz: '#E6B3BD', // rose quartz — florals
-        charcoal: '#3C3F47', // cool charcoal body text
-        gold: '#C6A75F', // gilded details
-        surround: '#E4E8EC', // desktop surround
+        // Bright, warm Regency palette — light pink paper, gold filigree, burgundy ink.
+        paper: '#FDF3F5', // baby pink paper (primary)
+        'paper-2': '#F9E1E6', // deeper baby pink (secondary)
+        ivory: '#FFF9F3', // warm ivory for insets and the invitation card
+        rose: '#C77A8C', // labels, small accents
+        burgundy: '#7E2A3C', // headings, UI, wax seal
+        charcoal: '#4A3338', // warm plum body text
+        gold: '#C6A75F', // filigree, frames
+        wisteria: '#C3B1D9', // occasional accent
+        surround: '#F1DCE1', // neutral desktop surround
       },
       fontFamily: {
         serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
         display: ['"Bodoni Moda"', '"Cormorant Garamond"', 'serif'],
         sans: ['"Jost"', 'system-ui', 'sans-serif'],
-        script: ['"Pinyon Script"', 'cursive'],
+        script: ['"Parisienne"', 'cursive'],
       },
       letterSpacing: {
         label: '0.28em',

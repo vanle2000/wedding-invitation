@@ -3,22 +3,22 @@ import type { CSSProperties } from 'react'
 export type BotanicalVariant = 'olive-branch' | 'sprig' | 'wildflower' | 'corner' | 'landscape' | 'wreath'
 
 /**
- * Bridgerton family palette for the botanicals: cool sage foliage,
- * Wedgwood-blue stems and outlines, blush / rose-quartz / lilac blooms.
+ * Regency / Bridgerton palette for the botanicals: soft sage foliage,
+ * muted burgundy stems and outlines, and pastel blooms.
  */
 export const bloomPalette = {
-  stem: '#7F8FA3',
-  outline: '#4E6A86',
-  leaf: '#CFDBD6',
-  leafLine: '#8AA09A',
-  pink: '#F3CAD3',
-  blush: '#E6B3BD',
-  rose: '#D497A6',
-  peach: '#F6E1D8',
-  wisteria: '#D9CFE6',
-  butter: '#F4EAC9',
-  burgundy: '#4E6A86',
-  gold: '#C6A75F',
+  stem: '#8A5260',
+  outline: '#7A2E3B',
+  leaf: '#C9D2BC',
+  leafLine: '#8F9C80',
+  pink: '#F3CBD3',
+  blush: '#E8A9B6',
+  rose: '#D98A9C',
+  peach: '#F6D7C3',
+  wisteria: '#D5C7E2',
+  butter: '#F4E6BF',
+  burgundy: '#7A2E3B',
+  gold: '#C2AE7C',
 } as const
 
 interface BotanicalDecorationProps {

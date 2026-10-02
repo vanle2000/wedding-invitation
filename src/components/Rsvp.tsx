@@ -6,7 +6,6 @@ import { deliverReply } from '../content/rsvpDelivery'
 import BotanicalDecoration from '../decorations/BotanicalDecoration'
 import OrnamentalDivider from '../decorations/OrnamentalDivider'
 import RoseDecor from '../decorations/RoseDecor'
-import Calligraphy from '../ui/Calligraphy'
 import Reveal from '../ui/Reveal'
 import RadioOption from '../ui/RadioOption'
 
@@ -85,12 +84,12 @@ export default function Rsvp() {
             exit={{ opacity: 0, transition: { duration: 0.6 } }}
             role="status"
           >
-            <div className="text-lilac">
+            <div className="text-rose">
               <BotanicalDecoration variant="wreath" size={120} />
             </div>
-            <Calligraphy as="p" className="mt-8 text-[2.4rem] text-lilac" duration={1.6} immediate>
+            <p className="mt-8 font-script text-3xl text-rose">
               {accepting ? 'Splendid' : 'With regret'}
-            </Calligraphy>
+            </p>
             <h2 className="mt-4 font-display text-charcoal text-[1.75rem] leading-snug text-balance max-w-[18rem]">
               {accepting ? `Thank you, ${form.name.trim()}. We look forward to celebrating with you.` : `Thank you, ${form.name.trim()}. You will be missed.`}
             </h2>
@@ -111,15 +110,13 @@ export default function Rsvp() {
           <motion.div key="form" exit={{ opacity: 0, y: -10, transition: { duration: 0.6, ease: softEase } }}>
             <Reveal className="text-center">
               <p className="label">Kindly reply by {wedding.rsvp.deadline}</p>
-              <Calligraphy as="p" className="mt-5 text-[2rem] text-lilac leading-none" duration={1.8}>
-                Save us a dance?
-              </Calligraphy>
-              <h2 id="rsvp-heading" className="mt-4 font-display text-wedgwood text-[1.7rem] uppercase tracking-[0.12em] leading-snug">
+              <p className="mt-5 font-script text-2xl text-rose leading-none">Save us a dance?</p>
+              <h2 id="rsvp-heading" className="mt-4 font-display text-burgundy text-[1.7rem] uppercase tracking-[0.12em] leading-snug">
                 Will you be
                 <br />
                 attending?
               </h2>
-              <div className="mt-8 text-lilac">
+              <div className="mt-8 text-rose">
                 <OrnamentalDivider variant="hairline" width={110} />
               </div>
             </Reveal>
@@ -196,9 +193,9 @@ export default function Rsvp() {
                 <motion.button
                   type="submit"
                   disabled={status === 'sending'}
-                  className="mt-12 w-full min-h-[54px] rounded-[4px] bg-wedgwood text-paper font-sans font-light text-xs uppercase tracking-label
+                  className="mt-12 w-full min-h-[54px] rounded-[4px] bg-burgundy text-paper font-sans font-light text-xs uppercase tracking-label
                     transition-colors duration-500 hover:bg-charcoal disabled:opacity-70
-                    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-wedgwood/50 focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+                    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-burgundy/50 focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
                   whileTap={{ scale: 0.985 }}
                   transition={{ duration: 0.2 }}
                 >

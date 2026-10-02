@@ -62,7 +62,7 @@ export default function RoseDecor({
         height,
         opacity,
         scaleX: flip ? -1 : 1,
-        filter: 'saturate(0.82) hue-rotate(-6deg) drop-shadow(0 10px 14px rgba(78,106,134,0.18))',
+        filter: 'drop-shadow(0 10px 14px rgba(126,42,60,0.16))',
         ...style,
       }}
       animate={animate}

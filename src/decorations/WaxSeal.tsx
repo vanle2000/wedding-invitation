@@ -5,7 +5,7 @@ interface WaxSealProps {
 }
 
 /**
- * Wedgwood-blue wax seal with an irregular edge, soft highlight, and an
+ * Burgundy wax seal with an irregular edge, soft highlight, and an
  * embossed monogram. Pure SVG — no raster assets.
  */
 export default function WaxSeal({ initials, size = 92, className = '' }: WaxSealProps) {
@@ -17,13 +17,13 @@ export default function WaxSeal({ initials, size = 92, className = '' }: WaxSeal
       height={size}
       className={className}
       aria-hidden="true"
-      style={{ filter: 'drop-shadow(0 2px 2px rgba(60,63,71,0.3))' }}
+      style={{ filter: 'drop-shadow(0 2px 2px rgba(74,51,56,0.3))' }}
     >
       <defs>
         <radialGradient id="wax" cx="38%" cy="32%" r="75%">
-          <stop offset="0%" stopColor="#6C8AA6" />
-          <stop offset="55%" stopColor="#4E6A86" />
-          <stop offset="100%" stopColor="#3A5068" />
+          <stop offset="0%" stopColor="#9A4452" />
+          <stop offset="55%" stopColor="#7A2E3B" />
+          <stop offset="100%" stopColor="#5A1F2A" />
         </radialGradient>
         <radialGradient id="waxHighlight" cx="30%" cy="25%" r="40%">
           <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.22" />
@@ -40,7 +40,7 @@ export default function WaxSeal({ initials, size = 92, className = '' }: WaxSeal
         fill="url(#waxHighlight)"
       />
       {/* Embossed ring */}
-      <circle cx="50" cy="50" r="33" fill="none" stroke="#324659" strokeWidth="1.2" opacity="0.8" />
+      <circle cx="50" cy="50" r="33" fill="none" stroke="#4E1A24" strokeWidth="1.2" opacity="0.8" />
       <circle
         cx="50"
         cy="50"
@@ -71,7 +71,7 @@ export default function WaxSeal({ initials, size = 92, className = '' }: WaxSeal
         dominantBaseline="central"
         fontFamily='"Bodoni Moda", "Cormorant Garamond", Georgia, serif'
         fontSize="30"
-        fill="#2F4356"
+        fill="#4A1823"
         letterSpacing="1"
       >
         {a}

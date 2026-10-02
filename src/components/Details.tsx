@@ -44,10 +44,10 @@ export default function Details() {
             {date.month}
           </span>
           <span className="font-display text-charcoal text-[4.4rem] leading-[0.95] mt-1">{date.day}</span>
-          <span className="mt-2 font-serif text-2xl text-lilac tracking-[0.2em]">{date.year}</span>
+          <span className="mt-2 font-serif text-2xl text-rose tracking-[0.2em]">{date.year}</span>
         </motion.div>
 
-        <motion.div variants={fadeUp} className="my-12 text-lilac">
+        <motion.div variants={fadeUp} className="my-12 text-rose">
           <OrnamentalDivider variant="hairline" width={120} />
         </motion.div>
 

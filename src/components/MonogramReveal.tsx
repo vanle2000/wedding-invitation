@@ -8,7 +8,6 @@ import Monogram from '../decorations/Monogram'
 import PaperTexture from '../decorations/PaperTexture'
 import RegencyFrame from '../decorations/RegencyFrame'
 import RoseDecor from '../decorations/RoseDecor'
-import Calligraphy from '../ui/Calligraphy'
 
 interface MonogramRevealProps {
   /** Start the reveal (true once the envelope has finished). */
@@ -49,7 +48,7 @@ export default function MonogramReveal({ active }: MonogramRevealProps) {
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0"
-        style={{ background: 'radial-gradient(70% 50% at 50% 45%, rgba(255,249,243,0.85), rgba(230,238,244,0) 70%)' }}
+        style={{ background: 'radial-gradient(70% 50% at 50% 45%, rgba(255,249,243,0.85), rgba(246,222,226,0) 70%)' }}
       />
 
       {/* Roses tumbling in from the corners */}
@@ -67,8 +66,8 @@ export default function MonogramReveal({ active }: MonogramRevealProps) {
         style={{ rotateX, rotateY, transformPerspective: 900 }}
         className="relative"
       >
-        <RegencyFrame className="p-7" bg="#E6EEF4">
-          <Monogram initials={wedding.couple.initials} size={200} color="#4E6A86" />
+        <RegencyFrame className="p-7" bg="#F9E1E6">
+          <Monogram initials={wedding.couple.initials} size={200} color="#8B2E41" />
         </RegencyFrame>
       </motion.div>
 
@@ -79,10 +78,8 @@ export default function MonogramReveal({ active }: MonogramRevealProps) {
         animate={active ? 'visible' : 'hidden'}
         transition={{ delay: 1.1, duration: 1.2, ease: softEase }}
       >
-        <Calligraphy as="p" className="text-[2rem] text-lilac leading-none" duration={2.2} immediate={active}>
-          The match of the season
-        </Calligraphy>
-        <p className="label text-wedgwood/80 mt-4">
+        <p className="font-script text-2xl text-rose leading-none">The match of the season</p>
+        <p className="label text-burgundy/80 mt-4">
           {wedding.date.month} {wedding.date.day}, {wedding.date.year}
         </p>
         <Bee size={26} className="mt-5" />
@@ -97,9 +94,9 @@ export default function MonogramReveal({ active }: MonogramRevealProps) {
         transition={{ delay: 2.2, duration: 1.2 }}
         aria-hidden="true"
       >
-        <span className="label text-lilac text-[9px]">Scroll</span>
+        <span className="label text-rose text-[9px]">Scroll</span>
         <motion.span
-          className="block w-px h-10 bg-wedgwood/40 origin-top"
+          className="block w-px h-10 bg-burgundy/40 origin-top"
           animate={{ scaleY: [0.2, 1, 0.2] }}
           transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut' }}
         />
