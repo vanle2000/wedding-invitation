@@ -37,8 +37,18 @@ export interface WeddingContent {
   timeline: TimelineItem[]
   rsvp: {
     deadline: string
-    /** POST endpoint (Formspree, Getform, Apps Script…). Empty string = demo mode. */
-    endpoint: string
+    /**
+     * How replies reach you. No backend needed for 'email' or 'sms':
+     *  - { method: 'email', to: 'you@example.com' }  → opens the guest's mail app, pre-filled
+     *  - { method: 'sms',   to: '+14155550123' }     → opens the guest's messages app, pre-filled
+     *  - { method: 'endpoint', url: 'https://…' }    → POSTs JSON to Formspree / Getform / Apps Script
+     *  - { method: 'demo' }                          → shows the confirmation without sending
+     */
+    delivery:
+      | { method: 'email'; to: string }
+      | { method: 'sms'; to: string }
+      | { method: 'endpoint'; url: string }
+      | { method: 'demo' }
   }
 }
 
@@ -74,7 +84,7 @@ export const wedding: WeddingContent = {
   ],
   rsvp: {
     deadline: 'the first of May',
-    endpoint: '',
+    delivery: { method: 'email', to: 'couple@example.com' },
   },
 }
 

@@ -30,12 +30,22 @@ All content lives in `src/content/wedding.ts`. Replace the placeholders; no comp
 | `couplePhoto` | Framed portrait on the invitation page |
 | `timeline[]` | Vertical timeline entries |
 | `rsvp.deadline` | Shown above the form |
-| `rsvp.endpoint` | POST target for replies (Formspree, Getform, Apps Script…). Empty = demo mode |
+| `rsvp.delivery` | How replies reach you — see below |
 
 Photos: drop real images into `public/images/` and update the paths. The `VintagePhoto`
 component applies the desaturated, warm, low-contrast, grained treatment automatically.
 
-RSVP payload: `{ attendance: "accept" | "decline", name, phone, guests, submittedAt }`.
+### RSVP delivery (no backend needed)
+
+```ts
+delivery: { method: 'email', to: 'you@example.com' }   // default — opens guest's mail app, pre-filled
+delivery: { method: 'sms',   to: '+14155550123' }      // opens guest's messages app, pre-filled
+delivery: { method: 'endpoint', url: 'https://…' }     // POST JSON to Formspree / Getform / Apps Script
+delivery: { method: 'demo' }                           // show confirmation without sending
+```
+
+Email/SMS replies read: `RSVP for A & M · Jane Doe joyfully accepts (2 guests). Phone: …`.
+Endpoint payload: `{ attendance: "accept" | "decline", name, phone, guests, submittedAt }`.
 
 ## Structure
 

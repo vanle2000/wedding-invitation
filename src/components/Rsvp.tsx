@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useState, type FormEvent } from 'react'
 import { fadeIn, fadeUp, softEase } from '../animations/variants'
 import { wedding } from '../content/wedding'
+import { deliverReply } from '../content/rsvpDelivery'
 import BotanicalDecoration from '../decorations/BotanicalDecoration'
 import OrnamentalDivider from '../decorations/OrnamentalDivider'
 import Reveal from '../ui/Reveal'
@@ -49,22 +50,12 @@ export default function Rsvp() {
     }
     setStatus('sending')
     try {
-      if (wedding.rsvp.endpoint) {
-        const res = await fetch(wedding.rsvp.endpoint, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-          body: JSON.stringify({
-            attendance: form.attendance,
-            name: form.name.trim(),
-            phone: form.phone.trim(),
-            guests: form.attendance === 'accept' ? Number(form.guests) : 0,
-            submittedAt: new Date().toISOString(),
-          }),
-        })
-        if (!res.ok) throw new Error(`HTTP ${res.status}`)
-      } else {
-        await new Promise((r) => setTimeout(r, 900)) // demo mode
-      }
+      await deliverReply({
+        attendance: form.attendance,
+        name: form.name.trim(),
+        phone: form.phone.trim(),
+        guests: form.attendance === 'accept' ? Number(form.guests) : 0,
+      })
       setStatus('sent')
     } catch {
       setStatus('error')
@@ -72,6 +63,7 @@ export default function Rsvp() {
   }
 
   const accepting = form.attendance === 'accept'
+  const { delivery } = wedding.rsvp
 
   return (
     <section id="rsvp" className="relative bg-paper px-8 pt-24 pb-24 overflow-hidden" aria-labelledby="rsvp-heading">
@@ -104,6 +96,13 @@ export default function Rsvp() {
                 ? `${form.guests} ${Number(form.guests) === 1 ? 'guest' : 'guests'} · reply received`
                 : 'reply received'}
             </p>
+            {(delivery.method === 'email' || delivery.method === 'sms') && (
+              <p className="mt-6 font-serif italic text-charcoal/65 text-base max-w-[17rem] text-balance">
+                {delivery.method === 'email'
+                  ? 'Your mail app has opened with the reply — simply press send.'
+                  : 'Your messages app has opened with the reply — simply press send.'}
+              </p>
+            )}
           </motion.div>
         ) : (
           <motion.div key="form" exit={{ opacity: 0, y: -10, transition: { duration: 0.6, ease: softEase } }}>
