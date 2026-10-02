@@ -67,7 +67,7 @@ export default function Rsvp() {
 
   return (
     <section id="rsvp" className="relative bg-paper px-8 pt-24 pb-24 overflow-hidden" aria-labelledby="rsvp-heading">
-      <div className="pointer-events-none absolute -left-5 top-14 text-sage/40 rotate-[8deg]">
+      <div className="pointer-events-none absolute -left-5 top-14 opacity-75 rotate-[8deg]">
         <BotanicalDecoration variant="sprig" size={40} />
       </div>
 

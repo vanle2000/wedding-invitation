@@ -45,7 +45,7 @@ export default function Closing() {
         </motion.p>
       </motion.div>
 
-      <div className="pointer-events-none absolute bottom-6 left-0 right-0 flex justify-center text-sage/30">
+      <div className="pointer-events-none absolute bottom-6 left-0 right-0 flex justify-center opacity-60">
         <BotanicalDecoration variant="landscape" size={320} />
       </div>
     </footer>

@@ -80,7 +80,7 @@ export default function Envelope({ onComplete }: EnvelopeProps) {
         <PaperTexture />
 
         {/* Faint landscape engraving across the page bottom */}
-        <div className="pointer-events-none absolute bottom-[8%] left-0 right-0 flex justify-center text-sage opacity-[0.28]">
+        <div className="pointer-events-none absolute bottom-[8%] left-0 right-0 flex justify-center opacity-[0.55]">
           <BotanicalDecoration variant="landscape" size={360} />
         </div>
 
@@ -111,7 +111,7 @@ export default function Envelope({ onComplete }: EnvelopeProps) {
           {/* Body (back panel) */}
           <div className="absolute inset-0 bg-paper-2 border border-olive/20 shadow-[0_1px_0_rgba(63,73,61,0.08),0_18px_30px_-24px_rgba(52,51,46,0.45)]">
             <PaperTexture opacity={0.08} />
-            <div className="absolute inset-0 flex items-end justify-center text-olive opacity-[0.16] pb-[10%]">
+            <div className="absolute inset-0 flex items-end justify-center opacity-[0.45] pb-[10%]">
               <BotanicalDecoration variant="landscape" size={230} />
             </div>
           </div>
@@ -214,7 +214,7 @@ export default function Envelope({ onComplete }: EnvelopeProps) {
                   strokeWidth="0.5"
                 />
               </svg>
-              <div className="absolute inset-0 flex items-start justify-center pt-[6%] text-olive opacity-[0.2]">
+              <div className="absolute inset-0 flex items-start justify-center pt-[6%] opacity-[0.6]">
                 <BotanicalDecoration variant="olive-branch" size={120} />
               </div>
             </div>

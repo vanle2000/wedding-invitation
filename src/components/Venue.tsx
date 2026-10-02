@@ -8,7 +8,7 @@ export default function Venue() {
   const { venue } = wedding
   return (
     <section className="relative bg-paper px-8 pt-24 pb-24 overflow-hidden" aria-labelledby="venue-heading">
-      <div className="pointer-events-none absolute right-4 top-8 text-sage/45">
+      <div className="pointer-events-none absolute right-4 top-8 opacity-85">
         <BotanicalDecoration variant="olive-branch" size={150} flip />
       </div>
 
@@ -43,7 +43,7 @@ export default function Venue() {
       </Reveal>
 
       <Reveal as="p" delay={0.3} className="mt-6 text-center font-serif italic text-charcoal/60 text-base">
-        Carriages at midnight.
+        Lunch reception at the hour of the Horse.
       </Reveal>
     </section>
   )

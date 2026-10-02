@@ -12,10 +12,10 @@ export default function Invitation() {
   return (
     <section className="relative bg-paper px-8 pt-24 pb-20 overflow-hidden" aria-labelledby="invite-heading">
       {/* Asymmetric decoration: corner top-left, sprig lower-right */}
-      <div className="pointer-events-none absolute top-6 left-5 text-sage/50">
+      <div className="pointer-events-none absolute top-6 left-5 opacity-80">
         <BotanicalDecoration variant="corner" size={88} />
       </div>
-      <div className="pointer-events-none absolute -right-3 bottom-[22%] text-sage/40 rotate-12">
+      <div className="pointer-events-none absolute -right-3 bottom-[22%] opacity-75 rotate-12">
         <BotanicalDecoration variant="sprig" size={38} />
       </div>
 

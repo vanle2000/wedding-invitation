@@ -25,7 +25,7 @@ export default function Details() {
   return (
     <section className="relative bg-paper-2 px-8 py-24 overflow-hidden" aria-label="Wedding details">
       <PaperTexture opacity={0.07} />
-      <div className="pointer-events-none absolute -left-4 top-10 text-sage/40 -rotate-6">
+      <div className="pointer-events-none absolute -left-4 top-10 opacity-80 -rotate-6">
         <BotanicalDecoration variant="wildflower" size={60} />
       </div>
 
@@ -55,7 +55,7 @@ export default function Details() {
         </div>
 
         <motion.p variants={fadeUp} className="mt-14 font-serif italic text-charcoal/70 text-lg max-w-[18rem] text-balance">
-          Dinner and dancing to follow beneath the plane trees.
+          A lunch banquet to follow — the tenth day of the first lunar month, year of Đinh Mùi.
         </motion.p>
       </motion.div>
     </section>

@@ -5,7 +5,7 @@ interface WaxSealProps {
 }
 
 /**
- * Dark olive wax seal with an irregular edge, soft highlight, and an
+ * Burgundy wax seal with an irregular edge, soft highlight, and an
  * embossed monogram. Pure SVG — no raster assets.
  */
 export default function WaxSeal({ initials, size = 92, className = '' }: WaxSealProps) {
@@ -21,9 +21,9 @@ export default function WaxSeal({ initials, size = 92, className = '' }: WaxSeal
     >
       <defs>
         <radialGradient id="wax" cx="38%" cy="32%" r="75%">
-          <stop offset="0%" stopColor="#5A664F" />
-          <stop offset="55%" stopColor="#3F493D" />
-          <stop offset="100%" stopColor="#2E362D" />
+          <stop offset="0%" stopColor="#9A4452" />
+          <stop offset="55%" stopColor="#7A2E3B" />
+          <stop offset="100%" stopColor="#5A1F2A" />
         </radialGradient>
         <radialGradient id="waxHighlight" cx="30%" cy="25%" r="40%">
           <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.22" />
@@ -40,13 +40,13 @@ export default function WaxSeal({ initials, size = 92, className = '' }: WaxSeal
         fill="url(#waxHighlight)"
       />
       {/* Embossed ring */}
-      <circle cx="50" cy="50" r="33" fill="none" stroke="#2A312A" strokeWidth="1.2" opacity="0.8" />
+      <circle cx="50" cy="50" r="33" fill="none" stroke="#4E1A24" strokeWidth="1.2" opacity="0.8" />
       <circle
         cx="50"
         cy="50"
         r="33"
         fill="none"
-        stroke="#8E9A82"
+        stroke="#D9C39A"
         strokeWidth="0.5"
         opacity="0.55"
         transform="translate(0 -0.8)"
@@ -58,7 +58,7 @@ export default function WaxSeal({ initials, size = 92, className = '' }: WaxSeal
           d="M0 0 C 2 -1.6, 4.6 -1.6, 6.5 0 C 4.6 1.6, 2 1.6, 0 0 Z"
           transform={`rotate(${d} 50 50) translate(50 17) rotate(-30)`}
           fill="none"
-          stroke="#8E9A82"
+          stroke="#D9C39A"
           strokeWidth="0.5"
           opacity="0.7"
         />
@@ -71,7 +71,7 @@ export default function WaxSeal({ initials, size = 92, className = '' }: WaxSeal
         dominantBaseline="central"
         fontFamily='"Bodoni Moda", "Cormorant Garamond", Georgia, serif'
         fontSize="30"
-        fill="#262D26"
+        fill="#4A1823"
         letterSpacing="1"
       >
         {a}
@@ -84,7 +84,7 @@ export default function WaxSeal({ initials, size = 92, className = '' }: WaxSeal
         dominantBaseline="central"
         fontFamily='"Bodoni Moda", "Cormorant Garamond", Georgia, serif'
         fontSize="30"
-        fill="#9AA58F"
+        fill="#D9C39A"
         letterSpacing="1"
         opacity="0.9"
       >

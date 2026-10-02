@@ -9,7 +9,7 @@ export default function Timeline() {
   return (
     <section className="relative bg-paper-2 px-8 py-24 overflow-hidden" aria-labelledby="timeline-heading">
       <PaperTexture opacity={0.07} />
-      <div className="pointer-events-none absolute -right-6 bottom-8 text-sage/40 -rotate-12">
+      <div className="pointer-events-none absolute -right-6 bottom-8 opacity-80 -rotate-12">
         <BotanicalDecoration variant="wildflower" size={64} flip />
       </div>
 
