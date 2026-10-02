@@ -4,14 +4,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        paper: '#F7F4EC',
-        'paper-2': '#EDE8DA',
-        sage: '#78836C',
-        olive: '#3F493D',
-        charcoal: '#34332E',
-        gold: '#A39267',
-        // Neutral desktop surround — slightly darker than paper so the invitation reads as an object.
-        surround: '#DDD8CB',
+        // Bright, warm Regency palette — light pink paper, gold filigree, burgundy ink.
+        paper: '#FBEFF0', // light blush paper (primary)
+        'paper-2': '#F6DEE2', // rose paper (secondary)
+        ivory: '#FFF9F3', // warm ivory for insets and the invitation card
+        rose: '#C9788A', // labels, small accents
+        burgundy: '#8B2E41', // headings, UI, wax seal
+        charcoal: '#4A3338', // warm plum body text
+        gold: '#C9A961', // filigree, frames
+        wisteria: '#C3B1D9', // occasional accent
+        surround: '#EFD9DC', // neutral desktop surround
       },
       fontFamily: {
         serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],

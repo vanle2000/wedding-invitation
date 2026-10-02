@@ -82,11 +82,11 @@ export default function Rsvp() {
             exit={{ opacity: 0, transition: { duration: 0.6 } }}
             role="status"
           >
-            <div className="text-sage">
+            <div className="text-rose">
               <BotanicalDecoration variant="wreath" size={120} />
             </div>
-            <p className="mt-8 font-script text-3xl text-sage">
-              {accepting ? 'With joy' : 'With love'}
+            <p className="mt-8 font-script text-3xl text-rose">
+              {accepting ? 'Splendid' : 'With regret'}
             </p>
             <h2 className="mt-4 font-display text-charcoal text-[1.75rem] leading-snug text-balance max-w-[18rem]">
               {accepting ? `Thank you, ${form.name.trim()}. We look forward to celebrating with you.` : `Thank you, ${form.name.trim()}. You will be missed.`}
@@ -108,12 +108,13 @@ export default function Rsvp() {
           <motion.div key="form" exit={{ opacity: 0, y: -10, transition: { duration: 0.6, ease: softEase } }}>
             <Reveal className="text-center">
               <p className="label">Kindly reply by {wedding.rsvp.deadline}</p>
-              <h2 id="rsvp-heading" className="mt-5 font-display text-charcoal text-[1.7rem] uppercase tracking-[0.12em] leading-snug">
+              <p className="mt-5 font-script text-2xl text-rose leading-none">Save us a dance?</p>
+              <h2 id="rsvp-heading" className="mt-4 font-display text-burgundy text-[1.7rem] uppercase tracking-[0.12em] leading-snug">
                 Will you be
                 <br />
                 attending?
               </h2>
-              <div className="mt-8 text-sage">
+              <div className="mt-8 text-rose">
                 <OrnamentalDivider variant="hairline" width={110} />
               </div>
             </Reveal>
@@ -122,8 +123,8 @@ export default function Rsvp() {
               <form onSubmit={submit} noValidate className="mt-12 mx-auto max-w-[20rem]">
                 <fieldset className="space-y-1">
                   <legend className="sr-only">Attendance</legend>
-                  <RadioOption name="attendance" value="accept" label="Joyfully accept" checked={accepting} onChange={(v) => set('attendance')(v as Attendance)} />
-                  <RadioOption name="attendance" value="decline" label="Regretfully decline" checked={!accepting} onChange={(v) => set('attendance')(v as Attendance)} />
+                  <RadioOption name="attendance" value="accept" label="I shall attend with pleasure" checked={accepting} onChange={(v) => set('attendance')(v as Attendance)} />
+                  <RadioOption name="attendance" value="decline" label="I must regretfully decline" checked={!accepting} onChange={(v) => set('attendance')(v as Attendance)} />
                 </fieldset>
 
                 <div className="mt-12 space-y-9">
@@ -190,9 +191,9 @@ export default function Rsvp() {
                 <motion.button
                   type="submit"
                   disabled={status === 'sending'}
-                  className="mt-12 w-full min-h-[54px] rounded-[4px] bg-olive text-paper font-sans font-light text-xs uppercase tracking-label
+                  className="mt-12 w-full min-h-[54px] rounded-[4px] bg-burgundy text-paper font-sans font-light text-xs uppercase tracking-label
                     transition-colors duration-500 hover:bg-charcoal disabled:opacity-70
-                    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-olive/50 focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+                    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-burgundy/50 focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
                   whileTap={{ scale: 0.985 }}
                   transition={{ duration: 0.2 }}
                 >

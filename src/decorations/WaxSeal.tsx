@@ -17,7 +17,7 @@ export default function WaxSeal({ initials, size = 92, className = '' }: WaxSeal
       height={size}
       className={className}
       aria-hidden="true"
-      style={{ filter: 'drop-shadow(0 2px 2px rgba(52,51,46,0.28))' }}
+      style={{ filter: 'drop-shadow(0 2px 2px rgba(74,51,56,0.3))' }}
     >
       <defs>
         <radialGradient id="wax" cx="38%" cy="32%" r="75%">

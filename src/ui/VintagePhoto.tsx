@@ -34,8 +34,8 @@ export default function VintagePhoto({
       viewport={viewportOnce}
       custom={delay}
     >
-      <div className={`relative ${frame ? 'p-2 border border-olive/20' : ''}`}>
-        {frame && <div aria-hidden="true" className="absolute inset-[5px] border border-olive/10 pointer-events-none" />}
+      <div className={`relative ${frame ? 'p-2 border border-burgundy/20' : ''}`}>
+        {frame && <div aria-hidden="true" className="absolute inset-[5px] border border-burgundy/10 pointer-events-none" />}
         <div className="relative overflow-hidden" style={{ aspectRatio: ratio }}>
           <img
             src={src}
@@ -49,7 +49,7 @@ export default function VintagePhoto({
             aria-hidden="true"
             className="absolute inset-0 pointer-events-none"
             style={{
-              boxShadow: 'inset 0 0 36px 10px rgba(247,244,236,0.55)',
+              boxShadow: 'inset 0 0 36px 10px rgba(251,239,240,0.6)',
             }}
           />
           <PaperTexture opacity={0.12} />

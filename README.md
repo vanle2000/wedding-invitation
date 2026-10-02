@@ -1,8 +1,8 @@
 # Wedding Invitation
 
-A mobile-first interactive digital wedding invitation inspired by antique European
-stationery: warm ivory paper, sage and olive, botanical engravings, a wax-sealed
-envelope that opens into the invitation.
+A mobile-first interactive digital wedding invitation in a bright, warm Bridgerton
+Regency style: light pink paper, gold filigree frames, burgundy ink, pastel botanicals,
+a Whistledown-style letter, and a wax-sealed envelope you tap to open.
 
 React 19 · TypeScript · Vite · Tailwind CSS · Framer Motion
 
@@ -55,10 +55,12 @@ src/
   animations/variants.ts        fadeIn, fadeUp, slowScale, sectionReveal, imageReveal,
                                 waxSealReveal, envelopeOpen, staggerChildren
   decorations/
-    BotanicalDecoration.tsx     olive-branch · sprig · wildflower · corner · landscape · wreath
+    BotanicalDecoration.tsx     rose branch · sprig · peony · corner · landscape · wreath (pastel Bridgerton palette)
     OrnamentalDivider.tsx       hairline · leaf · dots
     Monogram.tsx                circular botanical monogram
-    WaxSeal.tsx                 dark olive seal with embossed initials
+    WaxSeal.tsx                 burgundy seal with gold embossed initials
+    RegencyFrame.tsx            gilded frame with scrolled corners
+    Bee.tsx                     the Regency bee signature mark
     PaperTexture.tsx            procedural film grain overlay
   ui/
     Reveal.tsx                  scroll-triggered reveal wrapper
@@ -73,7 +75,7 @@ src/
 
 ## Design notes
 
-- Palette: `#F7F4EC` paper, `#EDE8DA` secondary paper, `#78836C` sage, `#3F493D` olive, `#34332E` charcoal, `#A39267` gold.
+- Palette: `#FBEFF0` blush paper, `#F6DEE2` rose paper, `#FFF9F3` ivory, `#C9788A` rose, `#8B2E41` burgundy, `#4A3338` charcoal, `#C9A961` gold, `#C3B1D9` wisteria.
 - Type: Bodoni Moda (display), Cormorant Garamond (serif), Jost (labels), Parisienne (small script phrases only).
 - Mobile target 390 × 844; tested range 320–430 px. On desktop the sheet is centred at 430 px on a neutral surround.
 - Safe areas: `env(safe-area-inset-top/bottom)` on the envelope, monogram page and closing.

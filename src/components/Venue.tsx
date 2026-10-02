@@ -13,7 +13,7 @@ export default function Venue() {
       </div>
 
       <Reveal className="text-center">
-        <p className="label">The Venue</p>
+        <p className="label">The Ball shall be held at</p>
         <h2 id="venue-heading" className="mt-5 font-display text-charcoal text-[2.2rem] leading-[1.12] text-balance">
           {venue.name}
         </h2>
@@ -43,7 +43,7 @@ export default function Venue() {
       </Reveal>
 
       <Reveal as="p" delay={0.3} className="mt-6 text-center font-serif italic text-charcoal/60 text-base">
-        Lunch reception at the hour of the Horse.
+        A luncheon at the hour of the Horse — carriages at half past one.
       </Reveal>
     </section>
   )
