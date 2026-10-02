@@ -5,7 +5,7 @@ interface BeeProps {
 }
 
 /** The Regency bee — a small gilded line-drawn bee used as a signature mark. */
-export default function Bee({ size = 28, className = '', color = '#C9A961' }: BeeProps) {
+export default function Bee({ size = 28, className = '', color = '#D4AF37' }: BeeProps) {
   return (
     <svg
       viewBox="0 0 40 40"

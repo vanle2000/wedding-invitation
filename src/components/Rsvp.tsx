@@ -6,6 +6,7 @@ import { deliverReply } from '../content/rsvpDelivery'
 import BotanicalDecoration from '../decorations/BotanicalDecoration'
 import OrnamentalDivider from '../decorations/OrnamentalDivider'
 import RoseDecor from '../decorations/RoseDecor'
+import { FloralBorder } from '../decorations/FloralLayer'
 import Calligraphy from '../ui/Calligraphy'
 import Reveal from '../ui/Reveal'
 import RadioOption from '../ui/RadioOption'
@@ -69,6 +70,7 @@ export default function Rsvp() {
 
   return (
     <section id="rsvp" className="relative bg-paper px-8 pt-32 pb-24 overflow-hidden" aria-labelledby="rsvp-heading">
+      <FloralBorder wisteria={['tl']} vineBottom seed={11} />
       <RoseDecor image="coral-bloom" width={200} className="-right-12 -top-2" rotate={-156} flip delay={0.9} />
       <div className="pointer-events-none absolute -left-5 top-14 opacity-85 rotate-[8deg]">
         <BotanicalDecoration variant="sprig" size={40} />
@@ -114,7 +116,7 @@ export default function Rsvp() {
               <Calligraphy as="p" className="mt-5 text-[2rem] text-lilac leading-none" duration={1.8}>
                 Save us a dance?
               </Calligraphy>
-              <h2 id="rsvp-heading" className="mt-4 font-display text-wedgwood text-[1.7rem] uppercase tracking-[0.12em] leading-snug">
+              <h2 id="rsvp-heading" className="mt-4 font-heading text-wedgwood text-[1.2rem] tracking-[0.14em] leading-[1.7]">
                 Will you be
                 <br />
                 attending?

@@ -11,11 +11,12 @@ export default {
         wedgwood: '#4E6A86', // deep Wedgwood — headings, UI, seal
         'wedgwood-light': '#A9BFD3', // signature pale blue — borders, tints
         lilac: '#8F7FAB', // lavender — labels, small accents
+        royal: '#6B4FA0', // Royal Lilac — masthead rules, emphasis
         'lilac-light': '#D9CFE6',
         blush: '#F3CAD3', // blush pink — florals
         quartz: '#E6B3BD', // rose quartz — florals
         charcoal: '#3C3F47', // cool charcoal body text
-        gold: '#C6A75F', // gilded details
+        gold: '#D4AF37', // Luxury Gold — gilded details
         surround: '#E4E8EC', // desktop surround
       },
       fontFamily: {
@@ -23,6 +24,7 @@ export default {
         display: ['"Bodoni Moda"', '"Cormorant Garamond"', 'serif'],
         sans: ['"Jost"', 'system-ui', 'sans-serif'],
         script: ['"Pinyon Script"', 'cursive'],
+        heading: ['"Cinzel Decorative"', '"Cinzel"', 'serif'],
       },
       letterSpacing: {
         label: '0.28em',

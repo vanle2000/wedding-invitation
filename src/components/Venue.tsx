@@ -1,6 +1,7 @@
 import { directionsUrl, wedding } from '../content/wedding'
 import BotanicalDecoration from '../decorations/BotanicalDecoration'
 import RoseDecor from '../decorations/RoseDecor'
+import { FloralBorder } from '../decorations/FloralLayer'
 import Reveal from '../ui/Reveal'
 import VintagePhoto from '../ui/VintagePhoto'
 
@@ -9,6 +10,7 @@ export default function Venue() {
   const { venue } = wedding
   return (
     <section className="relative bg-paper px-8 pt-32 pb-24 overflow-hidden" aria-labelledby="venue-heading">
+      <FloralBorder wisteria={['tr']} vineTop seed={7} />
       <RoseDecor image="coral-bloom" width={190} className="-left-14 -top-10" rotate={28} delay={0.3} />
       <div className="pointer-events-none absolute right-2 bottom-6 opacity-85">
         <BotanicalDecoration variant="olive-branch" size={140} flip />
@@ -16,7 +18,7 @@ export default function Venue() {
 
       <Reveal className="text-center">
         <p className="label">The Ball shall be held at</p>
-        <h2 id="venue-heading" className="mt-5 font-display text-charcoal text-[2.2rem] leading-[1.12] text-balance">
+        <h2 id="venue-heading" className="mt-5 font-heading text-wedgwood text-[1.5rem] tracking-[0.1em] leading-[1.35] text-balance">
           {venue.name}
         </h2>
         <address className="not-italic mt-5 font-serif text-lg text-charcoal/75 leading-relaxed">

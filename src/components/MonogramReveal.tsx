@@ -9,6 +9,7 @@ import PaperTexture from '../decorations/PaperTexture'
 import RegencyFrame from '../decorations/RegencyFrame'
 import RoseDecor from '../decorations/RoseDecor'
 import Calligraphy from '../ui/Calligraphy'
+import { FloralBorder } from '../decorations/FloralLayer'
 
 interface MonogramRevealProps {
   /** Start the reveal (true once the envelope has finished). */
@@ -45,6 +46,7 @@ export default function MonogramReveal({ active }: MonogramRevealProps) {
       onPointerLeave={onLeave}
     >
       <PaperTexture opacity={0.06} />
+      <FloralBorder wisteria={['tl', 'tr']} seed={3} />
       {/* Warm glow */}
       <div
         aria-hidden="true"
@@ -53,7 +55,7 @@ export default function MonogramReveal({ active }: MonogramRevealProps) {
       />
 
       {/* Roses tumbling in from the corners */}
-      <RoseDecor image="coral-bloom" width={240} className="-left-16 -top-6" rotate={22} delay={0.4} />
+      <RoseDecor image="coral-bloom" width={210} className="-left-16 bottom-20" rotate={10} delay={0.4} />
       <RoseDecor image="pink-bloom" width={200} className="-right-20 -bottom-4" rotate={-160} flip delay={1.2} />
       <div className="pointer-events-none absolute bottom-24 -left-4 opacity-90 -rotate-12">
         <BotanicalDecoration variant="sprig" size={44} />

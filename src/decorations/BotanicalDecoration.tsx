@@ -18,7 +18,7 @@ export const bloomPalette = {
   wisteria: '#D9CFE6',
   butter: '#F4EAC9',
   burgundy: '#4E6A86',
-  gold: '#C6A75F',
+  gold: '#D4AF37',
 } as const
 
 interface BotanicalDecorationProps {
