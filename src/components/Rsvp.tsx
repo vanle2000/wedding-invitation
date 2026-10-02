@@ -5,6 +5,7 @@ import { wedding } from '../content/wedding'
 import { deliverReply } from '../content/rsvpDelivery'
 import BotanicalDecoration from '../decorations/BotanicalDecoration'
 import OrnamentalDivider from '../decorations/OrnamentalDivider'
+import RoseDecor from '../decorations/RoseDecor'
 import Reveal from '../ui/Reveal'
 import RadioOption from '../ui/RadioOption'
 
@@ -66,8 +67,9 @@ export default function Rsvp() {
   const { delivery } = wedding.rsvp
 
   return (
-    <section id="rsvp" className="relative bg-paper px-8 pt-24 pb-24 overflow-hidden" aria-labelledby="rsvp-heading">
-      <div className="pointer-events-none absolute -left-5 top-14 opacity-75 rotate-[8deg]">
+    <section id="rsvp" className="relative bg-paper px-8 pt-32 pb-24 overflow-hidden" aria-labelledby="rsvp-heading">
+      <RoseDecor image="coral-bloom" width={200} className="-right-12 -top-2" rotate={-156} flip delay={0.9} />
+      <div className="pointer-events-none absolute -left-5 top-14 opacity-85 rotate-[8deg]">
         <BotanicalDecoration variant="sprig" size={40} />
       </div>
 

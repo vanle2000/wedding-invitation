@@ -5,15 +5,15 @@ export default {
     extend: {
       colors: {
         // Bright, warm Regency palette — light pink paper, gold filigree, burgundy ink.
-        paper: '#FBEFF0', // light blush paper (primary)
-        'paper-2': '#F6DEE2', // rose paper (secondary)
+        paper: '#FDF3F5', // baby pink paper (primary)
+        'paper-2': '#F9E1E6', // deeper baby pink (secondary)
         ivory: '#FFF9F3', // warm ivory for insets and the invitation card
-        rose: '#C9788A', // labels, small accents
-        burgundy: '#8B2E41', // headings, UI, wax seal
+        rose: '#C77A8C', // labels, small accents
+        burgundy: '#7E2A3C', // headings, UI, wax seal
         charcoal: '#4A3338', // warm plum body text
-        gold: '#C9A961', // filigree, frames
+        gold: '#C6A75F', // filigree, frames
         wisteria: '#C3B1D9', // occasional accent
-        surround: '#EFD9DC', // neutral desktop surround
+        surround: '#F1DCE1', // neutral desktop surround
       },
       fontFamily: {
         serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],

@@ -4,6 +4,7 @@ import { wedding } from '../content/wedding'
 import BotanicalDecoration from '../decorations/BotanicalDecoration'
 import OrnamentalDivider from '../decorations/OrnamentalDivider'
 import PaperTexture from '../decorations/PaperTexture'
+import RoseDecor from '../decorations/RoseDecor'
 
 interface DetailProps {
   label: string
@@ -23,9 +24,10 @@ function Detail({ label, value }: DetailProps) {
 export default function Details() {
   const { date, ceremonyTime, receptionTime } = wedding
   return (
-    <section className="relative bg-paper-2 px-8 py-24 overflow-hidden" aria-label="Wedding details">
+    <section className="relative bg-paper-2 px-8 pt-32 pb-24 overflow-hidden" aria-label="Wedding details">
       <PaperTexture opacity={0.07} />
-      <div className="pointer-events-none absolute -left-4 top-10 opacity-80 -rotate-6">
+      <RoseDecor image="pink-bloom" width={220} className="-right-16 -top-4" rotate={-150} flip delay={0.5} />
+      <div className="pointer-events-none absolute -left-4 bottom-10 opacity-85 -rotate-6">
         <BotanicalDecoration variant="wildflower" size={60} />
       </div>
 

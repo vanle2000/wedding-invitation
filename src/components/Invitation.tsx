@@ -5,6 +5,7 @@ import Bee from '../decorations/Bee'
 import BotanicalDecoration from '../decorations/BotanicalDecoration'
 import OrnamentalDivider from '../decorations/OrnamentalDivider'
 import RegencyFrame from '../decorations/RegencyFrame'
+import RoseDecor from '../decorations/RoseDecor'
 import Reveal from '../ui/Reveal'
 import VintagePhoto from '../ui/VintagePhoto'
 
@@ -12,13 +13,12 @@ import VintagePhoto from '../ui/VintagePhoto'
 export default function Invitation() {
   const { couple, date, ceremonyTime } = wedding
   return (
-    <section className="relative bg-paper px-8 pt-24 pb-20 overflow-hidden" aria-labelledby="invite-heading">
-      <div className="pointer-events-none absolute top-6 left-5 opacity-90">
+    <section className="relative bg-paper px-8 pt-40 pb-20 overflow-hidden" aria-labelledby="invite-heading">
+      <div className="pointer-events-none absolute top-16 left-5 opacity-90">
         <BotanicalDecoration variant="corner" size={92} />
       </div>
-      <div className="pointer-events-none absolute -right-3 bottom-[20%] opacity-85 rotate-12">
-        <BotanicalDecoration variant="sprig" size={40} />
-      </div>
+      <RoseDecor image="coral-bloom" width={190} className="-right-16 -top-6" rotate={-24} flip delay={0.8} />
+      <RoseDecor image="pink-full" width={200} className="-left-24 bottom-[2%]" rotate={18} opacity={0.95} delay={1.6} />
 
       <motion.div
         className="flex flex-col items-center text-center"

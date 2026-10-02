@@ -5,6 +5,7 @@ import { wedding } from '../content/wedding'
 import Bee from '../decorations/Bee'
 import BotanicalDecoration from '../decorations/BotanicalDecoration'
 import PaperTexture from '../decorations/PaperTexture'
+import RoseDecor from '../decorations/RoseDecor'
 import WaxSeal from '../decorations/WaxSeal'
 
 type Stage = 'enter' | 'sealed' | 'opening' | 'rising' | 'leaving'
@@ -81,10 +82,10 @@ export default function Envelope({ onComplete }: EnvelopeProps) {
           style={{ background: 'radial-gradient(90% 60% at 50% 0%, rgba(255,249,243,0.9), rgba(251,239,240,0) 70%)' }}
         />
 
-        {/* Landscape engraving along the bottom */}
-        <div className="pointer-events-none absolute bottom-[6%] left-0 right-0 flex justify-center opacity-70">
-          <BotanicalDecoration variant="landscape" size={380} />
-        </div>
+        {/* Real roses framing the stage */}
+        <RoseDecor image="pink-full" width={230} className="-left-24 -bottom-14" rotate={14} delay={0.6} />
+        <RoseDecor image="coral-full" width={210} className="-right-14 -top-8" rotate={-162} flip delay={1.4} />
+        <RoseDecor image="pink-bloom" width={190} className="-right-10 bottom-[8%]" rotate={-18} flip opacity={0.95} delay={2.2} />
 
         {/* Drifting petals */}
         {!reduceMotion &&

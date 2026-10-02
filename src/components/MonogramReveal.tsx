@@ -7,6 +7,7 @@ import BotanicalDecoration from '../decorations/BotanicalDecoration'
 import Monogram from '../decorations/Monogram'
 import PaperTexture from '../decorations/PaperTexture'
 import RegencyFrame from '../decorations/RegencyFrame'
+import RoseDecor from '../decorations/RoseDecor'
 
 interface MonogramRevealProps {
   /** Start the reveal (true once the envelope has finished). */
@@ -50,12 +51,11 @@ export default function MonogramReveal({ active }: MonogramRevealProps) {
         style={{ background: 'radial-gradient(70% 50% at 50% 45%, rgba(255,249,243,0.85), rgba(246,222,226,0) 70%)' }}
       />
 
-      {/* Wisteria-like sprays in the upper corners */}
-      <div className="pointer-events-none absolute -top-2 -left-3 opacity-80 rotate-[160deg]">
-        <BotanicalDecoration variant="sprig" size={46} />
-      </div>
-      <div className="pointer-events-none absolute -top-2 -right-3 opacity-80 -rotate-[160deg]">
-        <BotanicalDecoration variant="sprig" size={46} flip />
+      {/* Roses tumbling in from the corners */}
+      <RoseDecor image="coral-bloom" width={240} className="-left-16 -top-6" rotate={22} delay={0.4} />
+      <RoseDecor image="pink-bloom" width={200} className="-right-20 -bottom-4" rotate={-160} flip delay={1.2} />
+      <div className="pointer-events-none absolute bottom-24 -left-4 opacity-90 -rotate-12">
+        <BotanicalDecoration variant="sprig" size={44} />
       </div>
 
       <motion.div
@@ -66,7 +66,7 @@ export default function MonogramReveal({ active }: MonogramRevealProps) {
         style={{ rotateX, rotateY, transformPerspective: 900 }}
         className="relative"
       >
-        <RegencyFrame className="p-7" bg="#F6DEE2">
+        <RegencyFrame className="p-7" bg="#F9E1E6">
           <Monogram initials={wedding.couple.initials} size={200} color="#8B2E41" />
         </RegencyFrame>
       </motion.div>

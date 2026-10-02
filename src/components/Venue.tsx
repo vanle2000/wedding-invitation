@@ -1,5 +1,6 @@
 import { directionsUrl, wedding } from '../content/wedding'
 import BotanicalDecoration from '../decorations/BotanicalDecoration'
+import RoseDecor from '../decorations/RoseDecor'
 import Reveal from '../ui/Reveal'
 import VintagePhoto from '../ui/VintagePhoto'
 
@@ -7,9 +8,10 @@ import VintagePhoto from '../ui/VintagePhoto'
 export default function Venue() {
   const { venue } = wedding
   return (
-    <section className="relative bg-paper px-8 pt-24 pb-24 overflow-hidden" aria-labelledby="venue-heading">
-      <div className="pointer-events-none absolute right-4 top-8 opacity-85">
-        <BotanicalDecoration variant="olive-branch" size={150} flip />
+    <section className="relative bg-paper px-8 pt-32 pb-24 overflow-hidden" aria-labelledby="venue-heading">
+      <RoseDecor image="coral-bloom" width={190} className="-left-14 -top-10" rotate={28} delay={0.3} />
+      <div className="pointer-events-none absolute right-2 bottom-6 opacity-85">
+        <BotanicalDecoration variant="olive-branch" size={140} flip />
       </div>
 
       <Reveal className="text-center">

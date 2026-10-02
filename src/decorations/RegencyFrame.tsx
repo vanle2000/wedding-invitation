@@ -13,7 +13,7 @@ interface RegencyFrameProps {
  * Gilded Regency frame: a double hairline border with scrolled corner
  * flourishes and a small cartouche at the top centre. Scales with its content.
  */
-export default function RegencyFrame({ children, className = '', color = '#C9A961', bg = '#FBEFF0' }: RegencyFrameProps) {
+export default function RegencyFrame({ children, className = '', color = '#C9A961', bg = '#FDF3F5' }: RegencyFrameProps) {
   const corner = (
     <g fill="none" stroke={color} strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round">
       <path d="M2 40 C 2 14, 14 2, 40 2" />

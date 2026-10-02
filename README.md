@@ -1,8 +1,8 @@
 # Wedding Invitation
 
 A mobile-first interactive digital wedding invitation in a bright, warm Bridgerton
-Regency style: light pink paper, gold filigree frames, burgundy ink, pastel botanicals,
-a Whistledown-style letter, and a wax-sealed envelope you tap to open.
+Regency style: baby-pink paper, gold filigree frames, burgundy ink, real Redouté rose
+plates laid around every page, a Whistledown-style letter, and a wax-sealed envelope you tap to open.
 
 React 19 · TypeScript · Vite · Tailwind CSS · Framer Motion
 
@@ -61,6 +61,7 @@ src/
     WaxSeal.tsx                 burgundy seal with gold embossed initials
     RegencyFrame.tsx            gilded frame with scrolled corners
     Bee.tsx                     the Regency bee signature mark
+    RoseDecor.tsx               real Redouté rose cut-outs (public/images/rose-*.webp) with gentle sway
     PaperTexture.tsx            procedural film grain overlay
   ui/
     Reveal.tsx                  scroll-triggered reveal wrapper
@@ -75,7 +76,8 @@ src/
 
 ## Design notes
 
-- Palette: `#FBEFF0` blush paper, `#F6DEE2` rose paper, `#FFF9F3` ivory, `#C9788A` rose, `#8B2E41` burgundy, `#4A3338` charcoal, `#C9A961` gold, `#C3B1D9` wisteria.
+- Palette: `#FDF3F5` baby-pink paper, `#F9E1E6` deeper pink, `#FFF9F3` ivory, `#C77A8C` rose, `#7E2A3C` burgundy, `#4A3338` charcoal, `#C6A75F` gold, `#C3B1D9` wisteria.
+- Florals: the rose artwork is Pierre-Joseph Redouté, *Les Roses* (1817–1824) — *Rosa centifolia foliacea* and *Rosa gallica regalis* — public domain via Wikimedia Commons, background-removed and exported as WebP.
 - Type: Bodoni Moda (display), Cormorant Garamond (serif), Jost (labels), Parisienne (small script phrases only).
 - Mobile target 390 × 844; tested range 320–430 px. On desktop the sheet is centred at 430 px on a neutral surround.
 - Safe areas: `env(safe-area-inset-top/bottom)` on the envelope, monogram page and closing.

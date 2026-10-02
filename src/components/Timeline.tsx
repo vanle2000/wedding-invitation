@@ -3,14 +3,16 @@ import { fadeUp, softEase, staggerChildren, viewportOnce } from '../animations/v
 import { wedding } from '../content/wedding'
 import BotanicalDecoration from '../decorations/BotanicalDecoration'
 import PaperTexture from '../decorations/PaperTexture'
+import RoseDecor from '../decorations/RoseDecor'
 
 /** Thin vertical editorial timeline on secondary paper. */
 export default function Timeline() {
   return (
     <section className="relative bg-paper-2 px-8 py-24 overflow-hidden" aria-labelledby="timeline-heading">
       <PaperTexture opacity={0.07} />
-      <div className="pointer-events-none absolute -right-6 bottom-8 opacity-80 -rotate-12">
-        <BotanicalDecoration variant="wildflower" size={64} flip />
+      <RoseDecor image="pink-full" width={190} className="-right-24 -bottom-16" rotate={-20} flip opacity={0.9} delay={0.7} />
+      <div className="pointer-events-none absolute -left-4 bottom-8 opacity-85 rotate-6">
+        <BotanicalDecoration variant="wildflower" size={64} />
       </div>
 
       <motion.div
