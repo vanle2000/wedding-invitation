@@ -5,7 +5,6 @@ import BotanicalDecoration from '../decorations/BotanicalDecoration'
 import OrnamentalDivider from '../decorations/OrnamentalDivider'
 import PaperTexture from '../decorations/PaperTexture'
 import RoseDecor from '../decorations/RoseDecor'
-import { FloralBorder } from '../decorations/FloralLayer'
 
 interface DetailProps {
   label: string
@@ -27,7 +26,6 @@ export default function Details() {
   return (
     <section className="relative bg-paper-2 px-8 pt-32 pb-24 overflow-hidden" aria-label="Wedding details">
       <PaperTexture opacity={0.07} />
-      <FloralBorder wisteria={['tl']} vineBottom roses={['br']} seed={5} />
       <RoseDecor image="pink-bloom" width={220} className="-right-16 -top-4" rotate={-150} flip delay={0.5} />
       <div className="pointer-events-none absolute -left-4 bottom-10 opacity-85 -rotate-6">
         <BotanicalDecoration variant="wildflower" size={60} />
@@ -42,7 +40,7 @@ export default function Details() {
       >
         <motion.div variants={fadeUp} className="flex flex-col items-center">
           <span className="label">{date.weekday}</span>
-          <span className="mt-4 font-heading text-wedgwood text-[1.6rem] tracking-[0.2em] leading-none">
+          <span className="mt-4 font-display text-charcoal text-[1.9rem] uppercase tracking-[0.22em] leading-none">
             {date.month}
           </span>
           <span className="font-display text-charcoal text-[4.4rem] leading-[0.95] mt-1">{date.day}</span>

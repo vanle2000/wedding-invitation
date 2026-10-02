@@ -5,7 +5,6 @@ import Bee from '../decorations/Bee'
 import BotanicalDecoration from '../decorations/BotanicalDecoration'
 import PaperTexture from '../decorations/PaperTexture'
 import RoseDecor from '../decorations/RoseDecor'
-import { FloralBorder } from '../decorations/FloralLayer'
 import Calligraphy from '../ui/Calligraphy'
 
 /** Quiet final page: the author signs off. Generous bottom spacing and safe-area padding. */
@@ -17,7 +16,6 @@ export default function Closing() {
       style={{ paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 7rem)' }}
     >
       <PaperTexture opacity={0.06} />
-      <FloralBorder wisteria={['tl', 'tr']} vineTop seed={13} />
       <RoseDecor image="pink-full" width={240} className="-left-20 -top-24" rotate={160} delay={0.4} />
       <RoseDecor image="coral-full" width={240} className="-right-20 -top-24" rotate={-160} flip delay={1.3} />
 
@@ -28,7 +26,7 @@ export default function Closing() {
         whileInView="visible"
         viewport={viewportOnce}
       >
-        <motion.p variants={fadeUp} className="font-heading text-wedgwood text-[1.1rem] tracking-[0.18em] leading-[2]">
+        <motion.p variants={fadeUp} className="font-display text-wedgwood text-[1.5rem] uppercase tracking-[0.16em] leading-[1.6]">
           We cannot wait
           <br />
           to celebrate

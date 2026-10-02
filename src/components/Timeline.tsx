@@ -4,14 +4,12 @@ import { wedding } from '../content/wedding'
 import BotanicalDecoration from '../decorations/BotanicalDecoration'
 import PaperTexture from '../decorations/PaperTexture'
 import RoseDecor from '../decorations/RoseDecor'
-import { FloralBorder } from '../decorations/FloralLayer'
 
 /** Thin vertical editorial timeline on secondary paper. */
 export default function Timeline() {
   return (
     <section className="relative bg-paper-2 px-8 py-24 overflow-hidden" aria-labelledby="timeline-heading">
       <PaperTexture opacity={0.07} />
-      <FloralBorder wisteria={['tl']} roses={['bl']} seed={9} />
       <RoseDecor image="pink-full" width={190} className="-right-24 -bottom-16" rotate={-20} flip opacity={0.9} delay={0.7} />
       <div className="pointer-events-none absolute -left-4 bottom-8 opacity-85 rotate-6">
         <BotanicalDecoration variant="wildflower" size={64} />
@@ -24,7 +22,7 @@ export default function Timeline() {
         whileInView="visible"
         viewport={viewportOnce}
       >
-        <motion.h2 id="timeline-heading" variants={fadeUp} className="font-heading text-wedgwood text-[1rem] tracking-[0.2em] text-center">
+        <motion.h2 id="timeline-heading" variants={fadeUp} className="label text-center">
           The Dance Card
         </motion.h2>
 

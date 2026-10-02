@@ -62,14 +62,11 @@ src/
     RegencyFrame.tsx            gilded frame with scrolled corners
     Bee.tsx                     the Regency bee signature mark
     RoseDecor.tsx               real Redouté rose cut-outs (public/images/rose-*.webp) with gentle sway
-    FloralLayer.tsx             Wisteria · EnglishRose · Vine · FloralBorder — pastel pink/lavender SVG borders
     PaperTexture.tsx            procedural film grain overlay
   ui/
     Reveal.tsx                  scroll-triggered reveal wrapper
     VintagePhoto.tsx            framed photograph with vintage treatment
     RadioOption.tsx             custom radio control
-    Calligraphy.tsx             Copperplate pen-reveal
-    SocietyMasthead.tsx         Lady Whistledown's Society Papers masthead
   components/
     Envelope.tsx                full-screen opening sequence
     MonogramReveal.tsx          sage page with monogram
@@ -79,9 +76,9 @@ src/
 
 ## Design notes
 
-- Palette: `#FAF6EE` ivory paper (anchor), `#E6EEF4` pale Wedgwood, `#4E6A86` Wedgwood Blue (headings/UI/seal), `#6B4FA0` Royal Lilac (masthead rules, calligraphy), `#8F7FAB` lilac (labels), `#F3CAD3` blush / `#E6B3BD` rose quartz (florals), `#3C3F47` charcoal, `#D4AF37` Luxury Gold.
+- Palette: `#FAF6EE` ivory paper (anchor), `#E6EEF4` pale Wedgwood, `#4E6A86` Wedgwood (headings/UI/seal), `#8F7FAB` lilac (labels), `#F3CAD3` blush / `#E6B3BD` rose quartz (florals), `#3C3F47` charcoal, `#C6A75F` gold.
 - Florals: the rose artwork is Pierre-Joseph Redouté, *Les Roses* (1817–1824) — *Rosa centifolia foliacea* and *Rosa gallica regalis* — public domain via Wikimedia Commons, background-removed and exported as WebP.
-- Type: Cinzel Decorative (masthead + headings), Pinyon Script (Copperplate calligraphy — names, salutations, sign-offs; never paragraphs or UI), Bodoni Moda (engraved particulars), Cormorant Garamond (letter body with drop cap), Jost (labels).
+- Type: Pinyon Script (Copperplate calligraphy — names, salutations, sign-offs; never paragraphs or UI), Bodoni Moda (engraved particulars), Cormorant Garamond (letter body), Jost (labels). `ui/Calligraphy.tsx` writes script onto the page with a left-to-right pen reveal.
 - Mobile target 390 × 844; tested range 320–430 px. On desktop the sheet is centred at 430 px on a neutral surround.
 - Safe areas: `env(safe-area-inset-top/bottom)` on the envelope, monogram page and closing.
 - Reduced motion: the envelope sequence shortens to a brief fade.

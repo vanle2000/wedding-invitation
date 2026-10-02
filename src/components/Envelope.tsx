@@ -6,7 +6,6 @@ import Bee from '../decorations/Bee'
 import BotanicalDecoration from '../decorations/BotanicalDecoration'
 import PaperTexture from '../decorations/PaperTexture'
 import RoseDecor from '../decorations/RoseDecor'
-import { Wisteria } from '../decorations/FloralLayer'
 import WaxSeal from '../decorations/WaxSeal'
 
 type Stage = 'enter' | 'sealed' | 'opening' | 'rising' | 'leaving'
@@ -83,10 +82,9 @@ export default function Envelope({ onComplete }: EnvelopeProps) {
           style={{ background: 'radial-gradient(90% 60% at 50% 0%, rgba(255,249,243,0.9), rgba(250,246,238,0) 70%)' }}
         />
 
-        <Wisteria className="-top-3 left-2" width={92} seed={4} />
-        <Wisteria className="-top-3 right-1" width={80} seed={6} flip />
         {/* Real roses framing the stage */}
         <RoseDecor image="pink-full" width={230} className="-left-24 -bottom-14" rotate={14} delay={0.6} />
+        <RoseDecor image="coral-full" width={210} className="-right-14 -top-8" rotate={-162} flip delay={1.4} />
         <RoseDecor image="pink-bloom" width={190} className="-right-10 bottom-[8%]" rotate={-18} flip opacity={0.95} delay={2.2} />
 
         {/* Drifting petals */}
@@ -164,12 +162,12 @@ export default function Envelope({ onComplete }: EnvelopeProps) {
             {/* Back panel is only needed before the card rises; the card covers it visually */}
             <rect x="0" y="0" width={W} height={H} fill="url(#envBody)" />
             {/* Side flaps */}
-            <path d={`M0 0 L${W / 2} ${H * 0.52} L0 ${H} Z`} fill="#D2DFEA" stroke="#D4AF37" strokeOpacity="0.55" strokeWidth="0.8" />
-            <path d={`M${W} 0 L${W / 2} ${H * 0.52} L${W} ${H} Z`} fill="#D2DFEA" stroke="#D4AF37" strokeOpacity="0.55" strokeWidth="0.8" />
+            <path d={`M0 0 L${W / 2} ${H * 0.52} L0 ${H} Z`} fill="#D2DFEA" stroke="#C9A961" strokeOpacity="0.55" strokeWidth="0.8" />
+            <path d={`M${W} 0 L${W / 2} ${H * 0.52} L${W} ${H} Z`} fill="#D2DFEA" stroke="#C9A961" strokeOpacity="0.55" strokeWidth="0.8" />
             {/* Bottom flap */}
-            <path d={`M0 ${H} L${W / 2} ${H * 0.44} L${W} ${H} Z`} fill="url(#envBottom)" stroke="#D4AF37" strokeOpacity="0.7" strokeWidth="0.8" />
+            <path d={`M0 ${H} L${W / 2} ${H * 0.44} L${W} ${H} Z`} fill="url(#envBottom)" stroke="#C9A961" strokeOpacity="0.7" strokeWidth="0.8" />
             {/* Outer edge */}
-            <rect x="0.4" y="0.4" width={W - 0.8} height={H - 0.8} fill="none" stroke="#D4AF37" strokeOpacity="0.8" strokeWidth="0.8" />
+            <rect x="0.4" y="0.4" width={W - 0.8} height={H - 0.8} fill="none" stroke="#C9A961" strokeOpacity="0.8" strokeWidth="0.8" />
           </svg>
 
           {/* Top flap — rotates about its top edge */}
@@ -200,7 +198,7 @@ export default function Envelope({ onComplete }: EnvelopeProps) {
               <path
                 d={`M0 0 L${W} 0 L${W / 2} ${FLAP_H} Z`}
                 fill={flapTurned ? '#C3D2E0' : 'url(#flapFront)'}
-                stroke="#D4AF37"
+                stroke="#C9A961"
                 strokeOpacity="0.8"
                 strokeWidth="0.8"
               />
