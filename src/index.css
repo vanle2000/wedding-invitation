@@ -17,7 +17,7 @@
     overflow: hidden;
   }
   ::selection {
-    @apply bg-rose/25 text-burgundy;
+    @apply bg-lilac/25 text-wedgwood;
   }
   @media (prefers-reduced-motion: reduce) {
     html {
@@ -29,22 +29,22 @@
 @layer components {
   /* Small uppercase label used throughout the stationery system */
   .label {
-    @apply font-sans font-light text-[11px] uppercase tracking-label text-rose;
+    @apply font-sans font-light text-[11px] uppercase tracking-label text-lilac;
   }
   .label-dark {
-    @apply font-sans font-light text-[11px] uppercase tracking-label text-burgundy;
+    @apply font-sans font-light text-[11px] uppercase tracking-label text-wedgwood;
   }
   /* Quiet text link in stationery style: underline hairline, no box */
   .hairline-link {
-    @apply inline-flex items-center gap-3 font-sans font-light text-xs uppercase tracking-label text-burgundy
-      border-b border-burgundy/40 pb-1.5 transition-colors duration-500
-      hover:border-burgundy focus-visible:outline-none focus-visible:border-burgundy;
+    @apply inline-flex items-center gap-3 font-sans font-light text-xs uppercase tracking-label text-wedgwood
+      border-b border-wedgwood/40 pb-1.5 transition-colors duration-500
+      hover:border-wedgwood focus-visible:outline-none focus-visible:border-wedgwood;
   }
   /* Transparent form field with hairline bottom border */
   .field {
-    @apply w-full bg-transparent border-0 border-b border-burgundy/30 rounded-none px-0 py-3
+    @apply w-full bg-transparent border-0 border-b border-wedgwood/30 rounded-none px-0 py-3
       font-serif text-lg text-charcoal placeholder:text-charcoal/35
-      transition-colors duration-500 focus:outline-none focus:border-burgundy;
+      transition-colors duration-500 focus:outline-none focus:border-wedgwood;
   }
   /* Vintage photo treatment */
   .vintage-photo {

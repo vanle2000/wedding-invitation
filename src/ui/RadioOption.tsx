@@ -23,12 +23,12 @@ export default function RadioOption({ name, value, label, checked, onChange }: R
       />
       <span
         aria-hidden="true"
-        className="relative grid place-items-center w-5 h-5 rounded-full border border-burgundy/50 transition-colors duration-500
-          peer-focus-visible:ring-2 peer-focus-visible:ring-burgundy/40 peer-focus-visible:ring-offset-2 peer-focus-visible:ring-offset-paper
-          group-hover:border-burgundy"
+        className="relative grid place-items-center w-5 h-5 rounded-full border border-wedgwood/50 transition-colors duration-500
+          peer-focus-visible:ring-2 peer-focus-visible:ring-wedgwood/40 peer-focus-visible:ring-offset-2 peer-focus-visible:ring-offset-paper
+          group-hover:border-wedgwood"
       >
         <span
-          className={`block w-2.5 h-2.5 rounded-full bg-burgundy transition-all duration-500 ease-paper ${
+          className={`block w-2.5 h-2.5 rounded-full bg-wedgwood transition-all duration-500 ease-paper ${
             checked ? 'scale-100 opacity-100' : 'scale-0 opacity-0'
           }`}
         />

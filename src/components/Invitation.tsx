@@ -6,10 +6,14 @@ import BotanicalDecoration from '../decorations/BotanicalDecoration'
 import OrnamentalDivider from '../decorations/OrnamentalDivider'
 import RegencyFrame from '../decorations/RegencyFrame'
 import RoseDecor from '../decorations/RoseDecor'
+import Calligraphy from '../ui/Calligraphy'
 import Reveal from '../ui/Reveal'
 import VintagePhoto from '../ui/VintagePhoto'
 
-/** The Society Papers: a Whistledown-style letter announcing the match, then the framed portrait. */
+/**
+ * The love letter: a ball invitation written in Copperplate calligraphy,
+ * with the formal particulars engraved beneath in Didone capitals.
+ */
 export default function Invitation() {
   const { couple, date, ceremonyTime } = wedding
   return (
@@ -28,8 +32,8 @@ export default function Invitation() {
         viewport={viewportOnce}
       >
         {/* Masthead */}
-        <motion.p variants={fadeUp} className="label text-burgundy/80">
-          The Society Papers
+        <motion.p variants={fadeUp} className="label text-wedgwood/80">
+          A Ball in celebration of a marriage
         </motion.p>
         <motion.p variants={fadeUp} className="mt-3 font-serif italic text-charcoal/70 text-base">
           Huế · {date.weekday}, {date.month} {date.day}, {date.year}
@@ -39,33 +43,48 @@ export default function Invitation() {
           <OrnamentalDivider variant="leaf" width={150} />
         </motion.div>
 
-        {/* The letter */}
-        <motion.p variants={fadeUp} className="mt-10 font-script text-[1.9rem] text-rose leading-none">
-          Dearest Gentle Reader,
-        </motion.p>
+        {/* Salutation — written by hand */}
+        <motion.div variants={fadeUp} className="mt-10">
+          <Calligraphy as="p" className="text-[2.1rem] text-wedgwood leading-[1.1]" duration={2.4}>
+            Dearest Gentle Reader,
+          </Calligraphy>
+        </motion.div>
 
         <motion.p
           variants={fadeUp}
-          className="mt-6 font-serif text-lg text-charcoal/85 leading-relaxed max-w-[19rem] text-balance"
+          className="mt-6 font-serif italic text-[1.2rem] text-charcoal/85 leading-relaxed max-w-[19rem] text-balance"
         >
           It is with the greatest delight that this author announces the match of the season.
           Together with their families,
         </motion.p>
 
-        <motion.h2 id="invite-heading" variants={fadeUp} className="mt-8 font-display text-burgundy leading-[1.08]">
-          <span className="block text-[2.7rem]">{couple.first}</span>
-          <span className="block font-serif italic font-light text-rose text-2xl my-2">and</span>
-          <span className="block text-[2.7rem]">{couple.second}</span>
+        {/* Names in Copperplate */}
+        <motion.h2 id="invite-heading" variants={fadeUp} className="mt-8 text-wedgwood leading-none">
+          <Calligraphy className="block text-[3.6rem] leading-[1.05]" duration={2.6} delay={0.2}>
+            {couple.first}
+          </Calligraphy>
+          <span className="block font-serif italic font-light text-lilac text-xl my-1">and</span>
+          <Calligraphy className="block text-[3.6rem] leading-[1.05]" duration={2.6} delay={0.9}>
+            {couple.second}
+          </Calligraphy>
         </motion.h2>
 
         <motion.p
           variants={fadeUp}
-          className="mt-8 font-serif text-lg text-charcoal/85 leading-relaxed max-w-[19rem] text-balance"
+          className="mt-8 font-serif italic text-[1.2rem] text-charcoal/85 leading-relaxed max-w-[19rem] text-balance"
         >
-          request the pleasure of your company at the celebration of their marriage.
+          request the honour of your presence at a Ball given in celebration of their marriage.
         </motion.p>
 
-        <motion.p variants={fadeUp} className="mt-8 font-serif text-xl text-charcoal whitespace-pre-line leading-relaxed">
+        <motion.div variants={fadeUp} className="mt-8 text-gold">
+          <OrnamentalDivider variant="hairline" width={110} />
+        </motion.div>
+
+        {/* Engraved particulars */}
+        <motion.p
+          variants={fadeUp}
+          className="mt-8 font-display text-charcoal text-base uppercase tracking-[0.18em] leading-[2] whitespace-pre-line"
+        >
           {date.long}
         </motion.p>
 
@@ -82,8 +101,10 @@ export default function Invitation() {
       </Reveal>
 
       <Reveal delay={0.3} className="mt-8 flex flex-col items-center">
-        <p className="font-script text-xl text-rose">Yours truly,</p>
-        <Bee size={24} className="mt-3" />
+        <Calligraphy as="p" className="text-[1.7rem] text-lilac leading-none" duration={1.8}>
+          Yours, ever truly
+        </Calligraphy>
+        <Bee size={24} className="mt-4" />
       </Reveal>
     </section>
   )

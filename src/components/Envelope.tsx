@@ -79,7 +79,7 @@ export default function Envelope({ onComplete }: EnvelopeProps) {
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0"
-          style={{ background: 'radial-gradient(90% 60% at 50% 0%, rgba(255,249,243,0.9), rgba(251,239,240,0) 70%)' }}
+          style={{ background: 'radial-gradient(90% 60% at 50% 0%, rgba(255,249,243,0.9), rgba(250,246,238,0) 70%)' }}
         />
 
         {/* Real roses framing the stage */}
@@ -101,12 +101,12 @@ export default function Envelope({ onComplete }: EnvelopeProps) {
           ))}
 
         <motion.p
-          className="label text-burgundy/80 mb-8"
+          className="label text-wedgwood/80 mb-8"
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: isOpen ? 0 : 1, y: 0 }}
           transition={{ duration: 1, delay: isOpen ? 0 : 0.6, ease: softEase }}
         >
-          Dearest Gentle Reader
+          A letter for you
         </motion.p>
 
         {/* Envelope stage */}
@@ -128,11 +128,11 @@ export default function Envelope({ onComplete }: EnvelopeProps) {
             <PaperTexture opacity={0.06} />
             <div className="absolute inset-[6px] border border-gold/70" />
             <div className="absolute inset-[10px] border border-gold/40" />
-            <div className="absolute inset-0 flex flex-col items-center pt-[12%] text-burgundy">
-              <span className="font-script text-base leading-none text-rose">Together with their families</span>
-              <span className="font-display text-[1.5rem] leading-tight mt-3 tracking-wide">
+            <div className="absolute inset-0 flex flex-col items-center pt-[12%] text-wedgwood">
+              <span className="label text-[8px] text-lilac">You are cordially invited to a Ball</span>
+              <span className="font-script text-[1.9rem] leading-[1.1] mt-2">
                 {wedding.couple.first}
-                <span className="font-serif italic text-rose text-lg mx-2">&amp;</span>
+                <span className="font-serif italic text-lilac text-base mx-1.5">&amp;</span>
                 {wedding.couple.second}
               </span>
               <span className="label mt-3 text-[9px]">
@@ -146,24 +146,24 @@ export default function Envelope({ onComplete }: EnvelopeProps) {
           <svg
             viewBox={`0 0 ${W} ${H}`}
             className="absolute inset-0 w-full h-full"
-            style={{ zIndex: 10, filter: 'drop-shadow(0 14px 22px rgba(139,46,65,0.14))' }}
+            style={{ zIndex: 10, filter: 'drop-shadow(0 14px 22px rgba(78,106,134,0.18))' }}
             aria-hidden="true"
           >
             <defs>
               <linearGradient id="envBody" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stopColor="#F8E3E6" />
-                <stop offset="1" stopColor="#F3D6DB" />
+                <stop offset="0" stopColor="#D6E2EC" />
+                <stop offset="1" stopColor="#C9D8E5" />
               </linearGradient>
               <linearGradient id="envBottom" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stopColor="#F6DEE2" />
-                <stop offset="1" stopColor="#F9E8EA" />
+                <stop offset="0" stopColor="#CFDCE8" />
+                <stop offset="1" stopColor="#DCE6EF" />
               </linearGradient>
             </defs>
             {/* Back panel is only needed before the card rises; the card covers it visually */}
             <rect x="0" y="0" width={W} height={H} fill="url(#envBody)" />
             {/* Side flaps */}
-            <path d={`M0 0 L${W / 2} ${H * 0.52} L0 ${H} Z`} fill="#F7E0E4" stroke="#C9A961" strokeOpacity="0.55" strokeWidth="0.8" />
-            <path d={`M${W} 0 L${W / 2} ${H * 0.52} L${W} ${H} Z`} fill="#F7E0E4" stroke="#C9A961" strokeOpacity="0.55" strokeWidth="0.8" />
+            <path d={`M0 0 L${W / 2} ${H * 0.52} L0 ${H} Z`} fill="#D2DFEA" stroke="#C9A961" strokeOpacity="0.55" strokeWidth="0.8" />
+            <path d={`M${W} 0 L${W / 2} ${H * 0.52} L${W} ${H} Z`} fill="#D2DFEA" stroke="#C9A961" strokeOpacity="0.55" strokeWidth="0.8" />
             {/* Bottom flap */}
             <path d={`M0 ${H} L${W / 2} ${H * 0.44} L${W} ${H} Z`} fill="url(#envBottom)" stroke="#C9A961" strokeOpacity="0.7" strokeWidth="0.8" />
             {/* Outer edge */}
@@ -191,13 +191,13 @@ export default function Envelope({ onComplete }: EnvelopeProps) {
             <svg viewBox={`0 0 ${W} ${FLAP_H}`} preserveAspectRatio="none" className="absolute inset-0 w-full h-full" aria-hidden="true">
               <defs>
                 <linearGradient id="flapFront" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0" stopColor="#FAE6E9" />
-                  <stop offset="1" stopColor="#F4D9DE" />
+                  <stop offset="0" stopColor="#DAE5EE" />
+                  <stop offset="1" stopColor="#CDDAE6" />
                 </linearGradient>
               </defs>
               <path
                 d={`M0 0 L${W} 0 L${W / 2} ${FLAP_H} Z`}
-                fill={flapTurned ? '#F1D1D7' : 'url(#flapFront)'}
+                fill={flapTurned ? '#C3D2E0' : 'url(#flapFront)'}
                 stroke="#C9A961"
                 strokeOpacity="0.8"
                 strokeWidth="0.8"
@@ -227,7 +227,7 @@ export default function Envelope({ onComplete }: EnvelopeProps) {
             {stage === 'sealed' && (
               <motion.span
                 aria-hidden="true"
-                className="absolute inset-0 rounded-full border border-burgundy/40"
+                className="absolute inset-0 rounded-full border border-wedgwood/40"
                 animate={{ scale: [1, 1.45], opacity: [0.6, 0] }}
                 transition={{ duration: 2.2, repeat: Infinity, ease: 'easeOut' }}
               />
@@ -259,7 +259,7 @@ export default function Envelope({ onComplete }: EnvelopeProps) {
         </motion.div>
 
         <motion.p
-          className="label text-rose mt-14 text-[10px]"
+          className="label text-lilac mt-14 text-[10px]"
           initial={{ opacity: 0 }}
           animate={{ opacity: stage === 'sealed' ? 1 : 0 }}
           transition={{ duration: 0.9, delay: stage === 'sealed' ? 0.6 : 0, ease: softEase }}
@@ -272,10 +272,10 @@ export default function Envelope({ onComplete }: EnvelopeProps) {
 }
 
 const PETALS = [
-  { x: '8%', s: 14, c: '#F3CBD3', d: 16, delay: 0, drift: 24, rot: 220 },
-  { x: '24%', s: 10, c: '#E8A9B6', d: 19, delay: 3, drift: -18, rot: -180 },
-  { x: '46%', s: 12, c: '#F6D7C3', d: 17, delay: 6, drift: 20, rot: 260 },
-  { x: '66%', s: 9, c: '#D5C7E2', d: 21, delay: 1.5, drift: -22, rot: -200 },
-  { x: '84%', s: 13, c: '#F3CBD3', d: 18, delay: 8, drift: 16, rot: 190 },
-  { x: '92%', s: 8, c: '#E8A9B6', d: 20, delay: 11, drift: -14, rot: -160 },
+  { x: '8%', s: 14, c: '#F3CAD3', d: 16, delay: 0, drift: 24, rot: 220 },
+  { x: '24%', s: 10, c: '#E6B3BD', d: 19, delay: 3, drift: -18, rot: -180 },
+  { x: '46%', s: 12, c: '#D9CFE6', d: 17, delay: 6, drift: 20, rot: 260 },
+  { x: '66%', s: 9, c: '#C9D8E5', d: 21, delay: 1.5, drift: -22, rot: -200 },
+  { x: '84%', s: 13, c: '#F3CAD3', d: 18, delay: 8, drift: 16, rot: 190 },
+  { x: '92%', s: 8, c: '#E6B3BD', d: 20, delay: 11, drift: -14, rot: -160 },
 ]

@@ -11,7 +11,7 @@ interface MonogramProps {
 
 /**
  * Circular botanical monogram: two thin concentric rings, a wreath of fine
- * olive leaves, and the couple's initials in an editorial serif.
+ * olive leaves, and the couple's initials in Copperplate calligraphy.
  */
 export default function Monogram({
   initials,
@@ -72,21 +72,20 @@ export default function Monogram({
       )}
       <text
         x="100"
-        y="100"
+        y="104"
         textAnchor="middle"
         dominantBaseline="central"
         fill="currentColor"
         stroke="none"
-        fontFamily='"Bodoni Moda", "Cormorant Garamond", Georgia, serif'
+        fontFamily='"Pinyon Script", "Cormorant Garamond", cursive'
         fontWeight="400"
-        fontSize="58"
-        letterSpacing="2"
+        fontSize="64"
       >
         <tspan>{a}</tspan>
-        <tspan fontSize="30" fontStyle="italic" dx="2" dy="-2">
+        <tspan fontFamily='"Cormorant Garamond", Georgia, serif' fontSize="26" fontStyle="italic" dx="4" dy="-4">
           &amp;
         </tspan>
-        <tspan dx="2" dy="2">
+        <tspan dx="4" dy="4">
           {b}
         </tspan>
       </text>

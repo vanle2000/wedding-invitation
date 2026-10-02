@@ -25,7 +25,7 @@ export default function App() {
 
       {/* The invitation is a single mobile-width sheet; on desktop it sits centred on a neutral surround. */}
       <main
-        className="relative mx-auto w-full max-w-invite min-h-dvh bg-paper md:shadow-[0_0_0_1px_rgba(139,46,65,0.10),0_30px_60px_-30px_rgba(74,51,56,0.28)]"
+        className="relative mx-auto w-full max-w-invite min-h-dvh bg-paper md:shadow-[0_0_0_1px_rgba(78,106,134,0.12),0_30px_60px_-30px_rgba(60,63,71,0.25)]"
         aria-hidden={!opened}
       >
         <MonogramReveal active={opened} />

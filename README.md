@@ -1,8 +1,8 @@
 # Wedding Invitation
 
-A mobile-first interactive digital wedding invitation in a bright, warm Bridgerton
-Regency style: baby-pink paper, gold filigree frames, burgundy ink, real Redouté rose
-plates laid around every page, a Whistledown-style letter, and a wax-sealed envelope you tap to open.
+A mobile-first interactive digital wedding invitation — a Regency ball invitation and love
+letter in Copperplate calligraphy. Bridgerton family palette (Wedgwood blue, lilac, blush,
+ivory, gilt), real Redouté rose plates laid around every page, and a wax-sealed envelope you tap to open.
 
 React 19 · TypeScript · Vite · Tailwind CSS · Framer Motion
 
@@ -76,9 +76,9 @@ src/
 
 ## Design notes
 
-- Palette: `#FDF3F5` baby-pink paper, `#F9E1E6` deeper pink, `#FFF9F3` ivory, `#C77A8C` rose, `#7E2A3C` burgundy, `#4A3338` charcoal, `#C6A75F` gold, `#C3B1D9` wisteria.
+- Palette: `#FAF6EE` ivory paper (anchor), `#E6EEF4` pale Wedgwood, `#4E6A86` Wedgwood (headings/UI/seal), `#8F7FAB` lilac (labels), `#F3CAD3` blush / `#E6B3BD` rose quartz (florals), `#3C3F47` charcoal, `#C6A75F` gold.
 - Florals: the rose artwork is Pierre-Joseph Redouté, *Les Roses* (1817–1824) — *Rosa centifolia foliacea* and *Rosa gallica regalis* — public domain via Wikimedia Commons, background-removed and exported as WebP.
-- Type: Bodoni Moda (display), Cormorant Garamond (serif), Jost (labels), Parisienne (small script phrases only).
+- Type: Pinyon Script (Copperplate calligraphy — names, salutations, sign-offs; never paragraphs or UI), Bodoni Moda (engraved particulars), Cormorant Garamond (letter body), Jost (labels). `ui/Calligraphy.tsx` writes script onto the page with a left-to-right pen reveal.
 - Mobile target 390 × 844; tested range 320–430 px. On desktop the sheet is centred at 430 px on a neutral surround.
 - Safe areas: `env(safe-area-inset-top/bottom)` on the envelope, monogram page and closing.
 - Reduced motion: the envelope sequence shortens to a brief fade.

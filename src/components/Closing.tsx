@@ -5,6 +5,7 @@ import Bee from '../decorations/Bee'
 import BotanicalDecoration from '../decorations/BotanicalDecoration'
 import PaperTexture from '../decorations/PaperTexture'
 import RoseDecor from '../decorations/RoseDecor'
+import Calligraphy from '../ui/Calligraphy'
 
 /** Quiet final page: the author signs off. Generous bottom spacing and safe-area padding. */
 export default function Closing() {
@@ -25,7 +26,7 @@ export default function Closing() {
         whileInView="visible"
         viewport={viewportOnce}
       >
-        <motion.p variants={fadeUp} className="font-display text-burgundy text-[1.5rem] uppercase tracking-[0.16em] leading-[1.6]">
+        <motion.p variants={fadeUp} className="font-display text-wedgwood text-[1.5rem] uppercase tracking-[0.16em] leading-[1.6]">
           We cannot wait
           <br />
           to celebrate
@@ -37,12 +38,14 @@ export default function Closing() {
           <BotanicalDecoration variant="wreath" size={150} />
         </motion.div>
 
-        <motion.p variants={fadeUp} className="mt-12 font-display text-burgundy text-4xl tracking-[0.2em]">
-          {a} <span className="font-serif italic text-rose text-3xl">&amp;</span> {b}
+        <motion.p variants={fadeUp} className="mt-12 font-script text-wedgwood text-[3.4rem] leading-none">
+          {a} <span className="font-serif italic text-lilac text-3xl">&amp;</span> {b}
         </motion.p>
 
         <motion.div variants={fadeUp} className="mt-8 flex flex-col items-center">
-          <p className="font-script text-2xl text-rose leading-none">Yours truly</p>
+          <Calligraphy as="p" className="text-[2.2rem] text-lilac leading-none" duration={2}>
+            Yours, ever truly
+          </Calligraphy>
           <p className="label mt-4">With love, {wedding.couple.first} &amp; {wedding.couple.second}</p>
           <Bee size={26} className="mt-6" />
         </motion.div>
