@@ -1,6 +1,6 @@
 # Phát & Thảo — Wedding Invitation
 
-A premium mobile-first wedding invitation inspired by British Regency stationery: warm ivory fine-art paper, dusty baby-pink florals, burgundy ink, antique-gold hairlines, a wax-sealed envelope, and restrained editorial motion.
+A premium mobile-first wedding invitation inspired by British Regency stationery: warm ivory fine-art paper, dusty baby-pink florals, burgundy ink, antique-gold hairlines, and restrained editorial motion. It opens as a photographed 4:5 stationery suite wrapped in white-wildflower vellum, tied with frayed terracotta silk, and secured by a gold P&T wax seal.
 
 React 19 · TypeScript · Vite · Tailwind CSS · Framer Motion
 
@@ -30,7 +30,7 @@ Endpoint payload: `{ attendance: "accept" | "decline", name, guests, submittedAt
 
 ## Experience
 
-1. **Envelope** — warm-ivory horizontal envelope; focused P/T wax seal; completion-driven 2D SVG fold; invitation insert rises into the document.
+1. **Invitation suite** — 4:5 top-down flat lay with layered main invitation, details insert and reply card; translucent white-wildflower vellum; frayed terracotta silk; gold P&T seal. Pressing the seal releases the ribbon and lifts the vellum, then the revealed invitation opens the document.
 2. **Monogram** — airy botanical P/T reveal on the same continuous paper.
 3. **Invitation** — formal editorial announcement and fine-art couple portrait.
 4. **Details** — typography-led February 14 date with 9:00 AM / 5:00 PM split.
@@ -52,7 +52,9 @@ src/
     BotanicalDecoration.tsx
     OrnamentalDivider.tsx
     Monogram.tsx
-    WaxSeal.tsx
+    WaxSeal.tsx              burgundy + gold seal variants with unique SVG IDs
+    VellumWildflowers.tsx   white printed floral overlay
+    SilkRibbon.tsx          frayed terracotta ribbon release
     RoseDecor.tsx
     PaperTexture.tsx
   ui/
@@ -61,7 +63,8 @@ src/
     VintagePhoto.tsx
     RadioOption.tsx
   components/
-    Envelope.tsx
+    Envelope.tsx             full-screen suite interaction orchestrator
+    InvitationSuite.tsx     reusable 4:5 flat-lay composition
     MonogramReveal.tsx
     Invitation.tsx
     Details.tsx
@@ -77,7 +80,7 @@ The sections are semantic components but visually share one paper canvas; there 
 
 - Paper `#FBF7EF`; deep paper `#F2E9DC`; baby pink `#F5E2E6`
 - Burgundy `#743345`; dusty rose `#B87384`; sage `#87947F`
-- Antique gold `#B4975A`; cool charcoal `#3D3537`
+- Antique gold `#B4975A`; terracotta silk `#B96850`; cloudy vellum `#F1EDE3`; cool charcoal `#3D3537`
 - Bodoni Moda for display, Cormorant Garamond for editorial text, Jost for functional labels, Parisienne only for short decorative phrases
 - Primary target: 390 × 844 px; fluid from 320–430 px; desktop preserves a centered 430 px invitation sheet
 - iPhone safe areas via `env(safe-area-inset-*)`; reduced-motion support; no horizontal overflow

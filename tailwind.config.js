@@ -16,6 +16,9 @@ export default {
         'sage-light': '#C9D0C1',
         charcoal: '#3D3537',
         gold: '#B4975A',
+        terracotta: '#B96850',
+        'terracotta-deep': '#8F4938',
+        vellum: '#F1EDE3',
         surround: '#DED8CF',
       },
       fontFamily: {
