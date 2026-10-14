@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useState, type FormEvent } from 'react'
 import { fadeIn, softEase } from '../animations/variants'
 import BotanicalArt from '../art/BotanicalArt'
+import { EvergreenBranch } from '../art/WinterBotanical'
 import { deliverReply, type RsvpOutcome } from '../content/rsvpDelivery'
 import { wedding } from '../content/wedding'
 import Reveal from '../ui/Reveal'
@@ -46,7 +47,8 @@ export default function Rsvp() {
 
   return (
     <section id="rsvp" className="canvas-section py-28" aria-labelledby="rsvp-title">
-      <BotanicalArt kind="peony" width="46%" className="-right-[22%] -top-[4%] opacity-24" rotate={-18} flip />
+      <EvergreenBranch width={215} className="absolute -right-20 -top-3 opacity-38" flip />
+      <BotanicalArt kind="peony" width="42%" className="-right-[22%] top-[8%] opacity-20" rotate={-18} flip />
       <SectionHeading id="rsvp-title" kicker={`Répondez avant le ${wedding.rsvp.deadline}`} phrase="Votre présence est un cadeau" title="Will You Join Us?" />
       <Reveal className="relative mx-auto mt-14 max-w-[20rem]">
         <form onSubmit={submit} noValidate>

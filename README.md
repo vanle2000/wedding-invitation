@@ -1,6 +1,8 @@
-# Le Jardin Écarlate — Phát & Thảo
+# Une Saison Pour Toujours — Phát & Thảo
 
-A mobile-first digital wedding invitation rebuilt as a French botanical correspondence card: an oxblood gatefold folio, antique-gold monogram clasp, warm ivory paper, French handwriting, archival peony art, and a scarlet camellia.
+An original mobile-first winter wedding invitation: evergreen velvet, oxblood ribbon, ivory correspondence paper, antique gold, candlelight, archival camellias, and the quiet warmth of a February celebration.
+
+This project shares only the broad seasonal vocabulary of the user-provided marketplace reference. Its composition, copy, artwork, components, and interactions are original.
 
 React 19 · TypeScript · Vite · Tailwind CSS · Framer Motion
 
@@ -16,23 +18,25 @@ Replaceable content is centralized in `src/content/wedding.ts`.
 
 ## Experience
 
-1. **French gatefold** — a deep-red 4:5 folio with gold rules, archival flowers, and a circular P&T clasp. Pressing the monogram opens both doors; the revealed ivory card becomes the second touch target.
-2. **Invitation** — Parisienne names, restrained formal wording, peony and camellia crossing the paper edges.
-3. **Details** — an oxblood printed insert showing February 14 and the two confirmed event times.
-4. **Venue** — Goldland Plaza with a custom oxblood-and-gold architectural illustration and understated directions link.
-5. **Timeline** — a thin antique-gold editorial sequence.
-6. **RSVP** — attendance, full name, and guest count only; transparent hairline inputs and truthful delivery states.
-7. **Le dernier pétale** — touch the camellia to reveal the couple’s final love letter.
+1. **Winter gatefold** — evergreen velvet doors joined by an oxblood ribbon and gold P&T medallion. Pressing the ornament opens the folio; the revealed ivory invitation becomes the second touch target.
+2. **Invitation** — “Une Saison Pour Toujours,” French handwriting, evergreen framing, red camellia and antique peony.
+3. **Details** — an oxblood winter insert with the February date and confirmed 9:00 AM / 5:00 PM times.
+4. **Venue** — Goldland Plaza with a custom candlelit oxblood-and-gold illustration.
+5. **Timeline** — a dark-evergreen editorial sequence with holly, berries, pine and snow.
+6. **RSVP** — attendance, full name and guest count only; truthful preview/draft/delivered states.
+7. **Candlelight closing** — guests light five ceremonial candles to reveal the final love letter.
 
-## Design system
+## Visual system
 
-- Oxblood `#681C2A`; wine `#4A101B`; camellia `#A52A3C`
-- Warm ivory `#F8F1E4`; parchment `#EFE3D1`
-- Antique gold `#BE9B50`; olive `#58604A`; ink `#33292B`
-- Parisienne is used only for names and short intimate phrases
-- Bodoni Moda carries headings and dates; Cormorant Garamond carries readable prose; Jost carries UI labels
-- Primary canvas: 390 × 844 px; fluid from 320–430 px; centered at 430 px on desktop
-- iPhone safe areas, keyboard focus handoff, inert closed content, and reduced-motion behavior are included
+- Evergreen `#17382F`; pine `#294B3C`
+- Oxblood `#681C2A`; wine `#4A101B`; cranberry `#92283A`; camellia `#A52A3C`
+- Warm ivory `#F8F1E4`; parchment `#EFE3D1`; snow `#E8E4DA`
+- Antique gold `#BE9B50`; gold light `#D8C68F`
+- Parisienne only for names and short intimate phrases
+- Bodoni Moda for headings/dates; Cormorant Garamond for prose; Jost for functional labels
+- Custom SVG `EvergreenBranch`, `WinterSparkles`, `HollyDivider`, pinecone and `Candlelight`—no marketplace graphics
+- Primary canvas 390 × 844 px; fluid from 320–430 px; centered at 430 px on desktop
+- Safe areas, keyboard focus handoff, inert closed content and reduced motion included
 
 ## Architecture
 
@@ -45,9 +49,11 @@ src/
     rsvpDelivery.ts
   art/
     BotanicalArt.tsx
+    Candlelight.tsx
     GoldOrnament.tsx
     PaperGrain.tsx
     RoyalMedallion.tsx
+    WinterBotanical.tsx
   ui/
     Reveal.tsx
     SectionHeading.tsx
@@ -62,20 +68,16 @@ src/
     Closing.tsx
 ```
 
-The body is one continuous ivory canvas—not a stack of rounded UI cards.
+## Archival botanical art
 
-## Botanical artwork
+- `peony-antique.webp` — [Jacques Le Moyne de Morgues, *Peony*](https://commons.wikimedia.org/wiki/File:Jacques_Le_Moyne_de_Morgues._Peony.jpg), public domain.
+- `camellia-red.webp` — [Kawahara Keiga, *Camellia japonica*](https://commons.wikimedia.org/wiki/File:Camellia_japonica_%E3%83%84%E3%83%90%E3%82%AD.jpg), public domain.
 
-The two attached historical plates were background-cleaned and exported as transparent WebP assets:
+Both attached plates were isolated from their scanned paper, cleaned and optimized locally. All evergreen, holly, snow, pinecone, candle and ornament graphics are original SVG components.
 
-- `public/images/peony-antique.webp` — [Jacques Le Moyne de Morgues, *Peony*](https://commons.wikimedia.org/wiki/File:Jacques_Le_Moyne_de_Morgues._Peony.jpg), public domain.
-- `public/images/camellia-red.webp` — [Kawahara Keiga, *Camellia japonica*](https://commons.wikimedia.org/wiki/File:Camellia_japonica_%E3%83%84%E3%83%90%E3%82%AD.jpg), public domain.
+## RSVP
 
-The typography direction was informed by the history of French formal scripts and copperplate aristocratic announcements described by [Typofonderie](https://typofonderie.com/gazette/altesse-formal-script-influenced-by-copperplate-writing-masters). The project uses open web fonts rather than the commercial typeface discussed there.
-
-## RSVP delivery
-
-The current configuration uses preview mode. Before sending invitations, change `wedding.rsvp.delivery`:
+The current build uses preview mode. Before sending invitations, set `wedding.rsvp.delivery`:
 
 ```ts
 { method: 'email', to: 'you@example.com' }
@@ -83,8 +85,6 @@ The current configuration uses preview mode. Before sending invitations, change 
 { method: 'endpoint', url: 'https://…' }
 { method: 'demo' }
 ```
-
-Endpoint payload: `{ attendance, name, guests, submittedAt }`.
 
 ## Commands
 
@@ -97,4 +97,4 @@ npm run build
 npm run preview
 ```
 
-Pushing `main` deploys `dist/` through `.github/workflows/deploy.yml`.
+Pushing `main` deploys through `.github/workflows/deploy.yml`.
