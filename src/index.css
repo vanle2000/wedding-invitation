@@ -60,11 +60,11 @@
   }
 
   .eyebrow {
-    @apply font-sans text-[9px] font-normal uppercase tracking-label text-rose;
+    @apply font-sans text-[10px] font-medium uppercase tracking-label text-rouge-deep;
   }
 
   .eyebrow-gold {
-    @apply font-sans text-[9px] font-normal uppercase tracking-label text-gold;
+    @apply font-sans text-[10px] font-medium uppercase tracking-label text-gold-light;
   }
 
   .field {
@@ -75,7 +75,7 @@
 
   .text-link {
     @apply inline-flex min-h-[44px] items-center gap-3 border-b border-gold/70 pb-0.5
-      font-sans text-[9px] uppercase tracking-label text-rouge-deep
+      font-sans text-[10px] font-medium uppercase tracking-label text-rouge-deep
       transition-colors duration-500 hover:border-rouge
       focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold;
   }

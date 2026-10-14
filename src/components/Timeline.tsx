@@ -7,7 +7,7 @@ import SectionHeading from '../ui/SectionHeading'
 export default function Timeline() {
   return (
     <section className="canvas-section overflow-hidden border-y border-gold/35 bg-sage-light/55 py-28" aria-labelledby="timeline-title">
-      <GardenVine width={235} className="absolute -right-20 -top-5 opacity-42" flip /><GardenVine width={205} className="absolute -bottom-8 -left-20 opacity-32" />
+      <GardenVine width={235} className="absolute -right-20 -top-5 opacity-32" flip /><GardenVine width={205} className="absolute -bottom-8 -left-20 opacity-24" />
       <SectionHeading id="timeline-title" kicker="Lịch trình ngày vui" phrase="Từng khoảnh khắc bên nhau" title="Ngày Vui Trọn Vẹn" />
       <div className="relative mx-auto mt-11 text-gold"><SpringDivider /></div>
       <div className="relative mx-auto mt-14 max-w-[19rem] pl-11">

@@ -26,6 +26,14 @@ Các tệp phông thực tế đã được kiểm tra bằng `fontTools` với 
 
 Không dùng chữ viết tay cho đoạn văn hoặc chức năng tương tác.
 
+## Kiểm định thiết kế
+
+- Nhãn chức năng dùng cỡ 10px, độ đậm 500
+- Nhãn đỏ trên giấy ngà đạt 10.35:1; nhãn vàng nhạt trên nền đỏ đạt 5.22:1
+- Họ tên được đo trực tiếp theo glyph Great Vibes: tên dài nhất chiếm 249.3/264px ở màn hình 320px và 344.2/358px trên canvas desktop
+- Biểu tượng dùng `PHÁT • THẢO` trên cung tròn để giữ độ rõ; họ tên đầy đủ xuất hiện riêng ở cấp thị giác chính
+- Trạng thái bàn phím hiển thị rõ trên biểu mẫu và các điểm tương tác
+
 ## Biểu tượng Kết Đồng Tâm
 
 `src/art/KetDongTamMark.tsx` là một thiết kế mới, không tự nhận là bản sao cổ:
@@ -34,7 +42,8 @@ Không dùng chữ viết tay cho đoạn văn hoặc chức năng tương tác.
 - Dấu `P•T` ở tâm
 - Hai dải tua song hành phía dưới
 - Ba cánh hoa phía trên
-- Họ tên đầy đủ chạy theo cung trên
+- Hai tên gọi `PHÁT • THẢO` chạy theo cung trên để giữ độ rõ ở kích thước nhỏ
+- Họ tên đầy đủ được trình bày riêng, nổi bật trên bìa và trang thiệp chính
 - Dòng chữ `KẾT ĐỒNG TÂM` chạy theo cung dưới
 - Hai phiên bản: huy hiệu vàng trên nền đỏ và nét đỏ trên giấy ngà
 

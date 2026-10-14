@@ -9,7 +9,7 @@ import { wedding } from '../content/wedding'
 export default function Details() {
   return (
     <section className="canvas-section overflow-hidden border-y border-gold/45 bg-rouge py-28 text-center text-ivory" aria-label="Thông tin hôn lễ">
-      <PaperGrain opacity={0.06} /><GardenVine width={245} className="absolute -right-20 -top-6 opacity-45" flip /><GardenVine width={210} className="absolute -bottom-8 -left-20 opacity-32" /><BotanicalArt kind="camellia" width="38%" className="-right-[15%] bottom-[3%] opacity-24" rotate={-19} flip />
+      <PaperGrain opacity={0.06} /><GardenVine width={245} className="absolute -right-20 -top-6 opacity-35" flip /><GardenVine width={210} className="absolute -bottom-8 -left-20 opacity-25" /><BotanicalArt kind="camellia" width="38%" className="-right-[15%] bottom-[3%] opacity-20" rotate={-19} flip />
       <motion.div className="relative z-10 flex flex-col items-center" variants={stagger(0.14)} initial="hidden" whileInView="visible" viewport={viewportOnce}>
         <motion.p variants={fadeUp} className="eyebrow-gold">Thông tin hôn lễ</motion.p><motion.p variants={fadeUp} className="mt-5 font-script text-[1.8rem] text-gold-light">Ngày chung đôi</motion.p><motion.div variants={fadeUp} className="mt-7 text-gold-light"><SpringDivider /></motion.div>
         <motion.div variants={fadeUp} className="mt-9"><p className="font-display text-[1.45rem] uppercase tracking-editorial text-gold-light">{wedding.date.month}</p><p className="mt-1 font-display text-[6.2rem] leading-[0.8] text-ivory">{wedding.date.day}</p><p className="mt-6 font-serif text-2xl tracking-[0.24em] text-gold-light">{wedding.date.year}</p><p className="eyebrow-gold mt-5">{wedding.date.weekday}</p></motion.div>

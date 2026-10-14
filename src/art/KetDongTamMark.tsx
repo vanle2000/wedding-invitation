@@ -10,7 +10,7 @@ interface KetDongTamMarkProps {
 
 /**
  * Original Kết Đồng Tâm identity: two continuous mirrored love-knot loops
- * woven at one centre, paired tassels, and the couple's Vietnamese names.
+ * woven at one centre, paired tassels, and the couple's Vietnamese given names.
  * This is a contemporary interpretation, not a claimed historical replica.
  */
 export default function KetDongTamMark({
@@ -28,6 +28,12 @@ export default function KetDongTamMark({
   const secondary = '#C2A15A'
   const shadow = medallion ? '#5A1C2C' : '#E4C9CE'
   const background = medallion ? '#692235' : 'transparent'
+
+  const shortNames = names.map((name) => {
+    const parts = name.trim().split(/\s+/)
+    return parts[parts.length - 1]
+  })
+  const nameLabel = shortNames.join('  •  ').toLocaleUpperCase('vi-VN')
 
   return (
     <svg
@@ -52,10 +58,10 @@ export default function KetDongTamMark({
       <circle cx="70" cy="70" r="58" fill="none" stroke={primary} strokeWidth="0.7" opacity="0.8" />
       <circle cx="70" cy="70" r="53" fill="none" stroke={secondary} strokeWidth="0.55" strokeDasharray="1 3" opacity="0.75" />
 
-      {/* Full names and the identity phrase follow the circle. */}
-      <text fill={primary} fontFamily='"Be Vietnam Pro", sans-serif' fontSize="4.6" fontWeight="400" letterSpacing="0.7">
+      {/* Given names and the identity phrase follow the circle. */}
+      <text fill={primary} fontFamily='"Be Vietnam Pro", sans-serif' fontSize="6.4" fontWeight="500" letterSpacing="1">
         <textPath href={`#${nameArcId}`} startOffset="50%" textAnchor="middle">
-          {names.join('  •  ').toLocaleUpperCase('vi-VN')}
+          {nameLabel}
         </textPath>
       </text>
       <text fill={primary} fontFamily='"Noto Serif Display", serif' fontSize="6.2" fontWeight="500" letterSpacing="1.05">
