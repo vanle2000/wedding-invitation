@@ -32,7 +32,8 @@ Không dùng chữ viết tay cho đoạn văn hoặc chức năng tương tác.
 - Nhãn đỏ trên giấy ngà đạt 10.35:1; nhãn vàng nhạt trên nền đỏ đạt 5.22:1
 - Họ tên được đo trực tiếp theo glyph Great Vibes: tên dài nhất chiếm 249.3/264px ở màn hình 320px và 344.2/358px trên canvas desktop
 - Biểu tượng không chứa chữ, tên hoặc ký tự; họ tên đầy đủ xuất hiện riêng ở cấp thị giác chính
-- Trạng thái bàn phím hiển thị rõ trên biểu mẫu và các điểm tương tác
+- Canvas mở đầu và tranh địa điểm đều dùng tỷ lệ dọc 4:5; không có khung ngang
+- Bìa mở theo trục dọc và được giới hạn theo cả chiều rộng lẫn `64svh` để luôn vừa màn hình
 
 ## Biểu tượng Kết Đồng Tâm
 
@@ -52,7 +53,7 @@ Biểu tượng xuất hiện trên bìa gập và trang thiệp chính.
 
 ## Trải nghiệm
 
-1. Bìa gập đỏ với hoa mẫu đơn, trà mi, dây lá và biểu tượng Kết Đồng Tâm.
+1. Bìa dọc 4:5 màu đỏ với hoa mẫu đơn, trà mi, dây lá và biểu tượng Kết Đồng Tâm; bìa nâng thẳng lên để lộ thiệp ngà cùng tỷ lệ.
 2. Trang báo hỷ trên nền giấy ngà, hiển thị đầy đủ hai họ tên.
 3. Thông tin ngày giờ trên nền đỏ.
 4. Địa điểm Goldland Plaza và liên kết chỉ đường.
@@ -79,7 +80,7 @@ src/
     Reveal.tsx
     SectionHeading.tsx
   components/
-    GatefoldCover.tsx
+    PortraitCover.tsx
     InvitationCanvas.tsx
     Invitation.tsx
     Details.tsx

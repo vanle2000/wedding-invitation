@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import GatefoldCover from './components/GatefoldCover'
+import PortraitCover from './components/PortraitCover'
 import InvitationCanvas from './components/InvitationCanvas'
 
 export default function App() {
@@ -15,7 +15,7 @@ export default function App() {
 
   return (
     <>
-      {!opened && <GatefoldCover onComplete={() => setOpened(true)} />}
+      {!opened && <PortraitCover onComplete={() => setOpened(true)} />}
       <InvitationCanvas ref={canvasRef} hidden={!opened} />
     </>
   )

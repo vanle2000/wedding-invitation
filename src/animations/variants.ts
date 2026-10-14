@@ -26,14 +26,10 @@ export const imageReveal: Variants = {
   visible: { opacity: 1, scale: 1, transition: { duration: 1.2, ease: softEase } },
 }
 
-export const gateLeft: Variants = {
-  closed: { x: '0%', rotateY: 0 },
-  open: { x: '-102%', rotateY: -8, transition: { duration: 1.15, ease: softEase } },
-}
-
-export const gateRight: Variants = {
-  closed: { x: '0%', rotateY: 0 },
-  open: { x: '102%', rotateY: 8, transition: { duration: 1.15, ease: softEase } },
+/** The portrait cover lifts vertically; it never expands the horizontal canvas. */
+export const portraitCoverLift: Variants = {
+  closed: { y: '0%', scale: 1, opacity: 1 },
+  open: { y: '-108%', scale: 0.985, opacity: 0.16, transition: { duration: 1.05, ease: softEase } },
 }
 
 export const stagger = (gap = 0.12, delay = 0): Variants => ({
