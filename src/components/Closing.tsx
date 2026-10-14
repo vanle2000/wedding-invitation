@@ -40,10 +40,10 @@ export default function Closing() {
             onClick={() => setOpen((value) => !value)}
             aria-expanded={open}
             aria-controls="final-love-note"
-            className="grid h-[68px] w-[68px] place-items-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-burgundy/40 focus-visible:ring-offset-4 focus-visible:ring-offset-paper"
+            className="grid h-[78px] w-[78px] place-items-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-burgundy/40 focus-visible:ring-offset-4 focus-visible:ring-offset-paper"
             whileTap={{ scale: 0.96 }}
           >
-            <WaxSeal initials={couple.initials} size={64} />
+            <WaxSeal initials={couple.initials} names={[couple.first, couple.second]} size={74} />
             <span className="sr-only">{open ? 'Fold the final love note' : 'Open the final love note'}</span>
           </motion.button>
           <span className="label mt-4">{open ? 'Fold the note' : 'Press the seal'}</span>

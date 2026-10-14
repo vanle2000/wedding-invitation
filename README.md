@@ -30,7 +30,7 @@ Endpoint payload: `{ attendance: "accept" | "decline", name, guests, submittedAt
 
 ## Experience
 
-1. **Invitation suite** — 4:5 top-down flat lay with layered main invitation, details insert and reply card; translucent white-wildflower vellum; frayed terracotta silk; gold P&T seal. Pressing the seal releases the ribbon and lifts the vellum, then the revealed invitation opens the document.
+1. **Invitation suite** — 4:5 top-down flat lay with layered main invitation, details insert and reply card; translucent white-wildflower vellum; frayed terracotta silk; gold royal P&T seal embossed with their full names. Pressing the seal releases the ribbon and lifts the vellum, then the revealed invitation opens the document.
 2. **Monogram** — airy botanical P/T reveal on the same continuous paper.
 3. **Invitation** — formal editorial announcement and fine-art couple portrait.
 4. **Details** — typography-led February 14 date with 9:00 AM / 5:00 PM split.
@@ -52,7 +52,7 @@ src/
     BotanicalDecoration.tsx
     OrnamentalDivider.tsx
     Monogram.tsx
-    WaxSeal.tsx              burgundy + gold seal variants with unique SVG IDs
+    WaxSeal.tsx              royal burgundy + gold seals: named rim, crown, laurel, P&T crest, unique SVG IDs
     VellumWildflowers.tsx   white printed floral overlay
     SilkRibbon.tsx          frayed terracotta ribbon release
     RoseDecor.tsx

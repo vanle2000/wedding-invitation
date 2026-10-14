@@ -140,8 +140,8 @@ export default function InvitationSuite({
           type="button"
           onClick={onUntie}
           disabled={phase !== 'ready'}
-          aria-label="Press the gold P and T seal to release the silk ribbon"
-          className="grid h-[78px] w-[78px] place-items-center rounded-full disabled:cursor-default focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta/45 focus-visible:ring-offset-4 focus-visible:ring-offset-paper"
+          aria-label="Press Phát and Thảo's royal gold seal to release the silk ribbon"
+          className="grid h-[90px] w-[90px] place-items-center rounded-full disabled:cursor-default focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta/45 focus-visible:ring-offset-4 focus-visible:ring-offset-paper"
           variants={waxSealReveal}
           initial="hidden"
           animate={phase === 'ready' ? 'visible' : unwrapped ? 'broken' : 'hidden'}
@@ -155,7 +155,12 @@ export default function InvitationSuite({
               transition={{ duration: 2.2, repeat: Infinity, ease: 'easeOut' }}
             />
           )}
-          <WaxSeal initials={wedding.couple.initials} tone="gold" size={76} />
+          <WaxSeal
+            initials={wedding.couple.initials}
+            names={[wedding.couple.first, wedding.couple.second]}
+            tone="gold"
+            size={88}
+          />
         </motion.button>
       </div>
 
