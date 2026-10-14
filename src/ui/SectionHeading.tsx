@@ -1,26 +1,23 @@
-import OrnamentalDivider from '../decorations/OrnamentalDivider'
+import { GoldDivider } from '../art/GoldOrnament'
 import Reveal from './Reveal'
 
 interface SectionHeadingProps {
-  id: string
   kicker: string
   title: string
   phrase?: string
-  className?: string
+  id: string
+  dark?: boolean
 }
 
-/** Shared editorial heading—not a card, just type and a hairline ornament on paper. */
-export default function SectionHeading({ id, kicker, title, phrase, className = '' }: SectionHeadingProps) {
+export default function SectionHeading({ kicker, title, phrase, id, dark = false }: SectionHeadingProps) {
   return (
-    <Reveal className={`relative text-center ${className}`}>
-      <p className="label">{kicker}</p>
-      {phrase && <p className="mt-4 font-script text-2xl text-rose">{phrase}</p>}
-      <h2 id={id} className="mt-4 font-display text-[2.15rem] leading-[1.08] text-burgundy text-balance">
+    <Reveal className="relative text-center">
+      <p className={dark ? 'eyebrow-gold' : 'eyebrow'}>{kicker}</p>
+      {phrase && <p className={`mt-4 font-script text-2xl ${dark ? 'text-gold-light' : 'text-rose'}`}>{phrase}</p>}
+      <h2 id={id} className={`mt-4 font-display text-[2.15rem] leading-[1.1] text-balance ${dark ? 'text-ivory' : 'text-oxblood'}`}>
         {title}
       </h2>
-      <div className="mt-7 text-gold">
-        <OrnamentalDivider variant="leaf" width={128} />
-      </div>
+      <GoldDivider className="mt-7" />
     </Reveal>
   )
 }

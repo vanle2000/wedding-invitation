@@ -7,12 +7,11 @@
     scroll-behavior: smooth;
     -webkit-tap-highlight-color: transparent;
     -webkit-text-size-adjust: 100%;
-    background: #ded8cf;
+    background: #2f0c14;
   }
 
   body {
-    @apply bg-paper md:bg-surround text-charcoal font-serif antialiased;
-    width: 100%;
+    @apply bg-wine text-ink font-serif antialiased;
     min-width: 320px;
     min-height: 100vh;
     min-height: 100svh;
@@ -20,7 +19,7 @@
     overscroll-behavior-x: none;
   }
 
-  body.no-scroll {
+  body.is-locked {
     position: fixed;
     inset: 0;
     width: 100%;
@@ -37,7 +36,7 @@
   }
 
   ::selection {
-    @apply bg-blush/70 text-burgundy;
+    @apply bg-gold-light/60 text-wine;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -56,33 +55,29 @@
 }
 
 @layer components {
-  .stationery-section {
+  .canvas-section {
     @apply relative px-7 py-24 sm:px-9;
   }
 
-  .label {
-    @apply font-sans font-normal text-[10px] uppercase tracking-label text-rose;
+  .eyebrow {
+    @apply font-sans text-[9px] font-normal uppercase tracking-label text-rose;
   }
 
-  .label-dark {
-    @apply font-sans font-normal text-[10px] uppercase tracking-label text-burgundy;
-  }
-
-  .hairline-link {
-    @apply inline-flex min-h-[44px] items-center gap-3 border-b border-burgundy/35 pb-1
-      font-sans text-[10px] font-normal uppercase tracking-label text-burgundy
-      transition-colors duration-500 hover:border-burgundy
-      focus-visible:outline-none focus-visible:border-burgundy focus-visible:ring-1 focus-visible:ring-burgundy/30;
+  .eyebrow-gold {
+    @apply font-sans text-[9px] font-normal uppercase tracking-label text-gold;
   }
 
   .field {
-    @apply w-full rounded-none border-0 border-b border-burgundy/30 bg-transparent px-0 py-3
-      font-serif text-lg text-charcoal placeholder:text-charcoal/35
-      transition-colors duration-500 focus:border-burgundy focus:outline-none focus:ring-0;
+    @apply w-full rounded-none border-0 border-b border-oxblood/35 bg-transparent px-0 py-3
+      font-serif text-xl text-ink placeholder:text-ink/30
+      transition-colors duration-500 focus:border-oxblood focus:outline-none focus:ring-0;
   }
 
-  .vintage-photo {
-    filter: sepia(0.18) saturate(0.72) contrast(0.9) brightness(1.03);
+  .text-link {
+    @apply inline-flex min-h-[44px] items-center gap-3 border-b border-gold/70 pb-0.5
+      font-sans text-[9px] uppercase tracking-label text-oxblood
+      transition-colors duration-500 hover:border-oxblood
+      focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold;
   }
 }
 

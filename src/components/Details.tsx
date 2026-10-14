@@ -1,69 +1,33 @@
 import { motion } from 'framer-motion'
-import { fadeUp, staggerChildren, viewportOnce } from '../animations/variants'
+import { fadeUp, stagger, viewportOnce } from '../animations/variants'
+import BotanicalArt from '../art/BotanicalArt'
+import { GoldDivider } from '../art/GoldOrnament'
+import PaperGrain from '../art/PaperGrain'
 import { wedding } from '../content/wedding'
-import BotanicalDecoration from '../decorations/BotanicalDecoration'
-import OrnamentalDivider from '../decorations/OrnamentalDivider'
-import RoseDecor from '../decorations/RoseDecor'
 
-interface DetailProps {
-  label: string
-  value: string
-}
-
-function Detail({ label, value }: DetailProps) {
-  return (
-    <motion.div variants={fadeUp} className="flex flex-1 flex-col items-center px-2 text-center">
-      <span className="label-dark">{label}</span>
-      <span className="mt-4 font-serif text-[1.8rem] leading-none text-charcoal">{value}</span>
-    </motion.div>
-  )
-}
-
-/** Date and time printed as a restrained typographic broadside. */
 export default function Details() {
-  const { date, ceremonyTime, receptionTime } = wedding
   return (
-    <section className="stationery-section py-28" aria-label="Wedding details">
-      <div aria-hidden="true" className="absolute left-1/2 top-1/2 h-[82%] w-[125%] -translate-x-1/2 -translate-y-1/2 rounded-[50%] bg-paper-2/38" />
-      <RoseDecor image="coral-bloom" width={150} className="-left-20 -top-8 opacity-30" rotate={18} sway={false} />
-      <div aria-hidden="true" className="absolute -right-4 bottom-12 opacity-25">
-        <BotanicalDecoration variant="wildflower" size={60} flip />
-      </div>
+    <section className="canvas-section border-y border-gold/45 bg-oxblood py-28 text-center text-ivory" aria-label="Wedding details">
+      <PaperGrain opacity={0.07} />
+      <BotanicalArt kind="camellia" width="46%" className="-right-[18%] -top-[3%] opacity-28" rotate={-24} flip />
+      <BotanicalArt kind="peony" width="50%" className="-bottom-[18%] -left-[24%] opacity-18" rotate={22} />
 
-      <motion.div
-        className="relative flex flex-col items-center text-center"
-        variants={staggerChildren(0.16)}
-        initial="hidden"
-        whileInView="visible"
-        viewport={viewportOnce}
-      >
-        <motion.p variants={fadeUp} className="label">
-          The particulars
-        </motion.p>
-        <motion.p variants={fadeUp} className="mt-5 font-script text-2xl text-rose">
-          A Valentine, made forever
-        </motion.p>
-
-        <motion.div variants={fadeUp} className="mt-10 flex flex-col items-center">
-          <span className="font-display text-[1.6rem] uppercase tracking-editorial text-burgundy">{date.month}</span>
-          <span className="mt-1 font-display text-[5.4rem] leading-[0.85] text-burgundy">{date.day}</span>
-          <span className="mt-5 font-serif text-2xl tracking-[0.22em] text-charcoal">{date.year}</span>
-          <span className="label mt-4">{date.weekday}</span>
+      <motion.div className="relative z-10 flex flex-col items-center" variants={stagger(0.14)} initial="hidden" whileInView="visible" viewport={viewportOnce}>
+        <motion.p variants={fadeUp} className="eyebrow-gold">Les détails</motion.p>
+        <motion.p variants={fadeUp} className="mt-5 font-script text-2xl text-gold-light">Une Saint-Valentin pour toujours</motion.p>
+        <motion.div variants={fadeUp} className="mt-10">
+          <p className="font-display text-[1.55rem] uppercase tracking-editorial text-gold-light">{wedding.date.month}</p>
+          <p className="mt-1 font-display text-[6.2rem] leading-[0.8] text-ivory">{wedding.date.day}</p>
+          <p className="mt-6 font-serif text-2xl tracking-[0.24em] text-gold-light">{wedding.date.year}</p>
+          <p className="eyebrow-gold mt-5">{wedding.date.weekday}</p>
         </motion.div>
-
-        <motion.div variants={fadeUp} className="my-12 text-gold">
-          <OrnamentalDivider variant="hairline" width={145} />
-        </motion.div>
-
+        <motion.div variants={fadeUp} className="my-12"><GoldDivider /></motion.div>
         <motion.div variants={fadeUp} className="flex w-full max-w-[20rem] items-stretch">
-          <Detail label="Ceremony" value={ceremonyTime} />
-          <span aria-hidden="true" className="w-px bg-gold/35" />
-          <Detail label="Reception" value={receptionTime} />
+          <div className="flex-1 px-3"><p className="eyebrow-gold">Ceremony</p><p className="mt-4 font-serif text-[1.8rem]">{wedding.ceremony.time}</p></div>
+          <span className="w-px bg-gold/55" />
+          <div className="flex-1 px-3"><p className="eyebrow-gold">Reception</p><p className="mt-4 font-serif text-[1.8rem]">{wedding.reception.time}</p></div>
         </motion.div>
-
-        <motion.p variants={fadeUp} className="mt-12 max-w-[18rem] text-balance font-serif text-lg italic leading-relaxed text-charcoal/70">
-          Two moments, one promise, and a lifetime to follow.
-        </motion.p>
+        <motion.p variants={fadeUp} className="mt-12 max-w-[18rem] text-balance font-serif text-lg italic leading-relaxed text-ivory/72">Two moments, one promise, and a lifetime to follow.</motion.p>
       </motion.div>
     </section>
   )

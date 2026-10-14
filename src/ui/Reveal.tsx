@@ -1,52 +1,31 @@
 import { motion, type Variants } from 'framer-motion'
 import type { ReactNode } from 'react'
-import { sectionReveal, viewportOnce } from '../animations/variants'
+import { fadeUp, viewportOnce } from '../animations/variants'
 
 interface RevealProps {
-  as?: 'div' | 'section' | 'p' | 'h2' | 'h3' | 'li' | 'figure' | 'header' | 'footer'
-  variants?: Variants
-  delay?: number
+  children: ReactNode
   className?: string
-  children?: ReactNode
-  id?: string
+  delay?: number
+  variants?: Variants
+  as?: 'div' | 'section' | 'header' | 'footer' | 'figure' | 'p' | 'h2' | 'li'
 }
 
-const tags = {
+const elements = {
   div: motion.div,
   section: motion.section,
-  p: motion.p,
-  h2: motion.h2,
-  h3: motion.h3,
-  li: motion.li,
-  figure: motion.figure,
   header: motion.header,
   footer: motion.footer,
-} as const
+  figure: motion.figure,
+  p: motion.p,
+  h2: motion.h2,
+  li: motion.li,
+}
 
-/**
- * Scroll-triggered reveal wrapper. Defaults to the sectionReveal variant
- * (opacity 0→1, y 20→0, ~1s, soft easing). Plays once.
- */
-export default function Reveal({
-  as = 'div',
-  variants = sectionReveal,
-  delay = 0,
-  className,
-  children,
-  id,
-}: RevealProps) {
-  const Tag = tags[as]
+export default function Reveal({ children, className = '', delay = 0, variants = fadeUp, as = 'div' }: RevealProps) {
+  const Element = elements[as]
   return (
-    <Tag
-      id={id}
-      className={className}
-      variants={variants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={viewportOnce}
-      custom={delay}
-    >
+    <Element className={className} variants={variants} initial="hidden" whileInView="visible" viewport={viewportOnce} custom={delay}>
       {children}
-    </Tag>
+    </Element>
   )
 }
