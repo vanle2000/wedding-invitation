@@ -12,26 +12,28 @@ export type RsvpDelivery =
 
 export const wedding = {
   couple: {
-    first: 'Phát',
-    second: 'Thảo',
+    first: 'Lê Tấn Phát',
+    second: 'Dương Nguyệt Thảo',
+    givenFirst: 'Phát',
+    givenSecond: 'Thảo',
     initials: ['P', 'T'] as [string, string],
   },
   date: {
     iso: '2027-02-14T09:00:00+07:00',
-    weekday: 'Sunday',
-    month: 'February',
+    weekday: 'Chủ Nhật',
+    month: 'Tháng Hai',
     day: '14',
     year: '2027',
-    french: '14 Février 2027',
-    long: 'Sunday, the fourteenth of February\ntwo thousand and twenty-seven',
+    display: '14 tháng 02 năm 2027',
+    long: 'Chủ Nhật, ngày 14 tháng 02 năm 2027',
   },
   ceremony: {
-    label: 'Wedding Ceremony',
-    time: '9:00 AM',
+    label: 'Lễ thành hôn',
+    time: '9:00',
   },
   reception: {
-    label: 'Evening Reception',
-    time: '5:00 PM',
+    label: 'Tiệc cưới',
+    time: '17:00',
   },
   venue: {
     name: 'Goldland Plaza',
@@ -40,18 +42,18 @@ export const wedding = {
     image: `${import.meta.env.BASE_URL}images/venue-illustration.svg`,
   },
   timeline: [
-    { time: '8:30 AM', title: 'Guests Arrive', note: 'A quiet welcome before the vows' },
-    { time: '9:00 AM', title: 'The Ceremony', note: 'Two hearts make one promise' },
-    { time: '4:30 PM', title: 'Evening Welcome', note: 'Aperitifs and conversation' },
-    { time: '5:00 PM', title: 'The Reception', note: 'Dinner, toasts and dancing' },
+    { time: '08:30', title: 'Đón khách', note: 'Gặp gỡ và lưu lại những khoảnh khắc đầu tiên' },
+    { time: '09:00', title: 'Lễ thành hôn', note: 'Hai trái tim cùng trao một lời nguyện ước' },
+    { time: '16:30', title: 'Đón khách dự tiệc', note: 'Cùng nâng ly và sẻ chia niềm vui' },
+    { time: '17:00', title: 'Tiệc cưới', note: 'Dùng tiệc, chúc mừng và chung vui' },
   ] as TimelineMoment[],
   rsvp: {
-    deadline: 'February 1, 2027',
+    deadline: '01 tháng 02 năm 2027',
     delivery: { method: 'demo' } as RsvpDelivery,
   },
   story: {
-    introduction: 'In the first bloom of the season, after six years of laughter, letters, and roads travelled between Đà Nẵng and Huế, we invite you into the garden of our beginning.',
-    closing: 'Like a garden returning to bloom, our story has been shaped by patience, light, and every person who helped it grow. Thank you for becoming part of our forever.',
+    introduction: 'Sau sáu năm của tiếng cười, những lá thư và những cung đường giữa Đà Nẵng – Huế, chúng mình trân trọng mời bạn đến chứng kiến ngày hai trái tim cùng chung một nhịp.',
+    closing: 'Như khu vườn trở lại mùa hoa, câu chuyện của chúng mình được vun đắp bằng sự kiên nhẫn, ánh sáng và tình thương. Cảm ơn bạn đã trở thành một phần trong hành trình trọn đời này.',
   },
 } as const
 

@@ -1,42 +1,56 @@
-# Le Printemps de l’Amour — Phát & Thảo
+# Kết Đồng Tâm — Lê Tấn Phát & Dương Nguyệt Thảo
 
-A senior-level mobile wedding invitation built as a French spring garden folio: lifted deep rouge, warm ivory, antique gold, airy sage vines, archival peonies, and red camellias.
+Thiệp cưới số dành cho màn hình di động, sử dụng sắc đỏ trầm vừa phải, giấy ngà, ánh vàng cổ, hoa mẫu đơn, trà mi đỏ và ngôn ngữ tiếng Việt xuyên suốt.
 
 React 19 · TypeScript · Vite · Tailwind CSS · Framer Motion
 
-## Wedding details
+## Thông tin hôn lễ
 
-- **Couple:** Phát & Thảo
-- **Date:** Sunday, February 14, 2027
-- **Ceremony:** 9:00 AM
-- **Reception:** 5:00 PM
-- **Venue:** Goldland Plaza, 14–20 Lý Thường Kiệt, Thuận Hóa, Huế
+- **Chú rể:** Lê Tấn Phát
+- **Cô dâu:** Dương Nguyệt Thảo
+- **Ngày:** Chủ Nhật, 14 tháng 02 năm 2027
+- **Lễ thành hôn:** 09:00
+- **Tiệc cưới:** 17:00
+- **Địa điểm:** Goldland Plaza, 14–20 Lý Thường Kiệt, Thuận Hóa, Huế
 
-Replaceable content is centralized in `src/content/wedding.ts`.
+Toàn bộ nội dung có thể thay đổi tại `src/content/wedding.ts`.
 
-## Experience
+## Hệ chữ tiếng Việt
 
-1. **French garden gatefold** — lifted-rouge doors, fine gold rules, peony and camellia art, sage vines, drifting petals, and a gold P&T medallion.
-2. **Invitation** — generous ivory space, Parisienne names, a spring-bud ornament, and florals crossing the paper edge.
-3. **Details** — a refined rouge insert with the February date and confirmed 9:00 AM / 5:00 PM times.
-4. **Venue** — Goldland Plaza with a custom ivory, rouge, sage, and gold architectural illustration.
-5. **Timeline** — a pale-sage editorial sequence with a thin gold line.
-6. **RSVP** — attendance, full name, and guest count only; transparent hairline inputs and truthful delivery states.
-7. **Final bloom** — touching the peony opens it petal-by-petal and reveals the couple’s last letter.
+Các tệp phông thực tế đã được kiểm tra bằng `fontTools` với đầy đủ dấu trong tên và giao diện:
 
-## Visual system
+- **Great Vibes:** tên cô dâu, chú rể và câu trang trí ngắn
+- **Noto Serif Display:** tiêu đề và ngày tháng
+- **Noto Serif:** nội dung dài, lời mời và lời nhắn
+- **Be Vietnam Pro:** nhãn, nút và biểu mẫu
 
-- Lifted rouge `#852E43`; rouge deep `#692235`; camellia `#AB3E53`
-- Rose `#BC7180`; blush `#E9CDD3`; blush light `#F3E3E6`
-- Warm ivory `#FAF6EC`; parchment `#F1E8DA`
-- Sage `#79846E`; sage light `#DDE2D6`
-- Antique gold `#C2A15A`; gold light `#DEC994`; ink `#3E3235`
-- Parisienne only for names and short intimate phrases
-- Bodoni Moda for headings/dates; Cormorant Garamond for prose; Jost for functional labels
-- Primary canvas 390 × 844 px; fluid from 320–430 px; centered at 430 px on desktop
-- Safe areas, keyboard focus handoff, inert closed content, and reduced motion included
+Không dùng chữ viết tay cho đoạn văn hoặc chức năng tương tác.
 
-## Architecture
+## Biểu tượng Kết Đồng Tâm
+
+`src/art/KetDongTamMark.tsx` là một thiết kế mới, không tự nhận là bản sao cổ:
+
+- Hai vòng dây liên tục đối xứng, cùng đan vào một nút trung tâm
+- Dấu `P•T` ở tâm
+- Hai dải tua song hành phía dưới
+- Ba cánh hoa phía trên
+- Họ tên đầy đủ chạy theo cung trên
+- Dòng chữ `KẾT ĐỒNG TÂM` chạy theo cung dưới
+- Hai phiên bản: huy hiệu vàng trên nền đỏ và nét đỏ trên giấy ngà
+
+Biểu tượng xuất hiện trên bìa gập và trang thiệp chính.
+
+## Trải nghiệm
+
+1. Bìa gập đỏ với hoa mẫu đơn, trà mi, dây lá và biểu tượng Kết Đồng Tâm.
+2. Trang báo hỷ trên nền giấy ngà, hiển thị đầy đủ hai họ tên.
+3. Thông tin ngày giờ trên nền đỏ.
+4. Địa điểm Goldland Plaza và liên kết chỉ đường.
+5. Lịch trình ngày vui trên nền xanh xô thơm nhạt.
+6. Biểu mẫu phản hồi gồm xác nhận tham dự, họ tên và số khách.
+7. Chạm vào hoa mẫu đơn để mở lời nhắn cuối.
+
+## Cấu trúc
 
 ```text
 src/
@@ -48,9 +62,9 @@ src/
   art/
     BotanicalArt.tsx
     GoldOrnament.tsx
+    KetDongTamMark.tsx
     PaperGrain.tsx
-    RoyalMedallion.tsx
-    SpringBotanical.tsx   # GardenVine, PetalDrift, SpringDivider, BloomMark
+    SpringBotanical.tsx
   ui/
     Reveal.tsx
     SectionHeading.tsx
@@ -65,25 +79,16 @@ src/
     Closing.tsx
 ```
 
-## Archival botanical art
+## Tranh thực vật
 
-- `peony-antique.webp` — [Jacques Le Moyne de Morgues, *Peony*](https://commons.wikimedia.org/wiki/File:Jacques_Le_Moyne_de_Morgues._Peony.jpg), public domain.
-- `camellia-red.webp` — [Kawahara Keiga, *Camellia japonica*](https://commons.wikimedia.org/wiki/File:Camellia_japonica_%E3%83%84%E3%83%90%E3%82%AD.jpg), public domain.
+- `peony-antique.webp` — [Jacques Le Moyne de Morgues, *Peony*](https://commons.wikimedia.org/wiki/File:Jacques_Le_Moyne_de_Morgues._Peony.jpg), phạm vi công cộng.
+- `camellia-red.webp` — [Kawahara Keiga, *Camellia japonica*](https://commons.wikimedia.org/wiki/File:Camellia_japonica_%E3%83%84%E3%83%90%E3%82%AD.jpg), phạm vi công cộng.
 
-Both attached plates were isolated from their scanned paper, cleaned, and optimized locally. The vines, petals, flower divider, interactive bloom, frame, and medallion are original SVG components.
+Hai bản tranh đã được tách khỏi nền giấy quét, làm sạch và tối ưu cục bộ.
 
-## RSVP
+## Phản hồi tham dự
 
-The current build uses preview mode. Before sending invitations, set `wedding.rsvp.delivery`:
-
-```ts
-{ method: 'email', to: 'you@example.com' }
-{ method: 'sms', to: '+84901234567' }
-{ method: 'endpoint', url: 'https://…' }
-{ method: 'demo' }
-```
-
-## Commands
+Bản hiện tại đang ở chế độ xem thử. Trước khi gửi thiệp, đổi `wedding.rsvp.delivery` thành email, số điện thoại hoặc địa chỉ nhận dữ liệu thật.
 
 ```bash
 npm install
@@ -94,4 +99,4 @@ npm run build
 npm run preview
 ```
 
-Pushing `main` deploys through `.github/workflows/deploy.yml`.
+Nhánh `main` được triển khai tự động qua `.github/workflows/deploy.yml`.

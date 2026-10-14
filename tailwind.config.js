@@ -20,10 +20,10 @@ export default {
         surround: '#E2DBD1',
       },
       fontFamily: {
-        script: ['"Parisienne"', 'cursive'],
-        display: ['"Bodoni Moda"', 'Didot', 'serif'],
-        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-        sans: ['"Jost"', 'system-ui', 'sans-serif'],
+        script: ['"Great Vibes"', 'cursive'],
+        display: ['"Noto Serif Display"', 'Georgia', 'serif'],
+        serif: ['"Noto Serif"', 'Georgia', 'serif'],
+        sans: ['"Be Vietnam Pro"', 'system-ui', 'sans-serif'],
       },
       letterSpacing: {
         label: '0.27em',

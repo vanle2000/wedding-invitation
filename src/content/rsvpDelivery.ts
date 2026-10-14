@@ -11,9 +11,9 @@ export type RsvpOutcome = 'delivered' | 'draft' | 'preview'
 export function formatReply(reply: RsvpReply): string {
   const response =
     reply.attendance === 'accept'
-      ? `joyfully accepts for ${reply.guests} ${reply.guests === 1 ? 'guest' : 'guests'}`
-      : 'regretfully declines'
-  return [`RSVP — ${wedding.couple.first} & ${wedding.couple.second}`, wedding.date.french, '', `${reply.name} ${response}.`].join('\n')
+      ? `xác nhận tham dự cùng ${reply.guests} ${reply.guests === 1 ? 'khách' : 'khách mời'}`
+      : 'tiếc rằng không thể tham dự'
+  return [`PHẢN HỒI THIỆP CƯỚI — ${wedding.couple.first} & ${wedding.couple.second}`, wedding.date.display, '', `${reply.name} ${response}.`].join('\n')
 }
 
 export async function deliverReply(reply: RsvpReply): Promise<RsvpOutcome> {
@@ -23,7 +23,7 @@ export async function deliverReply(reply: RsvpReply): Promise<RsvpOutcome> {
     return 'preview'
   }
   if (delivery.method === 'email') {
-    window.location.href = `mailto:${delivery.to}?subject=${encodeURIComponent(`RSVP — ${reply.name}`)}&body=${encodeURIComponent(formatReply(reply))}`
+    window.location.href = `mailto:${delivery.to}?subject=${encodeURIComponent(`Phản hồi thiệp cưới — ${reply.name}`)}&body=${encodeURIComponent(formatReply(reply))}`
     return 'draft'
   }
   if (delivery.method === 'sms') {
