@@ -19,21 +19,32 @@ Toàn bộ nội dung có thể thay đổi tại `src/content/wedding.ts`.
 
 Các tệp phông thực tế đã được kiểm tra bằng `fontTools` với đầy đủ dấu trong tên và giao diện:
 
-- **Great Vibes:** tên cô dâu, chú rể và câu trang trí ngắn
-- **Noto Serif Display:** tiêu đề và ngày tháng
+- **Great Vibes:** câu trang trí ngắn, với khoảng dòng riêng để dấu tiếng Việt không chạm nét lượn
+- **Noto Serif Display:** họ tên đầy đủ, tiêu đề và ngày tháng ở độ đậm 300
 - **Noto Serif:** nội dung dài, lời mời và lời nhắn
 - **Be Vietnam Pro:** nhãn, nút và biểu mẫu
 
 Không dùng chữ viết tay cho đoạn văn hoặc chức năng tương tác.
 
+## Hệ màu và vật liệu
+
+- Nền canvas Champagne Cream `#F5F2EB`
+- Hai cánh bìa Crimson Maroon `#6B1D2F`
+- Giấy thiệp Soft Ivory `#FAF8F5`
+- Chữ chính Espresso `#2C2523`
+- Vàng kim `#C5A059` đến `#E5C158`; chữ `P` và `T` dùng gradient `#D4AF37 → #FFF5C0 → #AA771C`
+- Nền, giấy thiệp và hai cánh bìa đều phủ grain SVG nhẹ
+
 ## Kiểm định thiết kế
 
-- Nhãn chức năng dùng cỡ 10px, độ đậm 500
-- Nhãn đỏ trên giấy ngà đạt 10.35:1; nhãn vàng nhạt trên nền đỏ đạt 5.22:1
-- Họ tên được đo trực tiếp theo glyph Great Vibes: tên dài nhất chiếm 249.3/264px ở màn hình 320px và 344.2/358px trên canvas desktop
+- Nhãn chức năng dùng Be Vietnam Pro 10px/500; nhãn nghi lễ dùng Noto Serif Display 10px/300, tracking `0.15em`
+- Espresso trên giấy ngà đạt 14.19:1; crimson trên giấy ngà 10.76:1; vàng nhạt trên crimson 6.57:1
+- Họ tên dùng Noto Serif Display 300: tên dài nhất chiếm 248.7/264px ở màn hình 320px và 324/358px trên canvas desktop; trên bìa là 158.2/205px
 - Biểu tượng không chứa chữ, tên hoặc ký tự; họ tên đầy đủ xuất hiện riêng ở cấp thị giác chính
 - Canvas mở đầu và tranh địa điểm đều dùng tỷ lệ dọc 4:5; không có khung ngang
-- Bìa mở theo trục dọc và được giới hạn theo cả chiều rộng lẫn `64svh` để luôn vừa màn hình
+- Hai cánh bìa xoay `rotateY` quanh mép ngoài nhưng luôn nằm trong canvas dọc, không dịch chuyển ngang
+- Nền champagne, hai cánh đỏ thẫm, giấy ngà mềm và viền vàng theo cùng một hệ vật liệu
+- Chỉ sử dụng một phong cách thực vật: hai bản tranh lưu trữ hoa mẫu đơn và trà mi, đặt ở các góc khung bằng `mix-blend-multiply`
 
 ## Biểu tượng Kết Đồng Tâm
 
@@ -53,10 +64,10 @@ Biểu tượng xuất hiện trên bìa gập và trang thiệp chính.
 
 ## Trải nghiệm
 
-1. Bìa dọc 4:5 màu đỏ với hoa mẫu đơn, trà mi, dây lá và biểu tượng Kết Đồng Tâm; bìa nâng thẳng lên để lộ thiệp ngà cùng tỷ lệ.
+1. Bìa dọc 4:5 gồm hai cánh đỏ khép sát tại tâm; dấu sáp vàng “Mở Thiệp Cưới” nằm đúng giao điểm và hai cánh xoay 3D ra ngoài để lộ thiệp ngà cùng tỷ lệ.
 2. Trang báo hỷ trên nền giấy ngà, hiển thị đầy đủ hai họ tên.
 3. Thông tin ngày giờ trên nền đỏ.
-4. Địa điểm Goldland Plaza và liên kết chỉ đường.
+4. Địa điểm Goldland Plaza, bản đồ tương tác dọc 4:5 và liên kết chỉ đường.
 5. Lịch trình ngày vui trên nền xanh xô thơm nhạt.
 6. Biểu mẫu phản hồi gồm xác nhận tham dự, họ tên và số khách.
 7. Chạm vào hoa mẫu đơn để mở lời nhắn cuối.
@@ -72,10 +83,10 @@ src/
     rsvpDelivery.ts
   art/
     BotanicalArt.tsx
+    BotanicalCorners.tsx
     GoldOrnament.tsx
     KetDongTamMark.tsx
     PaperGrain.tsx
-    SpringBotanical.tsx
   ui/
     Reveal.tsx
     SectionHeading.tsx
@@ -95,7 +106,7 @@ src/
 - `peony-antique.webp` — [Jacques Le Moyne de Morgues, *Peony*](https://commons.wikimedia.org/wiki/File:Jacques_Le_Moyne_de_Morgues._Peony.jpg), phạm vi công cộng.
 - `camellia-red.webp` — [Kawahara Keiga, *Camellia japonica*](https://commons.wikimedia.org/wiki/File:Camellia_japonica_%E3%83%84%E3%83%90%E3%82%AD.jpg), phạm vi công cộng.
 
-Hai bản tranh đã được tách khỏi nền giấy quét, làm sạch và tối ưu cục bộ.
+Hai bản tranh đã được tách khỏi nền giấy quét, làm sạch và tối ưu cục bộ. Đây là hai tài sản thực vật duy nhất trong giao diện; cùng một `BotanicalCorners` neo chúng vào mép khung với chế độ hòa trộn `multiply`, không có nét vẽ hoa thứ hai.
 
 ## Phản hồi tham dự
 

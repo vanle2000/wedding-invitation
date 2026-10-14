@@ -39,7 +39,6 @@ export const wedding = {
     name: 'Goldland Plaza',
     address: ['14–20 Lý Thường Kiệt, Thuận Hóa', 'Huế, Việt Nam'],
     query: 'Goldland Plaza, Lý Thường Kiệt, Huế',
-    image: `${import.meta.env.BASE_URL}images/venue-illustration.svg`,
   },
   timeline: [
     { time: '08:30', title: 'Đón khách', note: 'Gặp gỡ và lưu lại những khoảnh khắc đầu tiên' },
@@ -58,3 +57,4 @@ export const wedding = {
 } as const
 
 export const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(wedding.venue.query)}`
+export const mapEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(wedding.venue.query)}&output=embed`

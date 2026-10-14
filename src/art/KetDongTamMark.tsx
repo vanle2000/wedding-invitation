@@ -4,11 +4,11 @@ interface KetDongTamMarkProps {
   variant?: 'medallion' | 'line'
 }
 
-const CORD = '#A43A4E'
-const CORD_DARK = '#692235'
-const GOLD = '#C2A15A'
-const GOLD_LIGHT = '#DEC994'
-const IVORY = '#FAF6EC'
+const CORD = '#8F2D42'
+const CORD_DARK = '#6B1D2F'
+const GOLD = '#C5A059'
+const GOLD_LIGHT = '#E5C158'
+const IVORY = '#FAF8F5'
 
 interface CordPathProps {
   d: string

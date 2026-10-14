@@ -7,11 +7,11 @@
     scroll-behavior: smooth;
     -webkit-tap-highlight-color: transparent;
     -webkit-text-size-adjust: 100%;
-    background: #e2dbd1;
+    background: #f5f2eb;
   }
 
   body {
-    @apply bg-surround text-ink font-serif antialiased;
+    @apply bg-canvas text-ink font-serif antialiased;
     min-width: 320px;
     min-height: 100vh;
     min-height: 100svh;
@@ -40,13 +40,8 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
-    }
-
-    *,
-    *::before,
-    *::after {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       scroll-behavior: auto !important;
@@ -55,47 +50,57 @@
 }
 
 @layer components {
-  .canvas-section {
-    @apply relative px-7 py-24 sm:px-9;
+  .canvas-section { @apply relative px-7 py-24 sm:px-9; }
+
+  /* Ceremonial section labels: tracked, light-weight Vietnamese serif. */
+  .section-label {
+    @apply font-display text-[10px] font-light uppercase tracking-editorial text-rouge-deep;
+    line-height: 1.6;
   }
 
-  .eyebrow {
-    @apply font-sans text-[10px] font-medium uppercase tracking-label text-rouge-deep;
+  .section-label-light {
+    @apply font-display text-[10px] font-light uppercase tracking-editorial text-gold-light;
+    line-height: 1.6;
   }
 
-  .eyebrow-gold {
-    @apply font-sans text-[10px] font-medium uppercase tracking-label text-gold-light;
+  /* Functional UI labels remain highly legible Vietnamese sans-serif. */
+  .eyebrow { @apply font-sans text-[10px] font-medium uppercase tracking-label text-rouge-deep; }
+  .eyebrow-gold { @apply font-sans text-[10px] font-medium uppercase tracking-label text-gold-light; }
+
+  .romantic-script {
+    @apply font-script;
+    line-height: 1.35;
+    padding-block: 0.1em;
+  }
+
+  .foil-text {
+    color: transparent;
+    background: linear-gradient(135deg, #d4af37, #fff5c0, #aa771c);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .gold-wax {
+    background: radial-gradient(circle at 34% 26%, #f3dc91 0%, #d0aa4f 42%, #a87a20 74%, #765015 100%);
+    box-shadow: 0 3px 8px rgba(44, 37, 35, 0.22), inset 0 1px 1px rgba(255, 245, 192, 0.55);
   }
 
   .field {
-    @apply w-full rounded-none border-0 border-b border-rouge/35 bg-transparent px-0 py-3
-      font-serif text-xl text-ink placeholder:text-ink/30
-      transition-colors duration-500 focus:border-rouge focus:outline-none focus:ring-0;
+    @apply w-full rounded-none border-0 border-b border-rouge/35 bg-transparent px-0 py-3 font-serif text-xl text-ink placeholder:text-ink/30 transition-colors duration-500 focus:border-rouge focus:outline-none focus:ring-0;
   }
 
   .text-link {
-    @apply inline-flex min-h-[44px] items-center gap-3 border-b border-gold/70 pb-0.5
-      font-sans text-[10px] font-medium uppercase tracking-label text-rouge-deep
-      transition-colors duration-500 hover:border-rouge
-      focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold;
+    @apply inline-flex min-h-[44px] items-center gap-3 border-b border-gold/70 pb-0.5 font-sans text-[10px] font-medium uppercase tracking-label text-rouge-deep transition-colors duration-500 hover:border-rouge focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold;
   }
 }
 
 @layer utilities {
-  .pt-safe {
-    padding-top: env(safe-area-inset-top, 0px);
-  }
-
-  .pb-safe {
-    padding-bottom: env(safe-area-inset-bottom, 0px);
-  }
-
+  .pt-safe { padding-top: env(safe-area-inset-top, 0px); }
+  .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
   .px-safe {
     padding-left: env(safe-area-inset-left, 0px);
     padding-right: env(safe-area-inset-right, 0px);
   }
-
-  .text-balance {
-    text-wrap: balance;
-  }
+  .text-balance { text-wrap: balance; }
 }

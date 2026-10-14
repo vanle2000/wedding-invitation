@@ -26,10 +26,20 @@ export const imageReveal: Variants = {
   visible: { opacity: 1, scale: 1, transition: { duration: 1.2, ease: softEase } },
 }
 
-/** The portrait cover lifts vertically; it never expands the horizontal canvas. */
-export const portraitCoverLift: Variants = {
-  closed: { y: '0%', scale: 1, opacity: 1 },
-  open: { y: '-108%', scale: 0.985, opacity: 0.16, transition: { duration: 1.05, ease: softEase } },
+/** Flush portrait doors rotate around their outside hinges—no x translation. */
+export const leftDoorOpen: Variants = {
+  closed: { rotateY: 0 },
+  open: { rotateY: 105, transition: { duration: 1.15, ease: softEase } },
+}
+
+export const rightDoorOpen: Variants = {
+  closed: { rotateY: 0 },
+  open: { rotateY: -105, transition: { duration: 1.15, ease: softEase } },
+}
+
+export const cardReveal: Variants = {
+  covered: { y: 10, scale: 0.96, opacity: 0.76 },
+  revealed: { y: -8, scale: 1.025, opacity: 1, transition: { duration: 1.05, ease: softEase } },
 }
 
 export const stagger = (gap = 0.12, delay = 0): Variants => ({

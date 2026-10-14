@@ -12,9 +12,9 @@ interface SectionHeadingProps {
 export default function SectionHeading({ kicker, title, phrase, id, dark = false }: SectionHeadingProps) {
   return (
     <Reveal className="relative text-center">
-      <p className={dark ? 'eyebrow-gold' : 'eyebrow'}>{kicker}</p>
-      {phrase && <p className={`mt-4 font-script text-2xl ${dark ? 'text-gold-light' : 'text-rose'}`}>{phrase}</p>}
-      <h2 id={id} className={`mt-4 font-display text-[2.15rem] leading-[1.1] text-balance ${dark ? 'text-ivory' : 'text-rouge-deep'}`}>
+      <p className={dark ? 'section-label-light' : 'section-label'}>{kicker}</p>
+      {phrase && <p className={`romantic-script mt-4 text-2xl ${dark ? 'text-gold-light' : 'text-rose'}`}>{phrase}</p>}
+      <h2 id={id} className={`mt-4 text-balance font-display text-[2.05rem] font-light leading-[1.24] tracking-[0.02em] ${dark ? 'text-ivory' : 'text-rouge-deep'}`}>
         {title}
       </h2>
       <GoldDivider className="mt-7" />
