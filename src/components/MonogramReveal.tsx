@@ -1,106 +1,50 @@
-import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from 'framer-motion'
-import type { PointerEvent } from 'react'
+import { motion } from 'framer-motion'
 import { fadeIn, slowScale, softEase } from '../animations/variants'
 import { wedding } from '../content/wedding'
-import Bee from '../decorations/Bee'
 import BotanicalDecoration from '../decorations/BotanicalDecoration'
 import Monogram from '../decorations/Monogram'
-import PaperTexture from '../decorations/PaperTexture'
-import RegencyFrame from '../decorations/RegencyFrame'
+import OrnamentalDivider from '../decorations/OrnamentalDivider'
 import RoseDecor from '../decorations/RoseDecor'
 
 interface MonogramRevealProps {
-  /** Start the reveal (true once the envelope has finished). */
   active: boolean
 }
 
-/**
- * Bright rose-paper page with the gilded monogram.
- * The frame tilts gently toward the pointer / finger for a tactile feel.
- */
+/** The insert becomes the first page: an airy monogram bridge into the story. */
 export default function MonogramReveal({ active }: MonogramRevealProps) {
-  const reduceMotion = useReducedMotion()
-  const mx = useMotionValue(0)
-  const my = useMotionValue(0)
-  const rotateX = useSpring(useTransform(my, [-1, 1], [6, -6]), { stiffness: 60, damping: 18 })
-  const rotateY = useSpring(useTransform(mx, [-1, 1], [-6, 6]), { stiffness: 60, damping: 18 })
-
-  const onMove = (e: PointerEvent<HTMLElement>) => {
-    if (reduceMotion) return
-    const r = e.currentTarget.getBoundingClientRect()
-    mx.set(((e.clientX - r.left) / r.width) * 2 - 1)
-    my.set(((e.clientY - r.top) / r.height) * 2 - 1)
-  }
-  const onLeave = () => {
-    mx.set(0)
-    my.set(0)
-  }
-
   return (
-    <section
-      className="relative min-h-[100dvh] flex flex-col items-center justify-center bg-paper-2 overflow-hidden pt-safe pb-safe"
-      aria-label="Monogram"
-      onPointerMove={onMove}
-      onPointerLeave={onLeave}
-    >
-      <PaperTexture opacity={0.06} />
-      {/* Warm glow */}
-      <div
+    <section className="relative flex min-h-[88vh] min-h-[88svh] flex-col items-center justify-center px-7 py-24 text-center" aria-label="Phát and Thảo monogram">
+      <div aria-hidden="true" className="absolute left-1/2 top-1/2 h-[72%] w-[118%] -translate-x-1/2 -translate-y-1/2 rounded-[50%] bg-paper-2/45" />
+      <RoseDecor image="pink-bloom" width={180} className="-right-16 top-6 opacity-45" rotate={-18} flip sway={false} />
+      <RoseDecor image="coral-bloom" width={150} className="-left-16 bottom-16 opacity-30" rotate={20} sway={false} />
+
+      <motion.div variants={slowScale} initial="hidden" animate={active ? 'visible' : 'hidden'} className="relative text-burgundy">
+        <Monogram initials={wedding.couple.initials} size={218} color="#743345" />
+      </motion.div>
+
+      <motion.div variants={fadeIn} initial="hidden" animate={active ? 'visible' : 'hidden'} transition={{ delay: 0.65, duration: 0.9, ease: softEase }} className="relative mt-8">
+        <p className="font-script text-2xl text-rose">A love letter, sealed for you</p>
+        <p className="label-dark mt-5">{wedding.date.numeric} · Huế</p>
+        <div className="mt-8 text-gold">
+          <OrnamentalDivider variant="leaf" width={130} />
+        </div>
+      </motion.div>
+
+      <motion.div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0"
-        style={{ background: 'radial-gradient(70% 50% at 50% 45%, rgba(255,249,243,0.85), rgba(246,222,226,0) 70%)' }}
-      />
-
-      {/* Roses tumbling in from the corners */}
-      <RoseDecor image="coral-bloom" width={240} className="-left-16 -top-6" rotate={22} delay={0.4} />
-      <RoseDecor image="pink-bloom" width={200} className="-right-20 -bottom-4" rotate={-160} flip delay={1.2} />
-      <div className="pointer-events-none absolute bottom-24 -left-4 opacity-90 -rotate-12">
-        <BotanicalDecoration variant="sprig" size={44} />
-      </div>
-
-      <motion.div
-        variants={slowScale}
-        initial="hidden"
-        animate={active ? 'visible' : 'hidden'}
-        transition={{ delay: 0.3 }}
-        style={{ rotateX, rotateY, transformPerspective: 900 }}
-        className="relative"
-      >
-        <RegencyFrame className="p-7" bg="#F9E1E6">
-          <Monogram initials={wedding.couple.initials} size={200} color="#8B2E41" />
-        </RegencyFrame>
-      </motion.div>
-
-      <motion.div
-        className="relative mt-10 flex flex-col items-center"
-        variants={fadeIn}
-        initial="hidden"
-        animate={active ? 'visible' : 'hidden'}
-        transition={{ delay: 1.1, duration: 1.2, ease: softEase }}
-      >
-        <p className="font-script text-2xl text-rose leading-none">The match of the season</p>
-        <p className="label text-burgundy/80 mt-4">
-          {wedding.date.month} {wedding.date.day}, {wedding.date.year}
-        </p>
-        <Bee size={26} className="mt-5" />
-      </motion.div>
-
-      {/* Scroll cue */}
-      <motion.div
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
-        style={{ paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 2.25rem)' }}
+        className="absolute bottom-0 left-1/2 flex -translate-x-1/2 flex-col items-center gap-3"
+        style={{ paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 1.5rem)' }}
         initial={{ opacity: 0 }}
-        animate={{ opacity: active ? 1 : 0 }}
-        transition={{ delay: 2.2, duration: 1.2 }}
-        aria-hidden="true"
+        animate={{ opacity: active ? 0.65 : 0 }}
+        transition={{ delay: 1.3, duration: 0.8 }}
       >
-        <span className="label text-rose text-[9px]">Scroll</span>
-        <motion.span
-          className="block w-px h-10 bg-burgundy/40 origin-top"
-          animate={{ scaleY: [0.2, 1, 0.2] }}
-          transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut' }}
-        />
+        <span className="label text-[9px]">Continue</span>
+        <span className="h-9 w-px bg-gold/55" />
       </motion.div>
+
+      <div aria-hidden="true" className="absolute -bottom-8 right-4 opacity-30">
+        <BotanicalDecoration variant="sprig" size={36} />
+      </div>
     </section>
   )
 }

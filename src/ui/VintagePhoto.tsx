@@ -49,7 +49,7 @@ export default function VintagePhoto({
             aria-hidden="true"
             className="absolute inset-0 pointer-events-none"
             style={{
-              boxShadow: 'inset 0 0 36px 10px rgba(251,239,240,0.6)',
+              boxShadow: 'inset 0 0 34px 9px rgba(251,247,239,0.52)',
             }}
           />
           <PaperTexture opacity={0.12} />

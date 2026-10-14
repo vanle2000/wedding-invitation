@@ -1,88 +1,96 @@
-# Wedding Invitation
+# Phát & Thảo — Wedding Invitation
 
-A mobile-first interactive digital wedding invitation in a bright, warm Bridgerton
-Regency style: baby-pink paper, gold filigree frames, burgundy ink, real Redouté rose
-plates laid around every page, a Whistledown-style letter, and a wax-sealed envelope you tap to open.
+A premium mobile-first wedding invitation inspired by British Regency stationery: warm ivory fine-art paper, dusty baby-pink florals, burgundy ink, antique-gold hairlines, a wax-sealed envelope, and restrained editorial motion.
 
 React 19 · TypeScript · Vite · Tailwind CSS · Framer Motion
 
-## Run
+## Wedding content
+
+All replaceable content lives in `src/content/wedding.ts`:
+
+- **Couple:** Phát & Thảo (`P` / `T` monogram)
+- **Date:** Sunday, February 14, 2027
+- **Ceremony:** 9:00 AM
+- **Reception:** 5:00 PM
+- **Venue:** Goldland Plaza, 14–20 Lý Thường Kiệt, Thuận Hóa, Huế
+- **Timeline:** editable `timeline[]` entries
+- **Closing:** editable final-note copy
+- **RSVP:** configurable `email`, `sms`, `endpoint`, or `demo` delivery
+
+The RSVP is intentionally simple: attendance, full name, and guest count. It currently uses `demo` delivery. Connect a real recipient or endpoint in `src/content/wedding.ts` before sending invitations.
+
+```ts
+delivery: { method: 'email', to: 'you@example.com' }
+delivery: { method: 'sms', to: '+84901234567' }
+delivery: { method: 'endpoint', url: 'https://…' }
+delivery: { method: 'demo' }
+```
+
+Endpoint payload: `{ attendance: "accept" | "decline", name, guests, submittedAt }`.
+
+## Experience
+
+1. **Envelope** — warm-ivory horizontal envelope; focused P/T wax seal; completion-driven 2D SVG fold; invitation insert rises into the document.
+2. **Monogram** — airy botanical P/T reveal on the same continuous paper.
+3. **Invitation** — formal editorial announcement and fine-art couple portrait.
+4. **Details** — typography-led February 14 date with 9:00 AM / 5:00 PM split.
+5. **Venue** — Goldland Plaza, atmospheric image, and understated directions link.
+6. **Timeline** — thin gold vertical line with readable single-column moments.
+7. **RSVP** — transparent hairline inputs and truthful delivery states.
+8. **Closing** — guests press a seal to unfold a final romantic love note.
+
+## Architecture
+
+```text
+src/
+  content/
+    wedding.ts             one source of truth for wedding details
+    rsvpDelivery.ts        email / SMS / endpoint / demo transports
+  animations/variants.ts   fadeIn, fadeUp, slowScale, envelopeOpen,
+                           waxSealReveal, imageReveal, sectionReveal
+  decorations/
+    BotanicalDecoration.tsx
+    OrnamentalDivider.tsx
+    Monogram.tsx
+    WaxSeal.tsx
+    RoseDecor.tsx
+    PaperTexture.tsx
+  ui/
+    Reveal.tsx
+    SectionHeading.tsx
+    VintagePhoto.tsx
+    RadioOption.tsx
+  components/
+    Envelope.tsx
+    MonogramReveal.tsx
+    Invitation.tsx
+    Details.tsx
+    Venue.tsx
+    Timeline.tsx
+    Rsvp.tsx
+    Closing.tsx
+```
+
+The sections are semantic components but visually share one paper canvas; there are no stacked UI cards. Real Redouté rose cut-outs sit in `public/images/rose-*.webp`. `public/images/couple.svg` and `venue.svg` remain placeholders—replace them with optimized real WebP/AVIF photographs and update the paths in `wedding.ts`.
+
+## Design system
+
+- Paper `#FBF7EF`; deep paper `#F2E9DC`; baby pink `#F5E2E6`
+- Burgundy `#743345`; dusty rose `#B87384`; sage `#87947F`
+- Antique gold `#B4975A`; cool charcoal `#3D3537`
+- Bodoni Moda for display, Cormorant Garamond for editorial text, Jost for functional labels, Parisienne only for short decorative phrases
+- Primary target: 390 × 844 px; fluid from 320–430 px; desktop preserves a centered 430 px invitation sheet
+- iPhone safe areas via `env(safe-area-inset-*)`; reduced-motion support; no horizontal overflow
+
+## Commands
 
 ```bash
 npm install
-npm run dev        # local dev server
-npm run build      # typecheck + production build → dist/
-npm run preview    # serve dist/ locally
-npm run typecheck  # tsc only
-npm run lint       # oxlint
+npm run dev
+npm run typecheck
+npm run lint
+npm run build
+npm run preview
 ```
 
-## Personalise
-
-All content lives in `src/content/wedding.ts`. Replace the placeholders; no component changes needed.
-
-| Key | Controls |
-| --- | --- |
-| `couple.first`, `couple.second`, `couple.initials` | Names everywhere; initials drive the monogram, wax seal and closing |
-| `date.*` | Month / day / year / weekday blocks and the long-form date line |
-| `ceremonyTime`, `receptionTime` | Details page |
-| `venue.*` | Name, address, Google Maps query for "View Directions", venue photo |
-| `couplePhoto` | Framed portrait on the invitation page |
-| `timeline[]` | Vertical timeline entries |
-| `rsvp.deadline` | Shown above the form |
-| `rsvp.delivery` | How replies reach you — see below |
-
-Photos: drop real images into `public/images/` and update the paths. The `VintagePhoto`
-component applies the desaturated, warm, low-contrast, grained treatment automatically.
-
-### RSVP delivery (no backend needed)
-
-```ts
-delivery: { method: 'email', to: 'you@example.com' }   // default — opens guest's mail app, pre-filled
-delivery: { method: 'sms',   to: '+14155550123' }      // opens guest's messages app, pre-filled
-delivery: { method: 'endpoint', url: 'https://…' }     // POST JSON to Formspree / Getform / Apps Script
-delivery: { method: 'demo' }                           // show confirmation without sending
-```
-
-Email/SMS replies read: `RSVP for A & M · Jane Doe joyfully accepts (2 guests). Phone: …`.
-Endpoint payload: `{ attendance: "accept" | "decline", name, phone, guests, submittedAt }`.
-
-## Structure
-
-```
-src/
-  content/wedding.ts            all wedding content
-  animations/variants.ts        fadeIn, fadeUp, slowScale, sectionReveal, imageReveal,
-                                waxSealReveal, envelopeOpen, staggerChildren
-  decorations/
-    BotanicalDecoration.tsx     rose branch · sprig · peony · corner · landscape · wreath (pastel Bridgerton palette)
-    OrnamentalDivider.tsx       hairline · leaf · dots
-    Monogram.tsx                circular botanical monogram
-    WaxSeal.tsx                 burgundy seal with gold embossed initials
-    RegencyFrame.tsx            gilded frame with scrolled corners
-    Bee.tsx                     the Regency bee signature mark
-    RoseDecor.tsx               real Redouté rose cut-outs (public/images/rose-*.webp) with gentle sway
-    PaperTexture.tsx            procedural film grain overlay
-  ui/
-    Reveal.tsx                  scroll-triggered reveal wrapper
-    VintagePhoto.tsx            framed photograph with vintage treatment
-    RadioOption.tsx             custom radio control
-  components/
-    Envelope.tsx                full-screen opening sequence
-    MonogramReveal.tsx          sage page with monogram
-    Invitation.tsx · Details.tsx · Venue.tsx · Timeline.tsx · Rsvp.tsx · Closing.tsx
-  App.tsx                       phase state + centred mobile-width sheet
-```
-
-## Design notes
-
-- Palette: `#FDF3F5` baby-pink paper, `#F9E1E6` deeper pink, `#FFF9F3` ivory, `#C77A8C` rose, `#7E2A3C` burgundy, `#4A3338` charcoal, `#C6A75F` gold, `#C3B1D9` wisteria.
-- Florals: the rose artwork is Pierre-Joseph Redouté, *Les Roses* (1817–1824) — *Rosa centifolia foliacea* and *Rosa gallica regalis* — public domain via Wikimedia Commons, background-removed and exported as WebP.
-- Type: Bodoni Moda (display), Cormorant Garamond (serif), Jost (labels), Parisienne (small script phrases only).
-- Mobile target 390 × 844; tested range 320–430 px. On desktop the sheet is centred at 430 px on a neutral surround.
-- Safe areas: `env(safe-area-inset-top/bottom)` on the envelope, monogram page and closing.
-- Reduced motion: the envelope sequence shortens to a brief fade.
-
-## Deploy
-
-`vite.config.ts` sets `base: './'`, so `dist/` works unchanged on GitHub Pages, Netlify or Vercel.
+`vite.config.ts` uses `base: './'`, so `dist/` is compatible with GitHub Pages and other static hosts. Pushing `main` deploys through `.github/workflows/deploy.yml`.

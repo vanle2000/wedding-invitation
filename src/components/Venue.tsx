@@ -2,50 +2,43 @@ import { directionsUrl, wedding } from '../content/wedding'
 import BotanicalDecoration from '../decorations/BotanicalDecoration'
 import RoseDecor from '../decorations/RoseDecor'
 import Reveal from '../ui/Reveal'
+import SectionHeading from '../ui/SectionHeading'
 import VintagePhoto from '../ui/VintagePhoto'
 
-/** Editorial venue page: label, large serif name, address, photograph, hairline link. */
+/** Venue presented as an editorial place feature, not a map or UI card. */
 export default function Venue() {
   const { venue } = wedding
   return (
-    <section className="relative bg-paper px-8 pt-32 pb-24 overflow-hidden" aria-labelledby="venue-heading">
-      <RoseDecor image="coral-bloom" width={190} className="-left-14 -top-10" rotate={28} delay={0.3} />
-      <div className="pointer-events-none absolute right-2 bottom-6 opacity-85">
-        <BotanicalDecoration variant="olive-branch" size={140} flip />
+    <section className="stationery-section py-28" aria-labelledby="venue-heading">
+      <RoseDecor image="pink-full" width={170} className="-right-24 top-0 opacity-28" rotate={-18} flip sway={false} />
+      <div aria-hidden="true" className="absolute -left-8 bottom-8 opacity-25">
+        <BotanicalDecoration variant="olive-branch" size={150} />
       </div>
 
-      <Reveal className="text-center">
-        <p className="label">The Ball shall be held at</p>
-        <h2 id="venue-heading" className="mt-5 font-display text-charcoal text-[2.2rem] leading-[1.12] text-balance">
-          {venue.name}
-        </h2>
-        <address className="not-italic mt-5 font-serif text-lg text-charcoal/75 leading-relaxed">
+      <SectionHeading id="venue-heading" kicker="The place" phrase="Where our forever begins" title={venue.name} />
+
+      <Reveal as="p" delay={0.1} className="relative mx-auto mt-6 text-center">
+        <address className="not-italic font-serif text-lg leading-relaxed text-charcoal/72">
           {venue.addressLine1}
           <br />
           {venue.addressLine2}
         </address>
       </Reveal>
 
-      <div className="mt-12 -mx-2">
+      <div className="relative mt-14 -mx-7 sm:-mx-9">
+        <div aria-hidden="true" className="absolute inset-x-0 -top-px z-10 h-px bg-gold/35" />
         <VintagePhoto src={venue.photo} alt={venue.name} ratio="3 / 2" frame={false} />
+        <div aria-hidden="true" className="absolute inset-x-0 -bottom-px z-10 h-px bg-gold/35" />
       </div>
 
-      <Reveal delay={0.2} className="mt-10 flex justify-center">
-        <a
-          href={directionsUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hairline-link min-h-[44px] items-end"
-        >
+      <Reveal delay={0.15} className="relative mt-10 flex flex-col items-center text-center">
+        <p className="font-serif text-lg italic text-charcoal/65">In the heart of Huế</p>
+        <a href={directionsUrl} target="_blank" rel="noopener noreferrer" className="hairline-link mt-6">
           View Directions
-          <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 mb-[1px]" fill="none" stroke="currentColor" strokeWidth="1.2" aria-hidden="true">
+          <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.2" aria-hidden="true">
             <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </a>
-      </Reveal>
-
-      <Reveal as="p" delay={0.3} className="mt-6 text-center font-serif italic text-charcoal/60 text-base">
-        A luncheon at the hour of the Horse — carriages at half past one.
       </Reveal>
     </section>
   )

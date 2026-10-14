@@ -37,7 +37,7 @@ export default function RoseDecor({
   style,
   flip = false,
   rotate = 0,
-  opacity = 1,
+  opacity,
   sway = true,
   delay = 0,
 }: RoseDecorProps) {
@@ -60,7 +60,7 @@ export default function RoseDecor({
       style={{
         width,
         height,
-        opacity,
+        ...(opacity === undefined ? {} : { opacity }),
         scaleX: flip ? -1 : 1,
         filter: 'drop-shadow(0 10px 14px rgba(126,42,60,0.16))',
         ...style,

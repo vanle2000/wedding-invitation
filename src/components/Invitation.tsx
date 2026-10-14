@@ -1,89 +1,73 @@
 import { motion } from 'framer-motion'
 import { fadeUp, staggerChildren, viewportOnce } from '../animations/variants'
 import { wedding } from '../content/wedding'
-import Bee from '../decorations/Bee'
 import BotanicalDecoration from '../decorations/BotanicalDecoration'
 import OrnamentalDivider from '../decorations/OrnamentalDivider'
-import RegencyFrame from '../decorations/RegencyFrame'
 import RoseDecor from '../decorations/RoseDecor'
 import Reveal from '../ui/Reveal'
 import VintagePhoto from '../ui/VintagePhoto'
 
-/** The Society Papers: a Whistledown-style letter announcing the match, then the framed portrait. */
+/** Formal announcement flowing directly from the monogram page into a printed portrait. */
 export default function Invitation() {
-  const { couple, date, ceremonyTime } = wedding
+  const { couple, date } = wedding
   return (
-    <section className="relative bg-paper px-8 pt-40 pb-20 overflow-hidden" aria-labelledby="invite-heading">
-      <div className="pointer-events-none absolute top-16 left-5 opacity-90">
-        <BotanicalDecoration variant="corner" size={92} />
+    <section className="stationery-section pt-16 pb-28" aria-labelledby="invitation-heading">
+      <RoseDecor image="pink-bloom" width={160} className="-right-20 top-2 opacity-35" rotate={-22} flip sway={false} />
+      <div aria-hidden="true" className="absolute -left-7 top-[31%] opacity-25">
+        <BotanicalDecoration variant="sprig" size={44} />
       </div>
-      <RoseDecor image="coral-bloom" width={190} className="-right-16 -top-6" rotate={-24} flip delay={0.8} />
-      <RoseDecor image="pink-full" width={200} className="-left-24 bottom-[2%]" rotate={18} opacity={0.95} delay={1.6} />
 
       <motion.div
-        className="flex flex-col items-center text-center"
-        variants={staggerChildren(0.16)}
+        className="relative flex flex-col items-center text-center"
+        variants={staggerChildren(0.14)}
         initial="hidden"
         whileInView="visible"
         viewport={viewportOnce}
       >
-        {/* Masthead */}
-        <motion.p variants={fadeUp} className="label text-burgundy/80">
-          The Society Papers
+        <motion.p variants={fadeUp} className="font-script text-2xl text-rose">
+          Dearest friends &amp; family
         </motion.p>
-        <motion.p variants={fadeUp} className="mt-3 font-serif italic text-charcoal/70 text-base">
-          Huế · {date.weekday}, {date.month} {date.day}, {date.year}
+        <motion.p variants={fadeUp} className="label-dark mt-6">
+          Together with their families
         </motion.p>
 
-        <motion.div variants={fadeUp} className="mt-8 text-gold">
-          <OrnamentalDivider variant="leaf" width={150} />
+        <motion.h1
+          id="invitation-heading"
+          variants={fadeUp}
+          className="mt-10 font-display leading-[0.94] text-burgundy"
+        >
+          <span className="block text-[clamp(3.3rem,15vw,4.15rem)]">{couple.first}</span>
+          <span className="my-3 block font-serif text-2xl font-light italic text-rose">and</span>
+          <span className="block text-[clamp(3.3rem,15vw,4.15rem)]">{couple.second}</span>
+        </motion.h1>
+
+        <motion.p
+          variants={fadeUp}
+          className="mt-10 max-w-[19rem] text-balance font-serif text-[1.2rem] leading-relaxed text-charcoal/85"
+        >
+          request the honour of your presence as they exchange vows and begin their next chapter together.
+        </motion.p>
+
+        <motion.div variants={fadeUp} className="my-10 text-gold">
+          <OrnamentalDivider variant="hairline" width={132} />
         </motion.div>
 
-        {/* The letter */}
-        <motion.p variants={fadeUp} className="mt-10 font-script text-[1.9rem] text-rose leading-none">
-          Dearest Gentle Reader,
-        </motion.p>
-
-        <motion.p
-          variants={fadeUp}
-          className="mt-6 font-serif text-lg text-charcoal/85 leading-relaxed max-w-[19rem] text-balance"
-        >
-          It is with the greatest delight that this author announces the match of the season.
-          Together with their families,
-        </motion.p>
-
-        <motion.h2 id="invite-heading" variants={fadeUp} className="mt-8 font-display text-burgundy leading-[1.08]">
-          <span className="block text-[2.7rem]">{couple.first}</span>
-          <span className="block font-serif italic font-light text-rose text-2xl my-2">and</span>
-          <span className="block text-[2.7rem]">{couple.second}</span>
-        </motion.h2>
-
-        <motion.p
-          variants={fadeUp}
-          className="mt-8 font-serif text-lg text-charcoal/85 leading-relaxed max-w-[19rem] text-balance"
-        >
-          request the pleasure of your company at the celebration of their marriage.
-        </motion.p>
-
-        <motion.p variants={fadeUp} className="mt-8 font-serif text-xl text-charcoal whitespace-pre-line leading-relaxed">
+        <motion.p variants={fadeUp} className="whitespace-pre-line font-serif text-xl leading-[1.7] text-charcoal">
           {date.long}
         </motion.p>
-
-        <motion.p variants={fadeUp} className="mt-3 label">
-          at {ceremonyTime}
+        <motion.p variants={fadeUp} className="label mt-5">
+          Huế · Việt Nam
         </motion.p>
       </motion.div>
 
-      {/* Framed portrait */}
-      <Reveal className="mt-16 px-5">
-        <RegencyFrame className="p-4">
-          <VintagePhoto src={wedding.couplePhoto} alt={`${couple.first} and ${couple.second}`} ratio="4 / 5" frame={false} />
-        </RegencyFrame>
-      </Reveal>
-
-      <Reveal delay={0.3} className="mt-8 flex flex-col items-center">
-        <p className="font-script text-xl text-rose">Yours truly,</p>
-        <Bee size={24} className="mt-3" />
+      {/* A fine-art print rather than a UI card. */}
+      <Reveal className="relative mt-20 -mx-3">
+        <div aria-hidden="true" className="absolute -inset-x-2 -inset-y-3 border-y border-gold/30" />
+        <VintagePhoto src={wedding.couplePhoto} alt={`${couple.first} and ${couple.second}`} ratio="4 / 5" frame={false} />
+        <div className="relative mt-5 text-center">
+          <p className="font-script text-xl text-rose">Six years, one promise</p>
+          <p className="label mt-3">A love worth the wait</p>
+        </div>
       </Reveal>
     </section>
   )

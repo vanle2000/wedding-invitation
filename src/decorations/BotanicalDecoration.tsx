@@ -6,7 +6,7 @@ export type BotanicalVariant = 'olive-branch' | 'sprig' | 'wildflower' | 'corner
  * Regency / Bridgerton palette for the botanicals: soft sage foliage,
  * muted burgundy stems and outlines, and pastel blooms.
  */
-export const bloomPalette = {
+const bloomPalette = {
   stem: '#8A5260',
   outline: '#7A2E3B',
   leaf: '#C9D2BC',

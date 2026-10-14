@@ -2,60 +2,49 @@ import { motion } from 'framer-motion'
 import { fadeUp, softEase, staggerChildren, viewportOnce } from '../animations/variants'
 import { wedding } from '../content/wedding'
 import BotanicalDecoration from '../decorations/BotanicalDecoration'
-import PaperTexture from '../decorations/PaperTexture'
 import RoseDecor from '../decorations/RoseDecor'
+import SectionHeading from '../ui/SectionHeading'
 
-/** Thin vertical editorial timeline on secondary paper. */
+/** A single-column editorial timeline optimized for narrow mobile screens. */
 export default function Timeline() {
   return (
-    <section className="relative bg-paper-2 px-8 py-24 overflow-hidden" aria-labelledby="timeline-heading">
-      <PaperTexture opacity={0.07} />
-      <RoseDecor image="pink-full" width={190} className="-right-24 -bottom-16" rotate={-20} flip opacity={0.9} delay={0.7} />
-      <div className="pointer-events-none absolute -left-4 bottom-8 opacity-85 rotate-6">
-        <BotanicalDecoration variant="wildflower" size={64} />
+    <section className="stationery-section py-28" aria-labelledby="timeline-heading">
+      <RoseDecor image="pink-bloom" width={145} className="-left-20 top-12 opacity-30" rotate={18} sway={false} />
+      <div aria-hidden="true" className="absolute -right-6 bottom-8 opacity-22">
+        <BotanicalDecoration variant="sprig" size={45} flip />
       </div>
 
-      <motion.div
-        className="relative"
-        variants={staggerChildren(0.14)}
-        initial="hidden"
-        whileInView="visible"
-        viewport={viewportOnce}
-      >
-        <motion.h2 id="timeline-heading" variants={fadeUp} className="label text-center">
-          The Dance Card
-        </motion.h2>
+      <SectionHeading id="timeline-heading" kicker="Order of the day" phrase="Every beautiful moment" title="A Day to Remember" />
 
-        <div className="relative mt-14 mx-auto max-w-[17rem]">
-          {/* Hairline spine that draws itself */}
-          <motion.span
-            aria-hidden="true"
-            className="absolute left-1/2 top-2 bottom-2 w-px bg-burgundy/30 origin-top"
-            initial={{ scaleY: 0 }}
-            whileInView={{ scaleY: 1 }}
-            viewport={viewportOnce}
-            transition={{ duration: 1.8, ease: softEase }}
-          />
+      <div className="relative mx-auto mt-16 max-w-[19rem] pl-10">
+        <motion.span
+          aria-hidden="true"
+          className="absolute bottom-2 left-[7px] top-2 w-px origin-top bg-gold/55"
+          initial={{ scaleY: 0 }}
+          whileInView={{ scaleY: 1 }}
+          viewport={viewportOnce}
+          transition={{ duration: 1.35, ease: softEase }}
+        />
 
-          <ol className="relative space-y-12">
-            {wedding.timeline.map((item, i) => {
-              const left = i % 2 === 0
-              return (
-                <motion.li key={item.title} variants={fadeUp} className="relative grid grid-cols-[1fr_auto_1fr] items-center">
-                  {/* Time and title alternate sides for an editorial rhythm */}
-                  <div className={`${left ? 'text-right pr-6' : 'order-3 text-left pl-6'}`}>
-                    <span className="label-dark text-[10px]">{item.time}</span>
-                  </div>
-                  <span aria-hidden="true" className="order-2 block w-1.5 h-1.5 rounded-full bg-burgundy" />
-                  <div className={`${left ? 'order-3 text-left pl-6' : 'text-right pr-6'}`}>
-                    <span className="font-serif text-2xl text-charcoal leading-tight block">{item.title}</span>
-                  </div>
-                </motion.li>
-              )
-            })}
-          </ol>
-        </div>
-      </motion.div>
+        <motion.ol
+          className="relative space-y-12"
+          variants={staggerChildren(0.15)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
+          {wedding.timeline.map((item) => (
+            <motion.li key={`${item.time}-${item.title}`} variants={fadeUp} className="relative">
+              <span aria-hidden="true" className="absolute -left-[37px] top-[5px] grid h-[9px] w-[9px] place-items-center rounded-full border border-burgundy/55 bg-paper">
+                <span className="h-[3px] w-[3px] rounded-full bg-burgundy" />
+              </span>
+              <time className="label-dark block">{item.time}</time>
+              <h3 className="mt-2 font-serif text-[1.65rem] leading-tight text-charcoal">{item.title}</h3>
+              {item.detail && <p className="mt-1.5 font-serif text-base italic text-charcoal/62">{item.detail}</p>}
+            </motion.li>
+          ))}
+        </motion.ol>
+      </div>
     </section>
   )
 }

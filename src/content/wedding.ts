@@ -1,27 +1,24 @@
-/**
- * Single source of truth for all wedding content.
- * Replace the placeholders here; no component needs to change.
- */
+/** All replaceable wedding content lives here. */
 export interface TimelineItem {
   time: string
   title: string
+  detail?: string
 }
 
 export interface WeddingContent {
   couple: {
     first: string
     second: string
-    /** Single initials used for the monogram and wax seal, e.g. "A" and "M". */
     initials: [string, string]
   }
   date: {
-    /** ISO 8601 with offset — used only if you add a countdown later. */
     iso: string
-    month: string // "JUNE"
-    day: string // "12"
-    year: string // "2027"
-    weekday: string // "Saturday"
-    long: string // "Saturday, the twelfth of June, two thousand twenty-seven"
+    month: string
+    day: string
+    year: string
+    weekday: string
+    long: string
+    numeric: string
   }
   ceremonyTime: string
   receptionTime: string
@@ -29,7 +26,6 @@ export interface WeddingContent {
     name: string
     addressLine1: string
     addressLine2: string
-    /** Google Maps query for directions. */
     mapsQuery: string
     photo: string
   }
@@ -37,18 +33,16 @@ export interface WeddingContent {
   timeline: TimelineItem[]
   rsvp: {
     deadline: string
-    /**
-     * How replies reach you. No backend needed for 'email' or 'sms':
-     *  - { method: 'email', to: 'you@example.com' }  → opens the guest's mail app, pre-filled
-     *  - { method: 'sms',   to: '+14155550123' }     → opens the guest's messages app, pre-filled
-     *  - { method: 'endpoint', url: 'https://…' }    → POSTs JSON to Formspree / Getform / Apps Script
-     *  - { method: 'demo' }                          → shows the confirmation without sending
-     */
     delivery:
       | { method: 'email'; to: string }
       | { method: 'sms'; to: string }
       | { method: 'endpoint'; url: string }
       | { method: 'demo' }
+  }
+  closing: {
+    prelude: string
+    note: string
+    signoff: string
   }
 }
 
@@ -59,16 +53,16 @@ export const wedding: WeddingContent = {
     initials: ['P', 'T'],
   },
   date: {
-    iso: '2027-02-15T11:00:00+07:00',
+    iso: '2027-02-14T09:00:00+07:00',
     month: 'February',
-    day: '15',
+    day: '14',
     year: '2027',
-    weekday: 'Monday',
-    long: 'Monday, the fifteenth of February\ntwo thousand and twenty-seven',
+    weekday: 'Sunday',
+    long: 'Sunday, the fourteenth of February\ntwo thousand and twenty-seven',
+    numeric: '14 · 02 · 2027',
   },
-  // TODO confirm with the couple — reception is a lunch (giờ Ngọ); morning ceremonies at home.
   ceremonyTime: '9:00 AM',
-  receptionTime: '11:30 AM',
+  receptionTime: '5:00 PM',
   venue: {
     name: 'Goldland Plaza',
     addressLine1: '14–20 Lý Thường Kiệt, Thuận Hóa',
@@ -77,15 +71,22 @@ export const wedding: WeddingContent = {
     photo: `${import.meta.env.BASE_URL}images/venue.svg`,
   },
   couplePhoto: `${import.meta.env.BASE_URL}images/couple.svg`,
+  // Arrival and evening-welcome times frame the two confirmed event times.
   timeline: [
-    { time: '11:00 AM', title: 'Guests Arrive' },
-    { time: '11:30 AM', title: 'Ceremony' },
-    { time: '12:00 PM', title: 'Lunch Banquet' },
-    { time: '1:30 PM', title: 'Farewell' },
+    { time: '8:30 AM', title: 'Guests Arrive', detail: 'A quiet welcome before the vows' },
+    { time: '9:00 AM', title: 'Wedding Ceremony', detail: 'The beginning of forever' },
+    { time: '4:30 PM', title: 'Evening Welcome', detail: 'Drinks and conversation' },
+    { time: '5:00 PM', title: 'Reception', detail: 'Dinner, toasts and dancing' },
   ],
   rsvp: {
-    deadline: 'the first of February',
-    delivery: { method: 'email', to: 'couple@example.com' },
+    deadline: 'February 1, 2027',
+    // Replace with a real email, SMS number, or HTTPS endpoint before launch.
+    delivery: { method: 'demo' },
+  },
+  closing: {
+    prelude: 'One final note',
+    note: 'For six years, every road has led us here. On Valentine’s Day, our next chapter begins—and it would not be complete without you.',
+    signoff: 'With all our love',
   },
 }
 

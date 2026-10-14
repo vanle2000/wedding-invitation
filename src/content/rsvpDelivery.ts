@@ -3,46 +3,54 @@ import { wedding } from './wedding'
 export interface RsvpReply {
   attendance: 'accept' | 'decline'
   name: string
-  phone: string
   guests: number
 }
 
-/** Human-readable message used for email / SMS replies. */
-export function formatReply(r: RsvpReply): string {
-  const { couple } = wedding
-  const line = r.attendance === 'accept' ? `joyfully accepts (${r.guests} ${r.guests === 1 ? 'guest' : 'guests'})` : 'regretfully declines'
-  return [`RSVP for ${couple.first} & ${couple.second}`, '', `${r.name} ${line}.`, `Phone: ${r.phone}`].join('\n')
+export type DeliveryOutcome = 'delivered' | 'draft' | 'preview'
+
+export function formatReply(reply: RsvpReply): string {
+  const { couple, date } = wedding
+  const response =
+    reply.attendance === 'accept'
+      ? `joyfully accepts for ${reply.guests} ${reply.guests === 1 ? 'guest' : 'guests'}`
+      : 'regretfully declines'
+
+  return [
+    `RSVP for ${couple.first} & ${couple.second}`,
+    `${date.month} ${date.day}, ${date.year}`,
+    '',
+    `${reply.name} ${response}.`,
+  ].join('\n')
 }
 
-/**
- * Delivers the reply according to wedding.rsvp.delivery.
- * Email/SMS open the guest's own app pre-filled — no server required.
- */
-export async function deliverReply(r: RsvpReply): Promise<void> {
-  const d = wedding.rsvp.delivery
-  switch (d.method) {
+/** Deliver through the configured transport and report what actually happened. */
+export async function deliverReply(reply: RsvpReply): Promise<DeliveryOutcome> {
+  const delivery = wedding.rsvp.delivery
+
+  switch (delivery.method) {
     case 'email': {
-      const subject = encodeURIComponent(`RSVP — ${r.name}`)
-      const body = encodeURIComponent(formatReply(r))
-      window.location.href = `mailto:${d.to}?subject=${subject}&body=${body}`
-      return
+      const subject = encodeURIComponent(`RSVP — ${reply.name}`)
+      const body = encodeURIComponent(formatReply(reply))
+      window.location.href = `mailto:${delivery.to}?subject=${subject}&body=${body}`
+      return 'draft'
     }
     case 'sms': {
-      const body = encodeURIComponent(formatReply(r))
-      // iOS uses "&body=", Android uses "?body=". Both accept this form.
-      window.location.href = `sms:${d.to}?&body=${body}`
-      return
+      const body = encodeURIComponent(formatReply(reply))
+      const separator = /iPad|iPhone|iPod/.test(navigator.userAgent) ? '&' : '?'
+      window.location.href = `sms:${delivery.to}${separator}body=${body}`
+      return 'draft'
     }
     case 'endpoint': {
-      const res = await fetch(d.url, {
+      const response = await fetch(delivery.url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ ...r, submittedAt: new Date().toISOString() }),
+        body: JSON.stringify({ ...reply, submittedAt: new Date().toISOString() }),
       })
-      if (!res.ok) throw new Error(`HTTP ${res.status}`)
-      return
+      if (!response.ok) throw new Error(`HTTP ${response.status}`)
+      return 'delivered'
     }
     case 'demo':
-      await new Promise((resolve) => setTimeout(resolve, 900))
+      await new Promise((resolve) => window.setTimeout(resolve, 650))
+      return 'preview'
   }
 }
