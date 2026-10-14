@@ -14,7 +14,7 @@ export default function Invitation() {
       <motion.div className="relative z-10 flex flex-col items-center" variants={stagger(0.14)} initial="hidden" whileInView="visible" viewport={viewportOnce}>
         <motion.p variants={fadeUp} className="eyebrow text-sage">Trân trọng báo hỷ</motion.p>
         <motion.p variants={fadeUp} className="mt-6 font-script text-[1.8rem] text-rose">Một đời đồng tâm</motion.p>
-        <motion.div variants={fadeUp} className="mt-4"><KetDongTamMark initials={wedding.couple.initials} names={[wedding.couple.first, wedding.couple.second]} size={108} variant="line" /></motion.div>
+        <motion.div variants={fadeUp} className="mt-4"><KetDongTamMark size={108} variant="line" /></motion.div>
         <motion.div variants={fadeUp} className="mt-2 text-gold"><SpringDivider /></motion.div>
         <motion.p variants={fadeUp} className="mt-5 font-sans text-[10px] font-medium uppercase tracking-label text-rouge-deep">Cùng gia đình hai bên</motion.p>
         <motion.h1 id="invitation-title" variants={fadeUp} className="mt-8 font-script text-[clamp(2.1rem,10.5vw,2.9rem)] leading-[1.06] text-rouge-deep">

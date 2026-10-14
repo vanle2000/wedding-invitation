@@ -75,9 +75,9 @@ export default function GatefoldCover({ onComplete }: GatefoldCoverProps) {
           </motion.div>
 
           <div className="absolute left-1/2 top-1/2 z-30 -translate-x-1/2 -translate-y-1/2">
-            <motion.button ref={sealRef} type="button" onClick={open} disabled={phase !== 'ready'} className="grid h-[98px] w-[98px] place-items-center rounded-full disabled:cursor-default focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-4 focus-visible:ring-offset-surround" aria-label="Mở biểu tượng Kết Đồng Tâm" initial={{ opacity: 0, scale: 1.12 }} animate={{ opacity: phase === 'ready' ? 1 : 0, scale: phase === 'ready' ? 1 : 0.9 }} transition={{ duration: 0.7, ease: softEase }} whileTap={phase === 'ready' ? { scale: 0.96 } : undefined}>
+            <motion.button ref={sealRef} type="button" onClick={open} disabled={phase !== 'ready'} className="grid h-[112px] w-[112px] place-items-center rounded-full disabled:cursor-default focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-4 focus-visible:ring-offset-surround" aria-label="Mở biểu tượng Kết Đồng Tâm" initial={{ opacity: 0, scale: 1.12 }} animate={{ opacity: phase === 'ready' ? 1 : 0, scale: phase === 'ready' ? 1 : 0.9 }} transition={{ duration: 0.7, ease: softEase }} whileTap={phase === 'ready' ? { scale: 0.96 } : undefined}>
               {phase === 'ready' && <motion.span aria-hidden="true" className="absolute inset-1 rounded-full border border-gold/50" animate={{ scale: [1, 1.25], opacity: [0.55, 0] }} transition={{ duration: 2.3, repeat: Infinity, ease: 'easeOut' }} />}
-              <KetDongTamMark initials={wedding.couple.initials} names={[wedding.couple.first, wedding.couple.second]} size={94} />
+              <KetDongTamMark size={94} />
             </motion.button>
           </div>
 

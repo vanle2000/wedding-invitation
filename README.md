@@ -31,7 +31,7 @@ Không dùng chữ viết tay cho đoạn văn hoặc chức năng tương tác.
 - Nhãn chức năng dùng cỡ 10px, độ đậm 500
 - Nhãn đỏ trên giấy ngà đạt 10.35:1; nhãn vàng nhạt trên nền đỏ đạt 5.22:1
 - Họ tên được đo trực tiếp theo glyph Great Vibes: tên dài nhất chiếm 249.3/264px ở màn hình 320px và 344.2/358px trên canvas desktop
-- Biểu tượng dùng `PHÁT • THẢO` trên cung tròn để giữ độ rõ; họ tên đầy đủ xuất hiện riêng ở cấp thị giác chính
+- Biểu tượng không chứa chữ, tên hoặc ký tự; họ tên đầy đủ xuất hiện riêng ở cấp thị giác chính
 - Trạng thái bàn phím hiển thị rõ trên biểu mẫu và các điểm tương tác
 
 ## Biểu tượng Kết Đồng Tâm
@@ -39,14 +39,12 @@ Không dùng chữ viết tay cho đoạn văn hoặc chức năng tương tác.
 `src/art/KetDongTamMark.tsx` là một thiết kế mới dựa trên ngôn ngữ tạo hình của nhóm nút cát tường/đồng tâm, không phải bản chép hay sơ đồ thắt dây lịch sử:
 
 - Hai sợi dây đi vào từ phía trên
-- Tâm vuông đan xen theo hai lớp, tạo cảm giác sợi dây luồn trên – dưới
-- Tám vòng tai cân xứng: bốn vòng dài và bốn vòng ngắn
-- Một vòng hồi phía dưới và hai dải tua song hành
-- Dấu `P•T` ở chính giữa
-- Hai tên gọi `PHÁT • THẢO` chạy theo cung trên để giữ độ rõ ở kích thước nhỏ
-- Họ tên đầy đủ được trình bày riêng, nổi bật trên bìa và trang thiệp chính
-- Dòng chữ `KẾT ĐỒNG TÂM` chạy theo cung dưới
-- Hai phiên bản: huy hiệu dây đỏ trên giấy ngà và nét đỏ trên nền thiệp
+- Bốn vòng lớn và bốn vòng nhỏ tạo nhịp đối xứng rõ ràng
+- Hai đường cong chữ S đan nhau ở tâm, chỉ dùng một điểm ngắt để thể hiện luồn trên – dưới
+- Một vòng hồi phía dưới, hai sợi dây đi ra và hai dải tua song hành
+- Không có tên, chữ hoặc ký tự bên trong biểu tượng
+- Một nét dây đỏ mượt, viền ép chìm nhẹ và ánh vàng mảnh
+- Hai phiên bản: huy hiệu trên giấy ngà và nét biểu tượng trên nền thiệp
 
 Cấu trúc được nghiên cứu từ đặc điểm nút trang trí một sợi dây, đối xứng hai lớp và hai đầu dây vào/ra; tỷ lệ vòng tai tham khảo nhóm [Good Luck Knot](https://chineseknotting.org/luck/) và ảnh [Chinese Good Luck Knot](https://commons.wikimedia.org/wiki/File:Chinese_Good_Luck_Knot.jpg). Hình SVG trong dự án được vẽ mới hoàn toàn.
 
