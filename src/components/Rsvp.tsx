@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useState, type FormEvent } from 'react'
 import { fadeIn, softEase } from '../animations/variants'
 import BotanicalArt from '../art/BotanicalArt'
-import { EvergreenBranch } from '../art/WinterBotanical'
+import { GardenVine } from '../art/SpringBotanical'
 import { deliverReply, type RsvpOutcome } from '../content/rsvpDelivery'
 import { wedding } from '../content/wedding'
 import Reveal from '../ui/Reveal'
@@ -37,7 +37,7 @@ export default function Rsvp() {
         <BotanicalArt kind="camellia" width="44%" className="-right-[13%] top-[6%] opacity-45" rotate={-20} flip />
         <motion.div variants={fadeIn} initial="hidden" animate="visible" className="relative">
           <p className="font-script text-3xl text-rose">Merci, {name.trim()}</p>
-          <h2 className="mt-6 max-w-[19rem] text-balance font-display text-[2rem] leading-tight text-oxblood">{accepting ? 'We cannot wait to celebrate with you.' : 'You will be in our thoughts.'}</h2>
+          <h2 className="mt-6 max-w-[19rem] text-balance font-display text-[2rem] leading-tight text-rouge-deep">{accepting ? 'We cannot wait to celebrate with you.' : 'You will be in our thoughts.'}</h2>
           <p className="eyebrow mt-8">{outcome === 'delivered' ? 'Reply received' : outcome === 'draft' ? 'Reply prepared—please press send' : 'Preview complete'}</p>
           {outcome === 'preview' && <p className="mx-auto mt-5 max-w-[17rem] font-serif text-base italic text-ink/60">Preview mode is active until a private RSVP destination is connected.</p>}
         </motion.div>
@@ -47,7 +47,7 @@ export default function Rsvp() {
 
   return (
     <section id="rsvp" className="canvas-section py-28" aria-labelledby="rsvp-title">
-      <EvergreenBranch width={215} className="absolute -right-20 -top-3 opacity-38" flip />
+      <GardenVine width={220} className="absolute -right-20 -top-3 opacity-38" flip />
       <BotanicalArt kind="peony" width="42%" className="-right-[22%] top-[8%] opacity-20" rotate={-18} flip />
       <SectionHeading id="rsvp-title" kicker={`Répondez avant le ${wedding.rsvp.deadline}`} phrase="Votre présence est un cadeau" title="Will You Join Us?" />
       <Reveal className="relative mx-auto mt-14 max-w-[20rem]">
@@ -58,13 +58,13 @@ export default function Rsvp() {
             <Choice label="Regretfully decline" value="decline" selected={attendance} onSelect={setAttendance} />
           </fieldset>
           <div className="mt-11 space-y-9">
-            <label className="block"><span className="eyebrow text-oxblood">Full Name</span><input className="field" value={name} onChange={(event) => setName(event.target.value)} autoComplete="name" aria-invalid={!!error && !name.trim()} /></label>
+            <label className="block"><span className="eyebrow text-rouge-deep">Full Name</span><input className="field" value={name} onChange={(event) => setName(event.target.value)} autoComplete="name" aria-invalid={!!error && !name.trim()} /></label>
             <AnimatePresence initial={false}>
-              {accepting && <motion.label className="block overflow-hidden" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.45, ease: softEase }}><span className="eyebrow text-oxblood">Number of Guests Including You</span><input className="field" type="number" inputMode="numeric" min="1" max="10" value={guests} onChange={(event) => setGuests(event.target.value)} /></motion.label>}
+              {accepting && <motion.label className="block overflow-hidden" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.45, ease: softEase }}><span className="eyebrow text-rouge-deep">Number of Guests Including You</span><input className="field" type="number" inputMode="numeric" min="1" max="10" value={guests} onChange={(event) => setGuests(event.target.value)} /></motion.label>}
             </AnimatePresence>
           </div>
           {(error || status === 'error') && <p className="mt-6 text-center font-serif text-base italic text-camellia" role="alert">{error || 'We could not prepare your reply. Please try again.'}</p>}
-          <div className="mt-11 text-center"><motion.button type="submit" disabled={status === 'sending'} className="min-h-[50px] border border-oxblood bg-oxblood px-10 font-sans text-[9px] uppercase tracking-label text-ivory transition-colors duration-500 hover:bg-wine disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-3 focus-visible:ring-offset-ivory" whileTap={{ scale: 0.985 }}>{status === 'sending' ? 'Preparing…' : wedding.rsvp.delivery.method === 'demo' ? 'Preview Reply' : 'Send RSVP'}</motion.button></div>
+          <div className="mt-11 text-center"><motion.button type="submit" disabled={status === 'sending'} className="min-h-[50px] border border-rouge bg-rouge px-10 font-sans text-[9px] uppercase tracking-label text-ivory transition-colors duration-500 hover:bg-rouge-deep disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-3 focus-visible:ring-offset-ivory" whileTap={{ scale: 0.985 }}>{status === 'sending' ? 'Preparing…' : wedding.rsvp.delivery.method === 'demo' ? 'Preview Reply' : 'Send RSVP'}</motion.button></div>
           {wedding.rsvp.delivery.method === 'demo' && <p className="mt-5 text-center font-sans text-[8px] uppercase tracking-editorial text-ink/40">Preview mode</p>}
         </form>
       </Reveal>
@@ -74,5 +74,5 @@ export default function Rsvp() {
 
 function Choice({ label, value, selected, onSelect }: { label: string; value: Attendance; selected: Attendance; onSelect: (value: Attendance) => void }) {
   const checked = value === selected
-  return <label className="flex min-h-[48px] cursor-pointer items-center gap-4"><input className="sr-only" type="radio" name="attendance" value={value} checked={checked} onChange={() => onSelect(value)} /><span aria-hidden="true" className="grid h-5 w-5 place-items-center rounded-full border border-oxblood/55">{checked && <span className="h-2.5 w-2.5 rounded-full bg-camellia" />}</span><span className="font-serif text-xl text-ink">{label}</span></label>
+  return <label className="flex min-h-[48px] cursor-pointer items-center gap-4"><input className="sr-only" type="radio" name="attendance" value={value} checked={checked} onChange={() => onSelect(value)} /><span aria-hidden="true" className="grid h-5 w-5 place-items-center rounded-full border border-rouge/55">{checked && <span className="h-2.5 w-2.5 rounded-full bg-camellia" />}</span><span className="font-serif text-xl text-ink">{label}</span></label>
 }

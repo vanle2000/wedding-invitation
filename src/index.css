@@ -7,11 +7,11 @@
     scroll-behavior: smooth;
     -webkit-tap-highlight-color: transparent;
     -webkit-text-size-adjust: 100%;
-    background: #2f0c14;
+    background: #e2dbd1;
   }
 
   body {
-    @apply bg-wine text-ink font-serif antialiased;
+    @apply bg-surround text-ink font-serif antialiased;
     min-width: 320px;
     min-height: 100vh;
     min-height: 100svh;
@@ -36,7 +36,7 @@
   }
 
   ::selection {
-    @apply bg-gold-light/60 text-wine;
+    @apply bg-blush text-rouge-deep;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -68,15 +68,15 @@
   }
 
   .field {
-    @apply w-full rounded-none border-0 border-b border-oxblood/35 bg-transparent px-0 py-3
+    @apply w-full rounded-none border-0 border-b border-rouge/35 bg-transparent px-0 py-3
       font-serif text-xl text-ink placeholder:text-ink/30
-      transition-colors duration-500 focus:border-oxblood focus:outline-none focus:ring-0;
+      transition-colors duration-500 focus:border-rouge focus:outline-none focus:ring-0;
   }
 
   .text-link {
     @apply inline-flex min-h-[44px] items-center gap-3 border-b border-gold/70 pb-0.5
-      font-sans text-[9px] uppercase tracking-label text-oxblood
-      transition-colors duration-500 hover:border-oxblood
+      font-sans text-[9px] uppercase tracking-label text-rouge-deep
+      transition-colors duration-500 hover:border-rouge
       focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold;
   }
 }

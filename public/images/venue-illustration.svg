@@ -1,23 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#681C2A"/><stop offset="1" stop-color="#4A101B"/></linearGradient>
-    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".65" numOctaves="3"/><feColorMatrix type="saturate" values="0"/></filter>
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#FAF6EC"/><stop offset="1" stop-color="#F1E8DA"/></linearGradient>
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".7" numOctaves="3"/><feColorMatrix type="saturate" values="0"/></filter>
   </defs>
-  <rect width="800" height="520" fill="url(#bg)"/>
-  <g fill="none" stroke="#BE9B50" stroke-width="2" opacity=".8">
+  <rect width="800" height="520" fill="url(#paper)"/>
+  <g fill="none" stroke="#852E43" stroke-width="2" opacity=".8">
     <path d="M110 460V170Q110 70 210 70h380q100 0 100 100v290"/>
-    <path d="M145 460V185q0-80 80-80h350q80 0 80 80v275" opacity=".5"/>
-    <path d="M400 70v390M210 70v390M590 70v390" opacity=".28"/>
-    <path d="M0 460h800M0 472h800"/>
+    <path d="M145 460V185q0-80 80-80h350q80 0 80 80v275" opacity=".45"/>
+    <path d="M400 70v390M210 70v390M590 70v390" opacity=".2"/>
+    <path d="M0 460h800M0 472h800" stroke="#C2A15A"/>
   </g>
-  <g fill="#D8C68F" opacity=".82">
-    <circle cx="400" cy="170" r="7"/><path d="M400 177l-48 72h96z" fill="none" stroke="#D8C68F" stroke-width="2"/>
-    <circle cx="352" cy="249" r="4"/><circle cx="448" cy="249" r="4"/>
+  <g fill="none" stroke="#C2A15A" stroke-width="2" opacity=".85">
+    <circle cx="400" cy="168" r="7" fill="#C2A15A"/><path d="M400 175l-48 73h96z"/>
+    <circle cx="352" cy="248" r="4" fill="#C2A15A"/><circle cx="448" cy="248" r="4" fill="#C2A15A"/>
   </g>
-  <g fill="none" stroke="#87947F" stroke-width="3" opacity=".65">
-    <path d="M60 470q30-90 90-140M740 470q-30-90-90-140"/>
-    <path d="M83 410q35-18 58 3M717 410q-35-18-58 3M105 365q30-20 55-2M695 365q-30-20-55-2"/>
+  <g fill="none" stroke="#79846E" stroke-width="3" opacity=".72">
+    <path d="M55 470q32-100 102-153M745 470q-32-100-102-153"/>
+    <path d="M78 416q39-21 65 2M722 416q-39-21-65 2M105 365q33-22 61-1M695 365q-33-22-61-1"/>
   </g>
-  <g fill="#F8F1E4" opacity=".18"><ellipse cx="400" cy="430" rx="170" ry="35"/><ellipse cx="400" cy="390" rx="90" ry="24"/></g>
-  <rect width="800" height="520" filter="url(#grain)" opacity=".12"/>
+  <g fill="#AB3E53" stroke="#692235" stroke-width="1" opacity=".85">
+    <circle cx="142" cy="324" r="12"/><circle cx="658" cy="324" r="12"/>
+    <circle cx="114" cy="374" r="8"/><circle cx="686" cy="374" r="8"/>
+  </g>
+  <g fill="#E9CDD3" opacity=".5"><ellipse cx="400" cy="430" rx="170" ry="35"/><ellipse cx="400" cy="390" rx="90" ry="24"/></g>
+  <rect width="800" height="520" filter="url(#grain)" opacity=".08"/>
 </svg>

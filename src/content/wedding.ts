@@ -50,8 +50,8 @@ export const wedding = {
     delivery: { method: 'demo' } as RsvpDelivery,
   },
   story: {
-    introduction: 'In the quiet of the season, after six years of laughter, letters, and roads travelled between Đà Nẵng and Huế, we invite you into the warmth of our beginning.',
-    closing: 'May the warmth of this day remain like candlelight—gentle, golden, and never far away. Thank you for gathering close and becoming part of our forever.',
+    introduction: 'In the first bloom of the season, after six years of laughter, letters, and roads travelled between Đà Nẵng and Huế, we invite you into the garden of our beginning.',
+    closing: 'Like a garden returning to bloom, our story has been shaped by patience, light, and every person who helped it grow. Thank you for becoming part of our forever.',
   },
 } as const
 
