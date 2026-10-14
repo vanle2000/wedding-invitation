@@ -1,38 +1,32 @@
-import BotanicalArt from './BotanicalArt'
-
 interface BotanicalCornersProps {
   className?: string
   mirror?: boolean
   dark?: boolean
-  reveal?: boolean
 }
 
-/**
- * One unified archival botanical treatment: the same peony and red camellia
- * cut-outs, anchored to opposite frame corners with multiply integration.
- */
-export default function BotanicalCorners({ className = '', mirror = false, dark = false, reveal = true }: BotanicalCornersProps) {
-  const peonyOpacity = dark ? 0.16 : 0.24
-  const camelliaOpacity = dark ? 0.2 : 0.32
+const base = import.meta.env.BASE_URL
+
+/** One photographic peony style, anchored to opposite frame edges. */
+export default function BotanicalCorners({ className = '', mirror = false, dark = false }: BotanicalCornersProps) {
   return (
     <div aria-hidden="true" className={`pointer-events-none absolute inset-0 overflow-hidden ${className}`}>
-      <BotanicalArt
-        kind="peony"
-        width="58%"
-        className={`${mirror ? '-right-[27%]' : '-left-[27%]'} -top-[13%] mix-blend-multiply`}
-        rotate={mirror ? -18 : 18}
-        flip={mirror}
-        opacity={peonyOpacity}
-        reveal={reveal}
+      <img
+        src={`${base}images/peony-open-isolated.png`}
+        alt=""
+        width="1100"
+        height="731"
+        loading="lazy"
+        decoding="async"
+        className={`absolute -top-[6%] w-[56%] mix-blend-multiply ${mirror ? '-right-[24%] -scale-x-100' : '-left-[24%]'} ${dark ? 'opacity-18' : 'opacity-26'}`}
       />
-      <BotanicalArt
-        kind="camellia"
-        width="38%"
-        className={`${mirror ? '-left-[12%]' : '-right-[12%]'} -bottom-[7%] mix-blend-multiply`}
-        rotate={mirror ? 14 : -14}
-        flip={!mirror}
-        opacity={camelliaOpacity}
-        reveal={reveal}
+      <img
+        src={`${base}images/peony-blush-pair.png`}
+        alt=""
+        width="810"
+        height="824"
+        loading="lazy"
+        decoding="async"
+        className={`absolute -bottom-[10%] w-[45%] mix-blend-multiply ${mirror ? '-left-[16%] -scale-x-100' : '-right-[16%]'} ${dark ? 'opacity-18' : 'opacity-32'}`}
       />
     </div>
   )

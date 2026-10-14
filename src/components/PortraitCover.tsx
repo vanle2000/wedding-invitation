@@ -61,7 +61,7 @@ export default function PortraitCover({ onComplete }: PortraitCoverProps) {
             <GoldFrame className="h-full bg-ivory p-3 shadow-[0_18px_40px_-25px_rgba(44,37,35,0.38)]">
               <div className="relative flex h-full flex-col items-center justify-center overflow-hidden px-5 text-center">
                 <PaperGrain opacity={0.045} />
-                <BotanicalCorners reveal={false} />
+                <BotanicalCorners />
                 <div className="relative z-10">
                   <p className="romantic-script text-[1.55rem] text-rose">Một đời đồng tâm</p>
                   <div className="mt-6 font-display text-[clamp(1.05rem,4.6vw,1.35rem)] font-light leading-[1.5] tracking-[0.03em] text-rouge-deep">

@@ -46,6 +46,7 @@
       animation-iteration-count: 1 !important;
       scroll-behavior: auto !important;
     }
+    .petal-layer { display: none; }
   }
 }
 
@@ -84,6 +85,36 @@
   .gold-wax {
     background: radial-gradient(circle at 34% 26%, #f3dc91 0%, #d0aa4f 42%, #a87a20 74%, #765015 100%);
     box-shadow: 0 3px 8px rgba(44, 37, 35, 0.22), inset 0 1px 1px rgba(255, 245, 192, 0.55);
+  }
+
+  .photographic-card {
+    background: rgba(250, 248, 245, 0.88);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+
+  .petal-layer {
+    @apply pointer-events-none fixed inset-0 z-40 overflow-hidden;
+  }
+
+  .falling-petal {
+    position: absolute;
+    top: -10%;
+    left: var(--petal-left);
+    width: var(--petal-size);
+    height: var(--petal-size);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.72;
+    animation: petal-fall var(--petal-duration) linear var(--petal-delay) infinite;
+    will-change: transform;
+  }
+
+  @keyframes petal-fall {
+    from { transform: translate3d(0, -8vh, 0) rotate(0deg); }
+    48% { transform: translate3d(var(--petal-drift), 52vh, 0) rotate(calc(var(--petal-turn) * 0.52)); }
+    to { transform: translate3d(calc(var(--petal-drift) * -0.35), 112vh, 0) rotate(var(--petal-turn)); }
   }
 
   .field {

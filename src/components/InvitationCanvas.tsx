@@ -1,4 +1,5 @@
 import { forwardRef } from 'react'
+import FallingPetals from '../art/FallingPetals'
 import PaperGrain from '../art/PaperGrain'
 import Closing from './Closing'
 import Details from './Details'
@@ -29,6 +30,7 @@ const InvitationCanvas = forwardRef<HTMLElement, InvitationCanvasProps>(function
       <Timeline />
       <Rsvp />
       <Closing />
+      <FallingPetals />
       <PaperGrain opacity={0.025} className="z-20" />
     </main>
   )
